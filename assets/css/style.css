@@ -534,6 +534,14 @@ body {
     padding: 1.4rem;
   }
 
+  .hero h1 {
+    white-space: nowrap;
+  }
+
+  .hero__panel-body {
+    white-space: nowrap;
+  }
+
   .question__options {
     grid-template-columns: 1fr;
   }
