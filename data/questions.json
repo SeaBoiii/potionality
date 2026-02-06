@@ -15,7 +15,8 @@
             "insight": 1,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q1/bowl.png"
         },
         {
           "text": "A bright ember that won’t go out.",
@@ -28,7 +29,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q1/ember.png"
         },
         {
           "text": "A lens that sharpens everything you see.",
@@ -41,7 +43,8 @@
             "insight": 2,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q1/lens.png"
         },
         {
           "text": "A ribbon that ties people together.",
@@ -54,7 +57,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 2
-          }
+          },
+          "image": "assets/images/q1/ribbon.png"
         }
       ],
       "image": ""
@@ -74,7 +78,8 @@
             "insight": 1,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q2/shelter.png"
         },
         {
           "text": "Press on and race the storm.",
@@ -87,7 +92,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q2/race.png"
         },
         {
           "text": "Chart a smarter path around it.",
@@ -100,7 +106,8 @@
             "insight": 3,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q2/chart.png"
         },
         {
           "text": "Keep spirits high with stories and humor.",
@@ -113,7 +120,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 2
-          }
+          },
+          "image": "assets/images/q2/stories.png"
         }
       ],
       "image": ""
@@ -133,7 +141,8 @@
             "insight": 0,
             "resolve": 3,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q3/stone.png"
         },
         {
           "text": "A match that always lights.",
@@ -146,7 +155,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q3/match.png"
         },
         {
           "text": "A map that highlights the next step.",
@@ -159,7 +169,8 @@
             "insight": 2,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q3/map.png"
         },
         {
           "text": "A bell that gathers allies.",
@@ -172,7 +183,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 2
-          }
+          },
+          "image": "assets/images/q3/bell.png"
         }
       ],
       "image": ""
@@ -192,7 +204,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q4/peace.png"
         },
         {
           "text": "A push to be brave.",
@@ -205,7 +218,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q4/brave.png"
         },
         {
           "text": "A clear plan.",
@@ -218,7 +232,8 @@
             "insight": 2,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q4/plan.png"
         },
         {
           "text": "A warm connection.",
@@ -231,7 +246,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q4/connection.png"
         }
       ],
       "image": ""
@@ -251,7 +267,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q5/quiet.png"
         },
         {
           "text": "Energetic and active.",
@@ -264,7 +281,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q5/active.png"
         },
         {
           "text": "Organized for deep work.",
@@ -277,7 +295,8 @@
             "insight": 2,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q5/organized.png"
         },
         {
           "text": "Full of people and conversation.",
@@ -290,7 +309,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q5/conversation.png"
         }
       ],
       "image": ""
@@ -310,7 +330,8 @@
             "insight": 1,
             "resolve": 3,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q6/breathe.png"
         },
         {
           "text": "Leap and adjust midair.",
@@ -323,7 +344,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q6/leap.png"
         },
         {
           "text": "Gather signals before deciding.",
@@ -336,7 +358,8 @@
             "insight": 3,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q6/gather.png"
         },
         {
           "text": "Ask others and build consensus.",
@@ -349,7 +372,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 2
-          }
+          },
+          "image": "assets/images/q6/ask.png"
         }
       ],
       "image": ""
@@ -369,7 +393,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q7/sit.png"
         },
         {
           "text": "Challenge them to act.",
@@ -382,7 +407,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q7/challenge.png"
         },
         {
           "text": "Help them define the next step.",
@@ -395,7 +421,8 @@
             "insight": 2,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q7/help.png"
         },
         {
           "text": "Remind them they’re not alone.",
@@ -408,7 +435,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q7/remind.png"
         }
       ],
       "image": ""
@@ -428,7 +456,8 @@
             "insight": 1,
             "resolve": 2,
             "wonder": 1
-          }
+          },
+          "image": "assets/images/q8/moonlight.png"
         },
         {
           "text": "A spark from a thunderstone.",
@@ -441,7 +470,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q8/spark.png"
         },
         {
           "text": "Ink from a library’s oldest book.",
@@ -454,7 +484,8 @@
             "insight": 3,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q8/ink.png"
         },
         {
           "text": "A petal that makes people smile.",
@@ -467,7 +498,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q8/petal.png"
         }
       ],
       "image": ""
