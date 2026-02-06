@@ -1,0 +1,948 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "You open a locked chest. What’s inside?",
+      "options": [
+        {
+          "text": "A bowl of still water that never spills.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 1,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A bright ember that won’t go out.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A lens that sharpens everything you see.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A ribbon that ties people together.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 1,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 2
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q2",
+      "prompt": "A storm starts during a journey. You…",
+      "options": [
+        {
+          "text": "Find shelter and wait it out calmly.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 1,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Press on and race the storm.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Chart a smarter path around it.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 3,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Keep spirits high with stories and humor.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 1,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 2
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q3",
+      "prompt": "You’re given one tool for a tough day.",
+      "options": [
+        {
+          "text": "A stone that cools the palm.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 3,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A match that always lights.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A map that highlights the next step.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A bell that gathers allies.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 1,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 2
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q4",
+      "prompt": "People come to you when they need…",
+      "options": [
+        {
+          "text": "Peace and reassurance.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 1,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A push to be brave.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A clear plan.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A warm connection.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q5",
+      "prompt": "Your workspace feels best when it’s…",
+      "options": [
+        {
+          "text": "Minimal and quiet.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 1,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Energetic and active.",
+          "weights": {
+            "calm": -1,
+            "courage": 2,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 4,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Organized for deep work.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Full of people and conversation.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q6",
+      "prompt": "When you face uncertainty, you…",
+      "options": [
+        {
+          "text": "Breathe, then choose slowly.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -2,
+            "insight": 1,
+            "resolve": 3,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Leap and adjust midair.",
+          "weights": {
+            "calm": -2,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 4,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Gather signals before deciding.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 3,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Ask others and build consensus.",
+          "weights": {
+            "calm": 1,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 2
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q7",
+      "prompt": "A friend is stuck. Your first move is…",
+      "options": [
+        {
+          "text": "Sit with them and steady the room.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 1,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Challenge them to act.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Help them define the next step.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Remind them they’re not alone.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q8",
+      "prompt": "Your ideal potion ingredient is…",
+      "options": [
+        {
+          "text": "Moonlight gathered in a glass bowl.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 1,
+            "resolve": 2,
+            "wonder": 1
+          }
+        },
+        {
+          "text": "A spark from a thunderstone.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Ink from a library’s oldest book.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A petal that makes people smile.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q9",
+      "prompt": "A friend asks for advice, but you can tell they aren’t ready to hear the truth. You…",
+      "options": [
+        {
+          "text": "Choose gentle reassurance first, then clarity later.",
+          "weights": {
+            "calm": 3,
+            "courage": 0,
+            "focus": 0,
+            "charm": 2,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Say the hard truth immediately, even if it stings.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Ask questions to pinpoint what they actually need.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 3,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Help them reframe it into a hopeful story they can act on.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 3,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q10",
+      "prompt": "You’re offered a path that’s exciting but uncertain. Your instinct is to…",
+      "options": [
+        {
+          "text": "Stabilize your base first: savings, routines, backup plan.",
+          "weights": {
+            "calm": 3,
+            "courage": 0,
+            "focus": 1,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 3,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Jump in—better to live boldly than to wonder forever.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 4,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Run a quick experiment to test the path before committing.",
+          "weights": {
+            "calm": 0,
+            "courage": 1,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Follow the spark—if it feels meaningful, it’s worth the risk.",
+          "weights": {
+            "calm": 0,
+            "courage": 1,
+            "focus": -1,
+            "charm": 2,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q11",
+      "prompt": "In a group project, things are drifting. You naturally become the one who…",
+      "options": [
+        {
+          "text": "Keeps emotions steady so nobody spirals.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 1,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Sets a deadline and pushes everyone to move.",
+          "weights": {
+            "calm": -1,
+            "courage": 2,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 4,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Defines scope, priorities, and a clear next-step list.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 1,
+            "insight": 1,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Reignites morale with a vision that makes it fun again.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 2
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q12",
+      "prompt": "Someone crosses your boundary. What happens next?",
+      "options": [
+        {
+          "text": "You cool down first, then address it calmly.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "You confront it immediately, no hesitation.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "You name the pattern, then set a rule that prevents repeats.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 3,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "You protect your peace by stepping away and choosing a new path.",
+          "weights": {
+            "calm": 1,
+            "courage": 0,
+            "focus": -1,
+            "charm": 1,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q13",
+      "prompt": "What kind of compliment secretly matters most to you?",
+      "options": [
+        {
+          "text": "“You make everything feel calmer.”",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 0,
+            "charm": 1,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "“You did what most people were too scared to do.”",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "“You saw the real issue before anyone else did.”",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 2,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 0,
+            "wonder": 1
+          }
+        },
+        {
+          "text": "“You make life feel more meaningful.”",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 3,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q14",
+      "prompt": "You’re exhausted but still have one important task left. You…",
+      "options": [
+        {
+          "text": "Pause, reset, and do it slowly but cleanly.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 1,
+            "charm": 0,
+            "tempo": -2,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Push through with adrenaline and speed.",
+          "weights": {
+            "calm": -1,
+            "courage": 2,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 4,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Cut distractions, enter deep work, finish decisively.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Remind yourself why it matters—then it becomes lighter.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 1,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 1,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q15",
+      "prompt": "A mystery appears in your life — an unexplained sign, a coincidence, a weird clue. You…",
+      "options": [
+        {
+          "text": "Stay grounded. Interesting, but you don’t chase it.",
+          "weights": {
+            "calm": 3,
+            "courage": 0,
+            "focus": 0,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 1,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "Follow it immediately. If it’s a door, you open it.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 3,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 1
+          }
+        },
+        {
+          "text": "Connect it to patterns and test what it could mean.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 3,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 3,
+            "resolve": 0,
+            "wonder": 1
+          }
+        },
+        {
+          "text": "Let it become a myth in your head. You love the magic of it.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -2,
+            "charm": 1,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 4
+          }
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q16",
+      "prompt": "When you’re at your best, your life feels like…",
+      "options": [
+        {
+          "text": "A quiet lake at dawn: clear, steady, unhurried.",
+          "weights": {
+            "calm": 4,
+            "courage": 0,
+            "focus": 1,
+            "charm": 0,
+            "tempo": -1,
+            "insight": 0,
+            "resolve": 2,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A sprint through rain: daring, alive, electric.",
+          "weights": {
+            "calm": -1,
+            "courage": 3,
+            "focus": 0,
+            "charm": 0,
+            "tempo": 4,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A perfect blueprint becoming real: clean, intentional, precise.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": 4,
+            "charm": -1,
+            "tempo": 0,
+            "insight": 2,
+            "resolve": 1,
+            "wonder": 0
+          }
+        },
+        {
+          "text": "A lantern-lit festival: meaningful, connected, full of possibility.",
+          "weights": {
+            "calm": 0,
+            "courage": 0,
+            "focus": -1,
+            "charm": 4,
+            "tempo": 0,
+            "insight": 0,
+            "resolve": 0,
+            "wonder": 3
+          }
+        }
+      ],
+      "image": ""
+    }
+  ]
+}

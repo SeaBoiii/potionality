@@ -1,0 +1,62 @@
+{
+  "title": "If You Were a Potion",
+  "subtitle": "A reflective personality test to discover your dominant brew across eight forces: calm, courage, focus, charm, tempo, insight, resolve, and wonder.",
+  "dimensions": [
+    {
+      "id": "calm",
+      "label": "Calm",
+      "left": "Still",
+      "right": "Stirred",
+      "description": "How you steady yourself"
+    },
+    {
+      "id": "courage",
+      "label": "Courage",
+      "left": "Careful",
+      "right": "Bold",
+      "description": "How you move toward risk"
+    },
+    {
+      "id": "focus",
+      "label": "Focus",
+      "left": "Wide",
+      "right": "Deep",
+      "description": "How you hold attention"
+    },
+    {
+      "id": "charm",
+      "label": "Charm",
+      "left": "Quiet",
+      "right": "Radiant",
+      "description": "How you connect"
+    },
+    {
+      "id": "tempo",
+      "label": "Tempo",
+      "left": "Measured",
+      "right": "Swift",
+      "description": "How quickly you commit and move"
+    },
+    {
+      "id": "insight",
+      "label": "Insight",
+      "left": "Grounded",
+      "right": "Keen",
+      "description": "How you read patterns, people, and meaning"
+    },
+    {
+      "id": "resolve",
+      "label": "Resolve",
+      "left": "Gentle",
+      "right": "Unyielding",
+      "description": "How firmly you hold your boundaries and goals"
+    },
+    {
+      "id": "wonder",
+      "label": "Wonder",
+      "left": "Practical",
+      "right": "Mythic",
+      "description": "How much you chase beauty, novelty, and possibility"
+    }
+  ]
+}

@@ -1,0 +1,738 @@
+{
+  "results": [
+    {
+      "id": "potion_crownfire",
+      "title": "Crownfire",
+      "summary": "You carry heat with purpose. When you decide, uncertainty starts to reorganize around you — not because you demand it, but because you make the path feel possible.",
+      "lore": "Crownfire is brewed only when the sky is clear enough to show both stars and sun at once. It was once given to captains on the morning of impossible crossings — not to make them fearless, but to make them honest. The drink doesn’t erase doubt; it turns doubt into fuel. In the throat, it tastes like bright citrus and warm smoke, the kind that means a fire is under control.",
+      "palette": {
+        "primary": "#b23a2f",
+        "secondary": "#f2b7b1",
+        "accent": "#5a1510"
+      },
+      "tasting_notes": {
+        "top": "sparkling citrus peel",
+        "mid": "warmed spice, sunlit honey",
+        "base": "controlled smoke, emberwood"
+      },
+      "side_effect": "If overused, you may start treating every moment like a decisive moment — and forget to rest.",
+      "signature_ritual": "Served in a wide-mouthed cup. Stir clockwise once, then stop. Speak one sentence that begins with: “Today, I choose…”",
+      "signals": [
+        "You turn a vague hope into a concrete next step.",
+        "You speak with conviction without making people feel small.",
+        "In chaos, you become the point of orientation."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "courage",
+          "value": 15
+        },
+        {
+          "type": "min",
+          "dim": "charm",
+          "value": 8
+        },
+        {
+          "type": "min",
+          "dim": "tempo",
+          "value": 8
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 7,
+          "a": "courage",
+          "b": "tempo"
+        }
+      ],
+      "image": "/assets/images/potion_crownfire.png"
+    },
+    {
+      "id": "potion_clockwork",
+      "title": "Clockwork Draught",
+      "summary": "You’re momentum with structure. You don’t just move fast — you make speed safe, repeatable, and surprisingly calm.",
+      "lore": "Clockwork Draught was invented by a tired apothecary who kept failing at “quick fixes.” Instead, they brewed something that respected time. The potion hums faintly when a plan is missing a step, and settles when the sequence is complete. Sipped slowly, it tastes like black tea, brass, and clean paper — the feeling of a cluttered desk becoming a clear surface.",
+      "palette": {
+        "primary": "#6a5b4b",
+        "secondary": "#e0d3c3",
+        "accent": "#2f241b"
+      },
+      "tasting_notes": {
+        "top": "black tea steam",
+        "mid": "citrus zest, dried fig",
+        "base": "brass, clean parchment"
+      },
+      "side_effect": "If overused, you may become impatient with messiness — including human messiness.",
+      "signature_ritual": "Poured in three measured counts. Before drinking, write the next three actions on a scrap of paper. Do the first one immediately after the last sip.",
+      "signals": [
+        "You can break a crisis into steps people can actually follow.",
+        "You protect quality even when the clock is loud.",
+        "You don’t just finish — you leave things better than you found them."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "tempo",
+          "value": 8
+        },
+        {
+          "type": "min",
+          "dim": "focus",
+          "value": 9
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 6,
+          "a": "tempo",
+          "b": "focus"
+        }
+      ],
+      "image": "/assets/images/potion_clockwork.png"
+    },
+    {
+      "id": "potion_mirrorglass",
+      "title": "Mirrorglass",
+      "summary": "You see what’s real before it becomes obvious. Your clarity isn’t cold — it’s a kind of care that refuses self-deception.",
+      "lore": "Mirrorglass is poured into a clear cup and never looks the same twice. It was used in old negotiation houses where truth mattered more than comfort. The potion does not reveal secrets; it reveals patterns — the repeat, the tell, the quiet mismatch between words and intent. It tastes like winter air and sharp mint, the sensation of opening a window in a room that’s been closed too long.",
+      "palette": {
+        "primary": "#6b7280",
+        "secondary": "#e5e7eb",
+        "accent": "#111827"
+      },
+      "tasting_notes": {
+        "top": "cold mint, mineral air",
+        "mid": "juniper, clean citrus",
+        "base": "glass-smooth water, pale salt"
+      },
+      "side_effect": "If overused, you may start noticing everything — and struggle to let small things slide.",
+      "signature_ritual": "Drink from a clear glass. Hold it up to light first. Ask one question you’ve been avoiding, then sip without rushing.",
+      "signals": [
+        "You notice inconsistencies without needing drama to prove them.",
+        "You ask the question that saves everyone time later.",
+        "You turn confusion into understanding — gently, but firmly."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "insight",
+          "value": 13
+        },
+        {
+          "type": "min",
+          "dim": "focus",
+          "value": 10
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 5,
+          "a": "insight",
+          "b": "focus"
+        }
+      ],
+      "image": "/assets/images/potion_mirrorglass.png"
+    },
+    {
+      "id": "potion_frostleaf",
+      "title": "Frostleaf Sanctuary",
+      "summary": "Your calm has boundaries. You create peace not by shrinking, but by holding steady — a sanctuary people can actually trust.",
+      "palette": {
+        "primary": "#4a7a7a",
+        "secondary": "#cfe7e7",
+        "accent": "#1f3a3a"
+      },
+      "lore": "Frostleaf Sanctuary was first brewed for healers who kept burning out from saving everyone else. The potion cools panic without numbing the heart, and strengthens resolve without hardening it. It tastes like clean snowmelt and soft herbs — the feeling of stepping outside, breathing once, and returning with your spine intact.",
+      "tasting_notes": {
+        "top": "snowmelt freshness",
+        "mid": "soft herbs, white tea",
+        "base": "cool stone, evergreen"
+      },
+      "side_effect": "If overused, you may become too self-contained — safe, but harder to reach.",
+      "signature_ritual": "Served chilled. Place both hands around the cup for ten seconds before sipping. After the drink, say one boundary out loud, kindly.",
+      "signals": [
+        "You regulate the room without absorbing it.",
+        "You can be compassionate and still say no.",
+        "You make safety feel solid, not fragile."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "calm",
+          "value": 11
+        },
+        {
+          "type": "min",
+          "dim": "resolve",
+          "value": 16
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 5,
+          "a": "calm",
+          "b": "resolve"
+        }
+      ],
+      "image": "/assets/images/potion_frostleaf.png"
+    },
+    {
+      "id": "potion_aurora_lilt",
+      "title": "Aurora Lilt",
+      "summary": "You restore meaning. When life gets heavy, you remind people there’s still beauty worth moving toward.",
+      "lore": "Aurora Lilt is brewed from sky-salt gathered at high altitudes and petals dried in moonlight. It was served to travelers who forgot why they began. The potion doesn’t solve problems; it gives you back your sense of horizon — the quiet certainty that there’s more ahead than this moment. It tastes like citrus peel and starlight, bright at first sip, then gentle.",
+      "palette": {
+        "primary": "#4f86c6",
+        "secondary": "#d7e7f8",
+        "accent": "#7a4fd6"
+      },
+      "tasting_notes": {
+        "top": "bright citrus, sparkling air",
+        "mid": "floral nectar, pear",
+        "base": "cool sugar crystal, faint incense"
+      },
+      "side_effect": "If overused, you may chase the next beautiful thing too quickly — and neglect the present.",
+      "signature_ritual": "Best served at dusk. Take the first sip while looking at something far away. Name one thing you’re moving toward, not away from.",
+      "signals": [
+        "You make people remember what they care about.",
+        "You turn routine into something alive again.",
+        "You bring hope without pretending pain isn’t real."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "wonder",
+          "value": 15
+        },
+        {
+          "type": "min",
+          "dim": "charm",
+          "value": 10
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 5,
+          "a": "wonder",
+          "b": "charm"
+        }
+      ],
+      "image": "/assets/images/potion_aurora_lilt.png"
+    },
+    {
+      "id": "potion_stormglass",
+      "title": "Stormglass",
+      "summary": "You are courageous momentum with a clear head. When things stall, you become the spark that gets the world moving again.",
+      "lore": "Stormglass is distilled from thunderstone shards and emberroot, then cooled in riverwater to keep its bite clean. It was carried by messengers who had to run through danger without losing judgment. The potion doesn’t make you reckless — it makes you decisive. It tastes like spiced citrus and iron rain, the feeling of action that’s finally overdue.",
+      "palette": {
+        "primary": "#a9543d",
+        "secondary": "#e8b482",
+        "accent": "#5b2b22"
+      },
+      "tasting_notes": {
+        "top": "spiced citrus snap",
+        "mid": "ginger heat, electric fizz",
+        "base": "iron rain, wet stone"
+      },
+      "side_effect": "If overused, you may start moving so fast that you don’t hear your own needs.",
+      "signature_ritual": "Serve cold in a narrow glass. Tap the rim twice. After the first sip, do one brave action within five minutes — even a small one.",
+      "signals": [
+        "You choose a direction before the moment rots into regret.",
+        "You make bravery practical — not performative.",
+        "You move fast, but you don’t lose the point."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "courage",
+          "value": 15
+        },
+        {
+          "type": "min",
+          "dim": "tempo",
+          "value": 8
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 6,
+          "a": "courage",
+          "b": "tempo"
+        }
+      ],
+      "image": "/assets/images/potion_stormglass.png"
+    },
+    {
+      "id": "potion_twilight",
+      "title": "Twilight Veil",
+      "summary": "You hold quiet power: composed, perceptive, and emotionally intelligent. You don’t rush the truth — you arrive at it cleanly.",
+      "lore": "Twilight Veil is brewed at the hour when day turns into night and everything becomes honest in silhouette. It was used by night-watchers who had to keep people safe without stirring fear. The potion sharpens intuition while keeping the heart gentle. It tastes like lavender smoke and cool plum — the calm that comes from seeing clearly.",
+      "palette": {
+        "primary": "#6f3e4a",
+        "secondary": "#d9b2c3",
+        "accent": "#3a1f27"
+      },
+      "tasting_notes": {
+        "top": "lavender, cool air",
+        "mid": "dark plum, violet tea",
+        "base": "soft smoke, night-bloom resin"
+      },
+      "side_effect": "If overused, you may hold too much alone — understanding everyone, but asking for little.",
+      "signature_ritual": "Drink under low light. Take one sip in silence, then write one sentence: “What I know is…” before finishing the cup.",
+      "signals": [
+        "You read the emotional undercurrent before it becomes conflict.",
+        "You handle delicate moments without breaking people.",
+        "You choose the long win over the loud win."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "calm",
+          "value": 9
+        },
+        {
+          "type": "min",
+          "dim": "insight",
+          "value": 12
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 6,
+          "a": "calm",
+          "b": "insight"
+        }
+      ],
+      "image": "/assets/images/potion_twilight.png"
+    },
+    {
+      "id": "potion_velvet",
+      "title": "Velvet Diplomacy",
+      "summary": "You influence without force. You’re the rare person who can hold truth and warmth in the same hand — and the room follows.",
+      "lore": "Velvet Diplomacy was brewed for mediators who needed to end fights without creating new ones. It is steeped in rose-amber and quiet spice, then cooled with a single drop of starwater — just enough to keep the heart open. The potion doesn’t soften reality; it softens defenses. It tastes like warm tea and dark honey, the feeling of being understood without being cornered.",
+      "palette": {
+        "primary": "#6e4b63",
+        "secondary": "#e3c8da",
+        "accent": "#2f1d2a"
+      },
+      "tasting_notes": {
+        "top": "rose-amber, gentle spice",
+        "mid": "black honey, toasted citrus",
+        "base": "warm cedar, lingering tea"
+      },
+      "side_effect": "If overused, you may start carrying other people’s emotions like they’re your responsibility.",
+      "signature_ritual": "Serve warm. Before drinking, offer one sincere compliment and one honest request. Sip only after both are spoken.",
+      "signals": [
+        "You make hard conversations survivable — even healing.",
+        "You shift the atmosphere without anyone feeling pushed.",
+        "You help people agree without making anyone lose dignity."
+      ],
+      "priority": 18,
+      "conditions": [
+        {
+          "type": "min",
+          "dim": "charm",
+          "value": 8
+        },
+        {
+          "type": "min",
+          "dim": "insight",
+          "value": 12
+        },
+        {
+          "type": "diff_abs_lte",
+          "value": 6,
+          "a": "charm",
+          "b": "insight"
+        }
+      ],
+      "image": "/assets/images/potion_velvet.png"
+    },
+    {
+      "id": "potion_top_calm",
+      "title": "Moonwell Quiet",
+      "summary": "Your calm is dominant — not passive. You are the steady center people lean toward when the world tilts.",
+      "lore": "Moonwell Quiet was brewed for night-guards who had to keep crowds from turning into panic. The potion doesn’t sedate; it steadies. Its water is drawn from wells that reflect the moon even when clouds cover the sky — a reminder that calm is often present before it is visible. It tastes like rain on warm stone and the first breath after you stop spiraling.",
+      "palette": {
+        "primary": "#5f7c8a",
+        "secondary": "#b7c7cf",
+        "accent": "#2f4755"
+      },
+      "tasting_notes": {
+        "top": "rainwater clarity",
+        "mid": "chamomile, soft mineral",
+        "base": "warm stone, quiet moss"
+      },
+      "side_effect": "If overused, you may become the emotional “anchor” for everyone — and forget you’re allowed to be held too.",
+      "signature_ritual": "Sip slowly with both feet on the ground. After drinking, exhale longer than you inhale three times.",
+      "signals": [
+        "You calm the room without asking for credit.",
+        "You keep your nervous system steady when others can’t.",
+        "You restore clarity just by being present."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "calm"
+        },
+        {
+          "type": "min",
+          "dim": "calm",
+          "value": 9
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 0
+        }
+      ],
+      "image": "/assets/images/potion_top_calm.png"
+    },
+    {
+      "id": "potion_top_courage",
+      "title": "Thunderbite",
+      "summary": "Your courage dominates — direct, unflinching, and contagious. You’re the one who steps forward when everyone else pauses.",
+      "lore": "Thunderbite is distilled from stormglass and emberroot and bottled while the air is still charged. It was carried by climbers at the edge of weather, where hesitation could be fatal. The potion doesn’t remove fear; it places fear behind you. It tastes like sharp spice and clean lightning — the sensation of committing fully.",
+      "palette": {
+        "primary": "#c25b35",
+        "secondary": "#f0b07d",
+        "accent": "#7a2e1a"
+      },
+      "tasting_notes": {
+        "top": "pepper spark, lightning zest",
+        "mid": "ginger heat, wild citrus",
+        "base": "smoked salt, ironwood"
+      },
+      "side_effect": "If overused, you may start seeing “pause” as weakness — and miss the wisdom of waiting.",
+      "signature_ritual": "Best served hot. Before drinking, choose one risk you’ve been avoiding. After the cup, take the smallest real step toward it.",
+      "signals": [
+        "You act before the window closes.",
+        "You are brave in ways that actually help — not just look impressive.",
+        "You turn fear into motion without losing your values."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "courage"
+        },
+        {
+          "type": "min",
+          "dim": "courage",
+          "value": 12
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 1
+        }
+      ],
+      "image": "/assets/images/potion_top_courage.png"
+    },
+    {
+      "id": "potion_top_focus",
+      "title": "Ink of the Archive",
+      "summary": "Your focus dominates — quiet, intense, and consistent. You don’t chase everything; you finish what matters.",
+      "lore": "Ink of the Archive was brewed in old libraries for scribes who guarded history during siege and fire. It sharpens attention without making you brittle, and helps the mind refuse distraction. The potion tastes like midnight tea and clean parchment — the feeling of slipping into deep work where time becomes irrelevant.",
+      "palette": {
+        "primary": "#4b5c7a",
+        "secondary": "#c2cad8",
+        "accent": "#2a3750"
+      },
+      "tasting_notes": {
+        "top": "midnight tea, bergamot",
+        "mid": "cocoa husk, dried fig",
+        "base": "ink, parchment, cedar"
+      },
+      "side_effect": "If overused, you may forget to come up for air — and let the world become only tasks.",
+      "signature_ritual": "Serve in a dark cup. Turn your phone face-down. Drink one sip, then begin the hardest part of your work immediately.",
+      "signals": [
+        "You can hold a thread longer than most people can.",
+        "You protect attention like it’s sacred.",
+        "You bring structure to complexity without panicking."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "focus"
+        },
+        {
+          "type": "min",
+          "dim": "focus",
+          "value": 9
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 0
+        }
+      ],
+      "image": "/assets/images/potion_top_focus.png"
+    },
+    {
+      "id": "potion_top_charm",
+      "title": "Rosewind",
+      "summary": "Your charm dominates — not loud, but magnetic. You make people feel safe enough to open up and brave enough to try.",
+      "lore": "Rosewind is a festival tonic made from petal-salts, sun-mint, and a drop of honeyed resin. It was served at gatherings where strangers needed to become allies. The potion doesn’t manipulate; it invites. It tastes like bright florals and warmth — the feeling of walking into a room and realizing you belong there.",
+      "palette": {
+        "primary": "#b56576",
+        "secondary": "#f1c6d4",
+        "accent": "#6a2f3d"
+      },
+      "tasting_notes": {
+        "top": "fresh rose, sun-mint",
+        "mid": "soft berries, honeyed tea",
+        "base": "warm vanilla, petal-salt"
+      },
+      "side_effect": "If overused, you may overextend — saying yes to everyone and leaving yourself last.",
+      "signature_ritual": "Serve warm and share the first sip with someone else (symbolically or literally). Name one person you want to care for — including yourself.",
+      "signals": [
+        "You connect people who wouldn’t otherwise meet in the middle.",
+        "You reduce tension without avoiding reality.",
+        "You make others feel seen, not managed."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "charm"
+        },
+        {
+          "type": "min",
+          "dim": "charm",
+          "value": 8
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 0
+        }
+      ],
+      "image": "/assets/images/potion_top_charm.png"
+    },
+    {
+      "id": "potion_top_tempo",
+      "title": "Sunsteel Spark",
+      "summary": "Your tempo dominates — swift commitment, fast recovery, quick execution. You don’t just move; you create momentum that others catch.",
+      "lore": "Sunsteel Spark is brewed in copper kettles with brightmint and citrus-fire. It was served before races, launches, and first attempts — moments where hesitation steals more than failure ever could. The potion tastes like sparkling citrus and heat — the feeling of saying, ‘Now.’",
+      "palette": {
+        "primary": "#d07a2a",
+        "secondary": "#f6d1a7",
+        "accent": "#7a3a11"
+      },
+      "tasting_notes": {
+        "top": "sparkling citrus, fizz",
+        "mid": "brightmint, ginger snap",
+        "base": "warm sugar, ember spice"
+      },
+      "side_effect": "If overused, you may sprint so often that you forget how to walk — and miss what’s around you.",
+      "signature_ritual": "Serve cold. Set a timer for 10 minutes and begin immediately. Finish the cup only after you start.",
+      "signals": [
+        "You accelerate decisions without turning them sloppy.",
+        "You start things other people only talk about.",
+        "You recover quickly and move on without spiraling."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "tempo"
+        },
+        {
+          "type": "min",
+          "dim": "tempo",
+          "value": 8
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 0
+        }
+      ],
+      "image": "/assets/images/potion_top_tempo.png"
+    },
+    {
+      "id": "potion_top_insight",
+      "title": "Scrying Quartz",
+      "summary": "Your insight dominates — you read patterns, motives, and meanings with uncanny accuracy. You understand what’s happening beneath what’s happening.",
+      "palette": {
+        "primary": "#2f7a8a",
+        "secondary": "#bde5ec",
+        "accent": "#0f3a43"
+      },
+      "lore": "Scrying Quartz was brewed for listeners who carried other people’s truths. The potion doesn’t give visions; it gives coherence — the ability to connect scattered details into one honest picture. It tastes like cool mineral water and gentle spice, the feeling of finally recognizing the real story.",
+      "tasting_notes": {
+        "top": "cool mineral clarity",
+        "mid": "juniper, soft spice",
+        "base": "stone, faint incense"
+      },
+      "side_effect": "If overused, you may over-read signals and forget to ask directly.",
+      "signature_ritual": "Serve in a clear cup. Watch the surface settle. After the first sip, ask one clarifying question instead of making an assumption.",
+      "signals": [
+        "You notice subtext without getting lost in paranoia.",
+        "You connect clues quickly and calmly.",
+        "You name the real issue before it grows teeth."
+      ],
+      "priority": 19,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "insight"
+        },
+        {
+          "type": "min",
+          "dim": "insight",
+          "value": 10
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 0
+        }
+      ],
+      "image": "/assets/images/potion_top_insight.png"
+    },
+    {
+      "id": "potion_top_resolve",
+      "title": "Stonevow Elixir",
+      "summary": "Your resolve dominates — steady, principled, and difficult to shake. You don’t just want things; you commit to them.",
+      "lore": "Stonevow Elixir is brewed with rootbark and salt-iron and left to settle for a full season. It was served before oaths, breakups, and life-changing decisions — moments where a soft spine becomes a lifelong wound. The potion tastes like dark tea and earth, the feeling of standing by your word even when it costs you comfort.",
+      "palette": {
+        "primary": "#4b5a4b",
+        "secondary": "#cbd6cb",
+        "accent": "#1f261f"
+      },
+      "tasting_notes": {
+        "top": "dark tea bitterness",
+        "mid": "rootbark, toasted spice",
+        "base": "earth, salt-iron"
+      },
+      "side_effect": "If overused, you may become too rigid — protecting your standards but losing tenderness.",
+      "signature_ritual": "Serve warm. Hold the cup with both hands. Say one promise you’ll keep to yourself, then drink.",
+      "signals": [
+        "You keep boundaries even when it’s emotionally hard.",
+        "You don’t fold under pressure or guilt.",
+        "Your loyalty is deliberate — not automatic."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "resolve"
+        },
+        {
+          "type": "min",
+          "dim": "resolve",
+          "value": 17
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 2
+        }
+      ],
+      "image": "/assets/images/potion_top_resolve.png"
+    },
+    {
+      "id": "potion_top_wonder",
+      "title": "Auroraflare",
+      "summary": "Your wonder dominates — you are drawn to beauty, possibility, and meaning. You keep the soul awake.",
+      "lore": "Auroraflare is brewed from sky-salt and petal-spark and bottled under open air. It was served to artists, travelers, and quiet dreamers who needed permission to believe again. The potion tastes like light: sweet at first sip, then deep — the feeling of remembering life can be more than survival.",
+      "palette": {
+        "primary": "#4f46e5",
+        "secondary": "#dbeafe",
+        "accent": "#a855f7"
+      },
+      "tasting_notes": {
+        "top": "sweet air, bright fruit",
+        "mid": "floral sugar, pear",
+        "base": "starlit incense, soft musk"
+      },
+      "side_effect": "If overused, you may start living in ‘what could be’ and struggle to accept ‘what is.’",
+      "signature_ritual": "Serve at night or dawn. Take the first sip while looking up. Make one tiny plan that honors your curiosity.",
+      "signals": [
+        "You find meaning where others only see routine.",
+        "You keep curiosity alive even when the world feels heavy.",
+        "You make people feel like the future is worth meeting."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "wonder"
+        },
+        {
+          "type": "min",
+          "dim": "wonder",
+          "value": 16
+        },
+        {
+          "type": "top_diff_gte",
+          "value": 2
+        }
+      ],
+      "image": "/assets/images/potion_top_wonder.png"
+    },
+    {
+      "id": "potion_equilibrium",
+      "title": "Equilibrium Blend",
+      "summary": "No single force owns you — and that’s the point. You’re versatile, self-aware, and responsive to context without losing your core.",
+      "lore": "Equilibrium Blend is the house potion of experienced brewers — the ones who learned that life rarely rewards one-trick brilliance. It is brewed in small batches and tastes slightly different each time, because it adapts to what the drinker needs. It doesn’t spike you. It steadies you. Like a perfectly fitted jacket, you barely notice it — and then you realize you’re moving better.",
+      "palette": {
+        "primary": "#5b6470",
+        "secondary": "#d7dbe0",
+        "accent": "#2b313a"
+      },
+      "tasting_notes": {
+        "top": "clean tea, faint citrus",
+        "mid": "soft herb, mild honey",
+        "base": "warm grain, quiet spice"
+      },
+      "side_effect": "If overused, you may hesitate too long — staying adaptable when it’s time to choose.",
+      "signature_ritual": "Serve at room temperature. Take one sip, then ask: “What does this moment need from me?” Finish the cup only after you answer.",
+      "signals": [
+        "You can lead or support without ego getting in the way.",
+        "You don’t get trapped in one mode — you choose the right one.",
+        "You stay recognizably yourself across different rooms."
+      ],
+      "priority": 1,
+      "conditions": [
+        {
+          "type": "top_diff_lte",
+          "value": 0
+        },
+        {
+          "type": "total_min",
+          "value": 90
+        },
+        {
+          "type": "total_max",
+          "value": 92
+        }
+      ],
+      "image": "/assets/images/potion_equilibrium.png"
+    },
+    {
+      "id": "potion_fallback",
+      "title": "Common Tonic",
+      "summary": "You are adaptable and steady in a quiet, everyday way. You blend into many contexts without losing your center.",
+      "lore": "Common Tonic is the brewer's quiet safety net ? reliable, practical, and kind. It doesn't shout; it steadies. Most days don't need fireworks, they need a sure footing, and that's exactly what this offers.",
+      "palette": {
+        "primary": "#6b6f76",
+        "secondary": "#e4e7eb",
+        "accent": "#2f343a"
+      },
+      "tasting_notes": {
+        "top": "soft citrus peel",
+        "mid": "herbal tea",
+        "base": "warm grain"
+      },
+      "side_effect": "If overused, you may settle too long and forget to reach for the extraordinary.",
+      "signature_ritual": "Serve at room temperature. Take one sip, then name one small, honest next step.",
+      "signals": [
+        "You bring steadiness without needing control.",
+        "You adapt without losing your sense of self.",
+        "You keep things moving when the room gets noisy."
+      ],
+      "priority": 0,
+      "conditions": [],
+      "image": "/assets/images/potion_fallback.png"
+    }
+  ]
+}
