@@ -509,7 +509,7 @@ body {
 
 .dimension-legend__item {
   display: grid;
-  grid-template-columns: minmax(110px, 160px) 1fr;
+  grid-template-columns: minmax(60px, 70px) 1fr;
   gap: 0.4rem 0.75rem;
 }
 
@@ -555,12 +555,12 @@ body {
 }
 
 .result__label-row {
-  display: grid;
-  grid-template-columns: minmax(130px, 180px) 1fr;
-  gap: 0.5rem;
+  display: block;
+  margin-bottom: 0.6rem;
 }
 
 .result__label-key {
+  display: block;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 700;
@@ -569,6 +569,8 @@ body {
 }
 
 .result__label-value {
+  display: block;
+  margin-top: 0.25rem;
   color: rgba(31, 28, 24, 0.75);
 }
 
@@ -576,6 +578,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 0.5rem;
+  margin-top: 0.4rem;
 }
 
 .result__note {
