@@ -46,7 +46,7 @@
           "b": "tempo"
         }
       ],
-      "image": "/assets/images/potion_crownfire.png"
+      "image": "assets/images/potion_crownfire.png"
     },
     {
       "id": "potion_clockwork",
@@ -89,7 +89,7 @@
           "b": "focus"
         }
       ],
-      "image": "/assets/images/potion_clockwork.png"
+      "image": "assets/images/potion_clockwork.png"
     },
     {
       "id": "potion_mirrorglass",
@@ -132,7 +132,7 @@
           "b": "focus"
         }
       ],
-      "image": "/assets/images/potion_mirrorglass.png"
+      "image": "assets/images/potion_mirrorglass.png"
     },
     {
       "id": "potion_frostleaf",
@@ -175,7 +175,7 @@
           "b": "resolve"
         }
       ],
-      "image": "/assets/images/potion_frostleaf.png"
+      "image": "assets/images/potion_frostleaf.png"
     },
     {
       "id": "potion_aurora_lilt",
@@ -218,7 +218,7 @@
           "b": "charm"
         }
       ],
-      "image": "/assets/images/potion_aurora_lilt.png"
+      "image": "assets/images/potion_aurora_lilt.png"
     },
     {
       "id": "potion_stormglass",
@@ -261,7 +261,7 @@
           "b": "tempo"
         }
       ],
-      "image": "/assets/images/potion_stormglass.png"
+      "image": "assets/images/potion_stormglass.png"
     },
     {
       "id": "potion_twilight",
@@ -304,7 +304,7 @@
           "b": "insight"
         }
       ],
-      "image": "/assets/images/potion_twilight.png"
+      "image": "assets/images/potion_twilight.png"
     },
     {
       "id": "potion_velvet",
@@ -347,7 +347,7 @@
           "b": "insight"
         }
       ],
-      "image": "/assets/images/potion_velvet.png"
+      "image": "assets/images/potion_velvet.png"
     },
     {
       "id": "potion_top_calm",
@@ -387,7 +387,7 @@
           "value": 0
         }
       ],
-      "image": "/assets/images/potion_top_calm.png"
+      "image": "assets/images/potion_top_calm.png"
     },
     {
       "id": "potion_top_courage",
@@ -427,7 +427,7 @@
           "value": 1
         }
       ],
-      "image": "/assets/images/potion_top_courage.png"
+      "image": "assets/images/potion_top_courage.png"
     },
     {
       "id": "potion_top_focus",
@@ -467,7 +467,7 @@
           "value": 0
         }
       ],
-      "image": "/assets/images/potion_top_focus.png"
+      "image": "assets/images/potion_top_focus.png"
     },
     {
       "id": "potion_top_charm",
@@ -507,7 +507,7 @@
           "value": 0
         }
       ],
-      "image": "/assets/images/potion_top_charm.png"
+      "image": "assets/images/potion_top_charm.png"
     },
     {
       "id": "potion_top_tempo",
@@ -547,7 +547,7 @@
           "value": 0
         }
       ],
-      "image": "/assets/images/potion_top_tempo.png"
+      "image": "assets/images/potion_top_tempo.png"
     },
     {
       "id": "potion_top_insight",
@@ -587,7 +587,7 @@
           "value": 0
         }
       ],
-      "image": "/assets/images/potion_top_insight.png"
+      "image": "assets/images/potion_top_insight.png"
     },
     {
       "id": "potion_top_resolve",
@@ -627,7 +627,7 @@
           "value": 2
         }
       ],
-      "image": "/assets/images/potion_top_resolve.png"
+      "image": "assets/images/potion_top_resolve.png"
     },
     {
       "id": "potion_top_wonder",
@@ -667,7 +667,7 @@
           "value": 2
         }
       ],
-      "image": "/assets/images/potion_top_wonder.png"
+      "image": "assets/images/potion_top_wonder.png"
     },
     {
       "id": "potion_equilibrium",
@@ -706,7 +706,7 @@
           "value": 92
         }
       ],
-      "image": "/assets/images/potion_equilibrium.png"
+      "image": "assets/images/potion_equilibrium.png"
     },
     {
       "id": "potion_fallback",
@@ -732,7 +732,7 @@
       ],
       "priority": 0,
       "conditions": [],
-      "image": "/assets/images/potion_fallback.png"
+      "image": "assets/images/potion_fallback.png"
     }
   ]
 }
