@@ -61,7 +61,7 @@
           "image": "assets/images/q1/ribbon.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q1.png"
     },
     {
       "id": "q2",
@@ -124,7 +124,7 @@
           "image": "assets/images/q2/stories.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q2.png"
     },
     {
       "id": "q3",
@@ -187,7 +187,7 @@
           "image": "assets/images/q3/bell.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q3.png"
     },
     {
       "id": "q4",
@@ -250,7 +250,7 @@
           "image": "assets/images/q4/connection.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q4.png"
     },
     {
       "id": "q5",
