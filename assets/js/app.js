@@ -35,6 +35,7 @@ const state = {
   finished: false,
   lastResult: null,
   soundEnabled: false,
+  audioCtx: null,
 };
 
 async function loadJson(path) {
@@ -100,24 +101,36 @@ function resetThemePalette() {
 function playChime() {
   if (!state.soundEnabled) return;
   try {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    const ctx = new AudioCtx();
+    const ctx = getAudioContext();
+    if (!ctx) return;
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.type = "sine";
-    osc.frequency.setValueAtTime(520, ctx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(340, ctx.currentTime + 0.12);
-    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.15, ctx.currentTime + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+    const startTime = ctx.currentTime + 0.01;
+    osc.frequency.setValueAtTime(520, startTime);
+    osc.frequency.exponentialRampToValueAtTime(340, startTime + 0.12);
+    gain.gain.setValueAtTime(0.0001, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.15, startTime + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.18);
     osc.connect(gain);
     gain.connect(ctx.destination);
-    osc.start();
-    osc.stop(ctx.currentTime + 0.2);
-    osc.onended = () => ctx.close();
+    osc.start(startTime);
+    osc.stop(startTime + 0.22);
   } catch (error) {
     // ignore audio errors
   }
+}
+
+function getAudioContext() {
+  const AudioCtx = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtx) return null;
+  if (!state.audioCtx) {
+    state.audioCtx = new AudioCtx();
+  }
+  if (state.audioCtx.state === "suspended") {
+    state.audioCtx.resume().catch(() => {});
+  }
+  return state.audioCtx;
 }
 
 function getSortedScores() {
@@ -758,6 +771,10 @@ if (soundToggleBtn) {
   soundToggleBtn.addEventListener("click", () => {
     state.soundEnabled = !state.soundEnabled;
     soundToggleBtn.textContent = state.soundEnabled ? "Sound: On" : "Sound: Off";
+    if (state.soundEnabled) {
+      getAudioContext();
+      playChime();
+    }
   });
 }
 if (shareBtn) {
