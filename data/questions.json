@@ -519,7 +519,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q9/gentle.png"
         },
         {
           "text": "Say the hard truth immediately, even if it stings.",
@@ -532,7 +533,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q9/truth.png"
         },
         {
           "text": "Ask questions to pinpoint what they actually need.",
@@ -545,7 +547,8 @@
             "insight": 3,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q9/question.png"
         },
         {
           "text": "Help them reframe it into a hopeful story they can act on.",
@@ -558,7 +561,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q9/help.png"
         }
       ],
       "image": ""
@@ -578,7 +582,8 @@
             "insight": 0,
             "resolve": 3,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q10/stabilize.png"
         },
         {
           "text": "Jump in—better to live boldly than to wonder forever.",
@@ -591,7 +596,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q10/jump.png"
         },
         {
           "text": "Run a quick experiment to test the path before committing.",
@@ -604,7 +610,8 @@
             "insight": 2,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q10/experiment.png"
         },
         {
           "text": "Follow the spark—if it feels meaningful, it’s worth the risk.",
@@ -617,7 +624,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q10/follow.png"
         }
       ],
       "image": ""
@@ -637,7 +645,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q11/steady.png"
         },
         {
           "text": "Sets a deadline and pushes everyone to move.",
@@ -650,7 +659,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q11/deadline.png"
         },
         {
           "text": "Defines scope, priorities, and a clear next-step list.",
@@ -663,7 +673,8 @@
             "insight": 1,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q11/define.png"
         },
         {
           "text": "Reignites morale with a vision that makes it fun again.",
@@ -676,7 +687,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 2
-          }
+          },
+          "image": "assets/images/q11/morale.png"
         }
       ],
       "image": ""
@@ -696,7 +708,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q12/cool.png"
         },
         {
           "text": "You confront it immediately, no hesitation.",
@@ -709,7 +722,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q12/confront.png"
         },
         {
           "text": "You name the pattern, then set a rule that prevents repeats.",
@@ -722,7 +736,8 @@
             "insight": 3,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q12/rules.png"
         },
         {
           "text": "You protect your peace by stepping away and choosing a new path.",
@@ -735,7 +750,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q12/step_away.png"
         }
       ],
       "image": ""
@@ -755,7 +771,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q13/calm.png"
         },
         {
           "text": "“You did what most people were too scared to do.”",
@@ -768,7 +785,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q13/push_forward.png"
         },
         {
           "text": "“You saw the real issue before anyone else did.”",
@@ -781,7 +799,8 @@
             "insight": 3,
             "resolve": 0,
             "wonder": 1
-          }
+          },
+          "image": "assets/images/q13/vision.png"
         },
         {
           "text": "“You make life feel more meaningful.”",
@@ -794,7 +813,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q13/life.png"
         }
       ],
       "image": ""
@@ -814,7 +834,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q14/pause.png"
         },
         {
           "text": "Push through with adrenaline and speed.",
@@ -827,7 +848,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q14/push_through.png"
         },
         {
           "text": "Cut distractions, enter deep work, finish decisively.",
@@ -840,7 +862,8 @@
             "insight": 2,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q14/cut.png"
         },
         {
           "text": "Remind yourself why it matters—then it becomes lighter.",
@@ -853,7 +876,8 @@
             "insight": 0,
             "resolve": 1,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q14/remind.png"
         }
       ],
       "image": ""
@@ -873,7 +897,8 @@
             "insight": 1,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q15/grounded.png"
         },
         {
           "text": "Follow it immediately. If it’s a door, you open it.",
@@ -886,7 +911,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 1
-          }
+          },
+          "image": "assets/images/q15/door.png"
         },
         {
           "text": "Connect it to patterns and test what it could mean.",
@@ -899,7 +925,8 @@
             "insight": 3,
             "resolve": 0,
             "wonder": 1
-          }
+          },
+          "image": "assets/images/q15/patterns.png"
         },
         {
           "text": "Let it become a myth in your head. You love the magic of it.",
@@ -912,7 +939,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 4
-          }
+          },
+          "image": "assets/images/q15/myth.png"
         }
       ],
       "image": ""
@@ -932,7 +960,8 @@
             "insight": 0,
             "resolve": 2,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q16/lake.png"
         },
         {
           "text": "A sprint through rain: daring, alive, electric.",
@@ -945,7 +974,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q16/sprint.png"
         },
         {
           "text": "A perfect blueprint becoming real: clean, intentional, precise.",
@@ -958,7 +988,8 @@
             "insight": 2,
             "resolve": 1,
             "wonder": 0
-          }
+          },
+          "image": "assets/images/q16/blueprint.png"
         },
         {
           "text": "A lantern-lit festival: meaningful, connected, full of possibility.",
@@ -971,7 +1002,8 @@
             "insight": 0,
             "resolve": 0,
             "wonder": 3
-          }
+          },
+          "image": "assets/images/q16/festival.png"
         }
       ],
       "image": ""
