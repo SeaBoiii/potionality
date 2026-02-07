@@ -17,6 +17,7 @@ const restartBtn = document.getElementById("restartBtn");
 const resultImageEl = document.getElementById("resultImage");
 const soundToggleBtn = document.getElementById("soundToggleBtn");
 const shareBtn = document.getElementById("shareBtn");
+const shareLinkBtn = document.getElementById("shareLinkBtn");
 const toggleDimensionsBtn = document.getElementById("toggleDimensionsBtn");
 const dimensionPanelEl = document.getElementById("dimensionPanel");
 
@@ -36,7 +37,9 @@ const state = {
   lastResult: null,
   soundEnabled: false,
   audioCtx: null,
+  answeringLocked: false,
 };
+const preloadedImageUrls = new Set();
 
 async function loadJson(path) {
   const resp = await fetch(path, { cache: "no-store" });
@@ -137,6 +140,204 @@ function getSortedScores() {
   return Object.entries(state.scores)
     .map(([id, value]) => ({ id, value }))
     .sort((a, b) => b.value - a.value);
+}
+
+function preloadImage(url) {
+  if (!url || preloadedImageUrls.has(url)) return;
+  preloadedImageUrls.add(url);
+  const img = new Image();
+  img.src = url;
+}
+
+function preloadNextQuestionAssets() {
+  if (!state.data?.questions) return;
+  const nextQuestion = state.data.questions[state.index + 1];
+  if (!nextQuestion) return;
+  preloadImage(nextQuestion.image);
+  (nextQuestion.options || []).forEach((option) => preloadImage(option.image));
+}
+
+function setAnswerButtonsDisabled(disabled) {
+  questionOptionsEl
+    .querySelectorAll("button.option")
+    .forEach((buttonEl) => {
+      buttonEl.disabled = disabled;
+      buttonEl.setAttribute("aria-disabled", disabled ? "true" : "false");
+    });
+}
+
+function hideQuestionImage() {
+  if (!questionImageEl) return;
+  questionImageEl.classList.remove("is-loading", "is-ready");
+  questionImageEl.removeAttribute("src");
+  questionImageEl.style.display = "none";
+}
+
+function showQuestionImageWithLoading(src, altText) {
+  if (!questionImageEl) return;
+  questionImageEl.classList.remove("is-ready");
+  questionImageEl.classList.add("is-loading");
+  questionImageEl.alt = altText || "Question image";
+  questionImageEl.style.display = "block";
+
+  const finalize = () => {
+    questionImageEl.classList.remove("is-loading");
+    questionImageEl.classList.add("is-ready");
+  };
+
+  questionImageEl.onload = finalize;
+  questionImageEl.onerror = () => {
+    hideQuestionImage();
+  };
+  questionImageEl.src = src;
+  if (questionImageEl.complete) {
+    finalize();
+  }
+}
+
+function buildResultShareUrl(resultId) {
+  const url = new URL(window.location.href);
+  if (resultId) {
+    url.searchParams.set("result", resultId);
+  } else {
+    url.searchParams.delete("result");
+  }
+  const encodedScores = encodeScoresForUrl(state.scores);
+  if (encodedScores) {
+    url.searchParams.set("scores", encodedScores);
+  } else {
+    url.searchParams.delete("scores");
+  }
+  return url.toString();
+}
+
+function syncResultParam(resultId, scoreMap = null) {
+  const url = new URL(window.location.href);
+  if (resultId) {
+    url.searchParams.set("result", resultId);
+  } else {
+    url.searchParams.delete("result");
+  }
+  const encodedScores = encodeScoresForUrl(scoreMap);
+  if (encodedScores) {
+    url.searchParams.set("scores", encodedScores);
+  } else {
+    url.searchParams.delete("scores");
+  }
+  window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
+function encodeScoresForUrl(scoreMap) {
+  if (!scoreMap || !state.data?.dimensions?.length) return "";
+  const normalized = {};
+  state.data.dimensions.forEach((dim) => {
+    const value = Number(scoreMap[dim.id]);
+    normalized[dim.id] = Number.isFinite(value) ? clamp(Math.round(value), -10, 10) : 0;
+  });
+  return encodeURIComponent(JSON.stringify(normalized));
+}
+
+function decodeScoresFromUrl(rawValue) {
+  if (!rawValue || !state.data?.dimensions?.length) return null;
+  try {
+    const parsed = JSON.parse(decodeURIComponent(rawValue));
+    const restored = {};
+    state.data.dimensions.forEach((dim) => {
+      const value = Number(parsed?.[dim.id]);
+      restored[dim.id] = Number.isFinite(value) ? clamp(Math.round(value), -10, 10) : 0;
+    });
+    return restored;
+  } catch (error) {
+    return null;
+  }
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "true");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } catch (error) {
+    copied = false;
+  }
+  document.body.removeChild(textarea);
+  return copied;
+}
+
+function showToast(message, isError = false) {
+  const existing = document.querySelector(".toast");
+  if (existing) {
+    existing.remove();
+  }
+  const toast = document.createElement("div");
+  toast.className = `toast${isError ? " is-error" : ""}`;
+  toast.setAttribute("role", "status");
+  toast.setAttribute("aria-live", "polite");
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.classList.add("is-visible");
+  });
+
+  setTimeout(() => {
+    toast.classList.remove("is-visible");
+    setTimeout(() => toast.remove(), 180);
+  }, 1400);
+}
+
+async function copyResultLink() {
+  if (!state.lastResult?.id || !shareLinkBtn) return;
+  const shareUrl = buildResultShareUrl(state.lastResult.id);
+  const copied = await copyTextToClipboard(shareUrl);
+  showToast(copied ? "Link copied" : "Copy failed", !copied);
+}
+
+function showResultPanel() {
+  if (questionCardEl) {
+    questionCardEl.classList.add("is-hidden");
+  }
+  if (resultPanelEl) {
+    resultPanelEl.classList.remove("is-hidden");
+    resultPanelEl.classList.remove("is-visible");
+    requestAnimationFrame(() => {
+      resultPanelEl.classList.add("is-visible");
+    });
+  }
+}
+
+function showSharedResultFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const resultId = params.get("result");
+  if (!resultId) return false;
+  const directResult = state.data.results.find((result) => result.id === resultId);
+  if (!directResult) return false;
+  const restoredScores = decodeScoresFromUrl(params.get("scores"));
+  if (restoredScores) {
+    state.scores = restoredScores;
+  }
+
+  state.finished = true;
+  renderResult(directResult);
+  renderDimensions();
+  if (dimensionPanelEl) {
+    dimensionPanelEl.classList.add("is-hidden");
+  }
+  if (toggleDimensionsBtn) {
+    toggleDimensionsBtn.textContent = "Show Analysis";
+  }
+  showResultPanel();
+  return true;
 }
 
 function meetsCondition(cond) {
@@ -371,15 +572,13 @@ function renderDimensions() {
 function renderQuestion() {
   const question = state.data.questions[state.index];
   if (!question) return;
+  state.answeringLocked = false;
   questionIndexEl.textContent = `Question ${state.index + 1}`;
   if (questionImageEl) {
     if (question.image) {
-      questionImageEl.src = question.image;
-      questionImageEl.alt = question.prompt || "Question image";
-      questionImageEl.style.display = "block";
+      showQuestionImageWithLoading(question.image, question.prompt);
     } else {
-      questionImageEl.removeAttribute("src");
-      questionImageEl.style.display = "none";
+      hideQuestionImage();
     }
   }
   questionPromptEl.textContent = question.prompt;
@@ -408,12 +607,16 @@ function renderQuestion() {
     btn.appendChild(media);
     btn.appendChild(text);
     btn.addEventListener("click", () => {
+      if (state.answeringLocked) return;
+      state.answeringLocked = true;
+      setAnswerButtonsDisabled(true);
       btn.classList.add("is-selected");
       playChime();
       applyAnswer(question, option, optionIndex);
     });
     questionOptionsEl.appendChild(btn);
   });
+  preloadNextQuestionAssets();
 }
 
 function applyAnswer(question, option, optionIndex) {
@@ -433,6 +636,8 @@ function applyAnswer(question, option, optionIndex) {
       if (questionCardEl) {
         questionCardEl.classList.remove("is-transitioning", "is-brewing");
       }
+      state.answeringLocked = false;
+      setAnswerButtonsDisabled(false);
     }, 350);
     return;
   }
@@ -447,16 +652,7 @@ function applyAnswer(question, option, optionIndex) {
   if (toggleDimensionsBtn) {
     toggleDimensionsBtn.textContent = "Show Analysis";
   }
-  if (questionCardEl) {
-    questionCardEl.classList.add("is-hidden");
-  }
-  if (resultPanelEl) {
-    resultPanelEl.classList.remove("is-hidden");
-    resultPanelEl.classList.remove("is-visible");
-    requestAnimationFrame(() => {
-      resultPanelEl.classList.add("is-visible");
-    });
-  }
+  showResultPanel();
 }
 
 function updateProgress() {
@@ -467,12 +663,13 @@ function updateProgress() {
   progressLabelEl.textContent = `${current} / ${total}`;
 }
 
-function renderResult() {
-  const result = computeResult();
+function renderResult(overrideResult = null) {
+  const result = overrideResult || computeResult();
   if (!resultCardEl) return;
   setResultPalette(result.palette);
   setThemePalette(result.palette);
   state.lastResult = result;
+  syncResultParam(result.id, state.scores);
   if (resultImageEl) {
     if (result.image) {
       resultImageEl.src = result.image;
@@ -574,6 +771,7 @@ function renderResult() {
 function reset() {
   state.index = 0;
   state.finished = false;
+  state.answeringLocked = false;
   state.answers = [];
   initScores(state.data.dimensions);
   renderQuestion();
@@ -581,6 +779,7 @@ function reset() {
   updateProfile();
   resultCardEl.innerHTML = "";
   state.lastResult = null;
+  syncResultParam(null, null);
   resetThemePalette();
   if (dimensionListEl) {
     dimensionListEl.innerHTML = "";
@@ -758,6 +957,9 @@ async function init() {
   titleEl.textContent = state.data.title;
   subtitleEl.textContent = state.data.subtitle;
   initScores(state.data.dimensions);
+  if (showSharedResultFromUrl()) {
+    return;
+  }
   renderQuestion();
   updateProgress();
   updateProfile();
@@ -779,6 +981,9 @@ if (soundToggleBtn) {
 }
 if (shareBtn) {
   shareBtn.addEventListener("click", downloadShareCard);
+}
+if (shareLinkBtn) {
+  shareLinkBtn.addEventListener("click", copyResultLink);
 }
 if (toggleDimensionsBtn) {
   toggleDimensionsBtn.addEventListener("click", () => {

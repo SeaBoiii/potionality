@@ -222,12 +222,48 @@ body {
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid transparent;
+  opacity: 0;
+  transition: opacity 0.28s ease;
   display: none;
 }
 
 @media (min-width: 721px) {
   .question__image {
     max-height: 360px;
+  }
+}
+
+.question__image.is-loading {
+  opacity: 0;
+  min-height: 140px;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0.85) 35%,
+      rgba(255, 255, 255, 0.45) 70%
+    ),
+    linear-gradient(135deg, #f4e4cf, #f0dcc2);
+  background-size: 220% 100%, 100% 100%;
+  animation: imageShimmer 1.1s linear infinite;
+}
+
+.question__image.is-ready {
+  opacity: 1;
+  min-height: 0;
+  animation: none;
+}
+
+@keyframes imageShimmer {
+  0% {
+    background-position:
+      200% 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      -20% 0,
+      0 0;
   }
 }
 
@@ -261,6 +297,11 @@ body {
   transform: translateY(-2px);
   border-color: rgba(194, 91, 53, 0.4);
   box-shadow: 0 12px 24px rgba(194, 91, 53, 0.18);
+}
+
+.option:disabled {
+  cursor: default;
+  pointer-events: none;
 }
 
 .option.is-selected::after {
@@ -552,6 +593,24 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .question.is-transitioning {
+    opacity: 1;
+    transform: none;
+  }
+
+  .question.is-brewing .question__brew {
+    opacity: 0;
+  }
+}
 .result__lore {
   font-style: italic;
   color: rgba(31, 28, 24, 0.72);
@@ -604,4 +663,32 @@ body {
   background: rgba(255, 255, 255, 0.75);
   font-size: 0.75rem;
   color: rgba(31, 28, 24, 0.7);
+}
+
+.toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 999;
+  padding: 0.45rem 0.7rem;
+  border-radius: 10px;
+  background: rgba(31, 24, 20, 0.92);
+  color: #fff7ef;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.is-error {
+  background: rgba(116, 40, 40, 0.95);
 }
