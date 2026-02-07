@@ -32,6 +32,9 @@ Built for fast iteration on content and weights, this project features a beautif
   - [Question Format](#question-format)
   - [Result Format](#result-format)
   - [Result Conditions](#result-conditions)
+- [Tools](#-tools)
+  - [Result Path Finder](#result-path-finder)
+  - [Reachability Checker](#reachability-checker)
 - [Share Cards](#-share-cards)
 - [Deployment](#-deployment)
   - [GitHub Pages](#github-pages)
@@ -104,6 +107,9 @@ potionality/
 │   ├── settings.json         # Title, subtitle, and dimension definitions
 │   ├── questions.json        # Question prompts and weighted options
 │   └── results.json          # Result profiles with conditions and priority
+├── tools/
+│   ├── ideal_result_path.py  # Find answer paths for specific results
+│   └── reachability_check.py # Validate result reachability and probabilities
 └── .github/
     └── workflows/
         └── pages.yml         # GitHub Pages deployment workflow
@@ -207,6 +213,134 @@ The matching system supports sophisticated condition logic:
 
 **Matching Priority:**
 When multiple results match all conditions, the highest `priority` value wins. Ties are resolved by order in the JSON file.
+
+## 🔧 Tools
+
+The `tools/` directory contains Python utility scripts to help validate and analyze your quiz configuration.
+
+### Result Path Finder
+
+**Script:** `tools/ideal_result_path.py`
+
+This tool uses constraint solving (Z3) to find a concrete set of answer choices that will lead to a specific quiz result. This is invaluable for testing whether a particular result is achievable and understanding what combination of answers leads to it.
+
+**Prerequisites:**
+```bash
+python -m pip install z3-solver
+```
+
+**Usage:**
+
+List all available result IDs:
+```bash
+python tools/ideal_result_path.py --list-results
+```
+
+Find answer path for a specific result:
+```bash
+python tools/ideal_result_path.py --result-id potion_velvet
+```
+
+**Example Output:**
+```
+Target result: potion_velvet (Velvet)
+
+Pick these choices:
+Q1: option 2 - A bowl of still water that never spills.
+Q2: option 1 - Stay and listen.
+Q3: option 3 - Write it down in a leather journal.
+...
+
+Final scores:
+calm: 8
+courage: 2
+focus: 5
+...
+```
+
+**Options:**
+- `--questions` - Path to questions JSON (default: `data/questions.json`)
+- `--results` - Path to results JSON (default: `data/results.json`)
+- `--settings` - Path to settings JSON (default: `data/settings.json`)
+- `--result-id` - Target result ID to find path for
+- `--list-results` - List all available result IDs and exit
+
+### Reachability Checker
+
+**Script:** `tools/reachability_check.py`
+
+This tool performs two types of analysis on your quiz:
+
+1. **Exhaustive Reachability Check** - Uses SMT solving to determine which results can actually be reached by any combination of answers
+2. **Probability Estimation** - Uses random sampling to estimate the likelihood of each result
+
+This helps identify unreachable results (which might indicate configuration issues) and understand the distribution of outcomes.
+
+**Prerequisites:**
+```bash
+python -m pip install z3-solver  # Required for reachability check
+```
+
+**Usage:**
+
+Run both reachability and probability analysis:
+```bash
+python tools/reachability_check.py --samples 200000
+```
+
+Check reachability only (faster):
+```bash
+python tools/reachability_check.py --reachability-only
+```
+
+Run probability sampling only:
+```bash
+python tools/reachability_check.py --sampling-only --samples 1000000
+```
+
+Show witness answer paths for reachable results:
+```bash
+python tools/reachability_check.py --show-witness
+```
+
+Use a specific random seed for reproducibility:
+```bash
+python tools/reachability_check.py --samples 500000 --seed 42
+```
+
+**Example Output:**
+```
+Running exhaustive reachability check (SMT)...
+Reachable results: 24/24 (100.00%)
+Unreachable: none
+Reachability check time: 3.45s
+
+Running random sampling: n=200000, seed=42, workers=7
+
+Estimated result probabilities
+------------------------------
+potion_crownfire         8.234%  (16468/200000)
+potion_velvet            7.891%  (15782/200000)
+potion_moonthread        6.543%  (13086/200000)
+...
+```
+
+**Options:**
+- `--questions` - Path to questions JSON (default: `data/questions.json`)
+- `--results` - Path to results JSON (default: `data/results.json`)
+- `--settings` - Path to settings JSON (default: `data/settings.json`)
+- `--samples` - Number of random samples for probability estimation (default: 200000)
+- `--seed` - Random seed for reproducible sampling (default: 42)
+- `--sampling-only` - Skip exhaustive reachability check
+- `--reachability-only` - Skip probability sampling
+- `--show-witness` - Show one answer-index witness per reachable result
+- `--workers` - Number of parallel worker processes (default: CPU count - 1)
+
+**Use Cases:**
+- **Validate Configuration** - Ensure all results are reachable
+- **Balance Results** - Check if certain outcomes are too rare or too common
+- **Test Changes** - Verify that modifications to questions/conditions don't break reachability
+- **Debug Conditions** - Identify which results are impossible due to conflicting conditions
 
 ## 🎴 Share Cards
 
