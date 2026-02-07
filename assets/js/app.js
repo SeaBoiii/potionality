@@ -621,7 +621,7 @@ function renderQuestion() {
 
 function applyAnswer(question, option, optionIndex) {
   Object.entries(option.weights || {}).forEach(([dimId, delta]) => {
-    state.scores[dimId] = clamp((state.scores[dimId] || 0) + delta, -10, 10);
+    state.scores[dimId] = clamp((state.scores[dimId] || 0) + delta, -20, 20);
   });
   state.answers[state.index] = optionIndex;
   if (state.index < state.data.questions.length - 1) {
