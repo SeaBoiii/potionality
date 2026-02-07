@@ -32,7 +32,7 @@
         {
           "type": "min",
           "dim": "charm",
-          "value": 8
+          "value": 10
         },
         {
           "type": "min",
@@ -41,7 +41,7 @@
         },
         {
           "type": "diff_abs_lte",
-          "value": 7,
+          "value": 5,
           "a": "courage",
           "b": "tempo"
         }
@@ -75,16 +75,16 @@
         {
           "type": "min",
           "dim": "tempo",
-          "value": 8
+          "value": 11
         },
         {
           "type": "min",
           "dim": "focus",
-          "value": 9
+          "value": 11
         },
         {
           "type": "diff_abs_lte",
-          "value": 6,
+          "value": 4,
           "a": "tempo",
           "b": "focus"
         }
@@ -118,16 +118,16 @@
         {
           "type": "min",
           "dim": "insight",
-          "value": 13
+          "value": 15
         },
         {
           "type": "min",
           "dim": "focus",
-          "value": 10
+          "value": 12
         },
         {
           "type": "diff_abs_lte",
-          "value": 5,
+          "value": 3,
           "a": "insight",
           "b": "focus"
         }
@@ -161,16 +161,16 @@
         {
           "type": "min",
           "dim": "calm",
-          "value": 11
+          "value": 14
         },
         {
           "type": "min",
           "dim": "resolve",
-          "value": 16
+          "value": 18
         },
         {
           "type": "diff_abs_lte",
-          "value": 5,
+          "value": 3,
           "a": "calm",
           "b": "resolve"
         }
@@ -204,16 +204,16 @@
         {
           "type": "min",
           "dim": "wonder",
-          "value": 15
+          "value": 17
         },
         {
           "type": "min",
           "dim": "charm",
-          "value": 10
+          "value": 11
         },
         {
           "type": "diff_abs_lte",
-          "value": 5,
+          "value": 3,
           "a": "wonder",
           "b": "charm"
         }
@@ -247,16 +247,16 @@
         {
           "type": "min",
           "dim": "courage",
-          "value": 15
+          "value": 14
         },
         {
           "type": "min",
           "dim": "tempo",
-          "value": 8
+          "value": 6
         },
         {
           "type": "diff_abs_lte",
-          "value": 6,
+          "value": 7,
           "a": "courage",
           "b": "tempo"
         }
@@ -290,16 +290,16 @@
         {
           "type": "min",
           "dim": "calm",
-          "value": 9
+          "value": 7
         },
         {
           "type": "min",
           "dim": "insight",
-          "value": 12
+          "value": 10
         },
         {
           "type": "diff_abs_lte",
-          "value": 6,
+          "value": 9,
           "a": "calm",
           "b": "insight"
         }
@@ -328,23 +328,28 @@
         "You shift the atmosphere without anyone feeling pushed.",
         "You help people agree without making anyone lose dignity."
       ],
-      "priority": 18,
+      "priority": 19,
       "conditions": [
         {
           "type": "min",
           "dim": "charm",
-          "value": 8
+          "value": 9
         },
         {
           "type": "min",
           "dim": "insight",
-          "value": 12
+          "value": 11
         },
         {
           "type": "diff_abs_lte",
           "value": 6,
           "a": "charm",
           "b": "insight"
+        },
+        {
+          "type": "max_le",
+          "dim": "wonder",
+          "value": 14
         }
       ],
       "image": "assets/images/potion_velvet.png"
@@ -380,11 +385,11 @@
         {
           "type": "min",
           "dim": "calm",
-          "value": 9
+          "value": 11
         },
         {
           "type": "top_diff_gte",
-          "value": 0
+          "value": 2
         }
       ],
       "image": "assets/images/potion_top_calm.png"
@@ -411,7 +416,7 @@
         "You are brave in ways that actually help — not just look impressive.",
         "You turn fear into motion without losing your values."
       ],
-      "priority": 10,
+      "priority": 19,
       "conditions": [
         {
           "type": "top_is",
@@ -424,7 +429,7 @@
         },
         {
           "type": "top_diff_gte",
-          "value": 1
+          "value": 2
         }
       ],
       "image": "assets/images/potion_top_courage.png"
@@ -451,7 +456,7 @@
         "You protect attention like it’s sacred.",
         "You bring structure to complexity without panicking."
       ],
-      "priority": 10,
+      "priority": 19,
       "conditions": [
         {
           "type": "top_is",
@@ -460,11 +465,11 @@
         {
           "type": "min",
           "dim": "focus",
-          "value": 9
+          "value": 18
         },
         {
           "type": "top_diff_gte",
-          "value": 0
+          "value": 4
         }
       ],
       "image": "assets/images/potion_top_focus.png"
@@ -531,7 +536,7 @@
         "You start things other people only talk about.",
         "You recover quickly and move on without spiraling."
       ],
-      "priority": 10,
+      "priority": 19,
       "conditions": [
         {
           "type": "top_is",
@@ -540,11 +545,11 @@
         {
           "type": "min",
           "dim": "tempo",
-          "value": 8
+          "value": 14
         },
         {
           "type": "top_diff_gte",
-          "value": 0
+          "value": 2
         }
       ],
       "image": "assets/images/potion_top_tempo.png"
@@ -571,7 +576,7 @@
         "You connect clues quickly and calmly.",
         "You name the real issue before it grows teeth."
       ],
-      "priority": 19,
+      "priority": 20,
       "conditions": [
         {
           "type": "top_is",
@@ -580,7 +585,7 @@
         {
           "type": "min",
           "dim": "insight",
-          "value": 10
+          "value": 0
         },
         {
           "type": "top_diff_gte",
@@ -611,7 +616,7 @@
         "You don’t fold under pressure or guilt.",
         "Your loyalty is deliberate — not automatic."
       ],
-      "priority": 10,
+      "priority": 19,
       "conditions": [
         {
           "type": "top_is",
@@ -620,11 +625,11 @@
         {
           "type": "min",
           "dim": "resolve",
-          "value": 17
+          "value": 18
         },
         {
           "type": "top_diff_gte",
-          "value": 2
+          "value": 3
         }
       ],
       "image": "assets/images/potion_top_resolve.png"
@@ -651,7 +656,7 @@
         "You keep curiosity alive even when the world feels heavy.",
         "You make people feel like the future is worth meeting."
       ],
-      "priority": 10,
+      "priority": 19,
       "conditions": [
         {
           "type": "top_is",
@@ -660,11 +665,11 @@
         {
           "type": "min",
           "dim": "wonder",
-          "value": 16
+          "value": 18
         },
         {
           "type": "top_diff_gte",
-          "value": 2
+          "value": 3
         }
       ],
       "image": "assets/images/potion_top_wonder.png"
@@ -695,15 +700,15 @@
       "conditions": [
         {
           "type": "top_diff_lte",
-          "value": 0
+          "value": 1
         },
         {
           "type": "total_min",
-          "value": 90
+          "value": 89
         },
         {
           "type": "total_max",
-          "value": 92
+          "value": 93
         }
       ],
       "image": "assets/images/potion_equilibrium.png"
