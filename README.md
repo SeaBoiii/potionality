@@ -1,58 +1,176 @@
-# Signal & Pattern � Personality Test
+# 🧪 Potionality - If You Were a Potion
 
-A potion-themed personality test with an editorial UI, data-driven questions, conditional results, and shareable cards. Built for fast iteration on content and weights.
+<div align="center">
 
-## Features
-- Data-driven questions, dimensions, and results
-- Conditional result logic with priorities
-- Animated progress and choice transitions
-- Share card download
-- Result lore, tasting notes, and ritual labels
+**A potion-themed personality test with an editorial UI, data-driven questions, conditional results, and shareable cards.**
 
-## Structure
-- `index.html`: App shell
-- `assets/css/style.css`: Styles
-- `assets/js/app.js`: App logic
-- `data/settings.json`: Title, subtitle, dimensions
-- `data/questions.json`: Questions and options
-- `data/results.json`: Result profiles and conditions
+[![GitHub Pages](https://img.shields.io/badge/demo-live-success?style=flat-square)](https://seaboiii.github.io/potionality/)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-## Run Locally
-Use any static server. Example:
+[Live Demo](https://seaboiii.github.io/potionality/) | [Report Issue](https://github.com/SeaBoiii/potionality/issues)
 
+</div>
+
+---
+
+## 📖 About
+
+Potionality is a reflective personality assessment that reveals your dominant brew across eight forces: **calm**, **courage**, **focus**, **charm**, **tempo**, **insight**, **resolve**, and **wonder**. Through a series of thoughtfully crafted questions, discover which mystical potion best represents your unique personality.
+
+Built for fast iteration on content and weights, this project features a beautiful editorial design with smooth animations, data-driven architecture, and sharable result cards perfect for social media.
+
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Technologies Used](#-technologies-used)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Run Locally](#run-locally)
+- [Project Structure](#-project-structure)
+- [Customization Guide](#-customization-guide)
+  - [Settings Configuration](#settings-configuration)
+  - [Question Format](#question-format)
+  - [Result Format](#result-format)
+  - [Result Conditions](#result-conditions)
+- [Share Cards](#-share-cards)
+- [Deployment](#-deployment)
+  - [GitHub Pages](#github-pages)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## ✨ Features
+
+- **Data-Driven Architecture** - Questions, dimensions, and results are all configurable via JSON files
+- **Conditional Result Logic** - Sophisticated matching system with priority-based resolution
+- **Smooth Animations** - Beautiful progress transitions and choice interactions
+- **Live Profile Updates** - See your dimensional profile evolve as you answer questions
+- **Downloadable Share Cards** - Generate beautiful cards to share your results on social media
+- **Shareable Result Links** - Copy direct links to your specific result
+- **Sound Effects** - Optional audio feedback for interactions (toggleable)
+- **Responsive Design** - Works seamlessly on desktop and mobile devices
+- **Editorial Typography** - Elegant Cormorant Garamond and Mulish font pairing
+- **Result Lore** - Each potion includes tasting notes, lore, and ritual labels
+
+## 🛠 Technologies Used
+
+- **HTML5** - Semantic markup structure
+- **CSS3** - Custom properties, animations, and responsive design
+- **Vanilla JavaScript** - No frameworks, pure ES6+ JavaScript
+- **JSON** - Data-driven content configuration
+- **Canvas API** - Share card generation
+- **GitHub Actions** - Automated deployment pipeline
+- **GitHub Pages** - Static site hosting
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+No build tools or dependencies required! This is a static web application that runs entirely in the browser.
+
+### Run Locally
+
+Use any static file server. Here are a few options:
+
+**Using Python:**
 ```bash
 python -m http.server 8080
 ```
 
-Then open `http://localhost:8080` in the browser.
+**Using Node.js (with http-server):**
+```bash
+npx http-server -p 8080
+```
 
-## Customize
-- Update the title/subtitle/dimensions in `data/settings.json`.
-- Add questions and options with `weights` mapped to dimension IDs in `data/questions.json`.
-- Update result cards, lore, and conditions in `data/results.json`.
+**Using PHP:**
+```bash
+php -S localhost:8080
+```
 
-## Question Format
+Then open `http://localhost:8080` in your browser.
+
+## 📁 Project Structure
+
+```
+potionality/
+├── index.html                 # Main app shell and structure
+├── assets/
+│   ├── css/
+│   │   └── style.css         # All styles and animations
+│   ├── js/
+│   │   └── app.js            # Application logic and interactions
+│   ├── icons/                # SVG ingredient icons
+│   └── images/               # Potion result images
+├── data/
+│   ├── settings.json         # Title, subtitle, and dimension definitions
+│   ├── questions.json        # Question prompts and weighted options
+│   └── results.json          # Result profiles with conditions and priority
+└── .github/
+    └── workflows/
+        └── pages.yml         # GitHub Pages deployment workflow
+```
+
+## 🎨 Customization Guide
+
+### Settings Configuration
+
+Edit `data/settings.json` to change the title, subtitle, and dimension definitions:
+
+```json
+{
+  "title": "If You Were a Potion",
+  "subtitle": "A reflective personality test...",
+  "dimensions": [
+    {
+      "id": "calm",
+      "label": "Calm",
+      "left": "Still",
+      "right": "Stirred",
+      "description": "How you steady yourself"
+    }
+  ]
+}
+```
+
+### Question Format
+
+Add or modify questions in `data/questions.json`. Each question includes a prompt, options with weighted impacts, and an optional image:
+
 ```json
 {
   "id": "q1",
-  "prompt": "You open a locked chest. What�s inside?",
+  "prompt": "You open a locked chest. What's inside?",
   "options": [
     {
       "text": "A bowl of still water that never spills.",
-      "weights": { "calm": 3, "resolve": 2, "tempo": -1 }
+      "weights": { 
+        "calm": 3, 
+        "resolve": 2, 
+        "tempo": -1 
+      }
     }
   ],
   "image": ""
 }
 ```
 
-## Result Format
+**Weight Guidelines:**
+- Positive values increase the dimension score
+- Negative values decrease the dimension score
+- Typical range: -3 to +3
+- Use weights strategically to shape result outcomes
+
+### Result Format
+
+Define result profiles in `data/results.json`. Each result includes metadata, conditions for matching, and display content:
+
 ```json
 {
   "id": "potion_crownfire",
   "title": "Crownfire",
-  "summary": "...",
-  "lore": "...",
+  "summary": "Bold and radiant, you're meant to be seen.",
+  "lore": "Forged in the heart of a volcanic summer...",
+  "tastingNotes": "Ash and citrus with a finish of spun gold.",
+  "ritual": "Light a candle at dawn...",
   "priority": 18,
   "conditions": [
     { "type": "min", "dim": "courage", "value": 16 },
@@ -62,33 +180,109 @@ Then open `http://localhost:8080` in the browser.
 }
 ```
 
-## Result Conditions
-Supported condition forms:
-- `{ "type": "min", "dim": "calm", "value": 3 }`
-- `{ "type": "max_le", "dim": "focus", "value": 2 }`
-- `{ "type": "diff_greater", "a": "calm", "b": "courage", "value": 2 }`
-- `{ "type": "diff_abs_lte", "a": "focus", "b": "charm", "value": 1 }`
-- `{ "type": "top_is", "dim": "charm" }`
-- `{ "type": "top_diff_gte", "value": 3 }`
-- `{ "type": "top_diff_lte", "value": 1 }`
-- `{ "type": "total_min", "value": 5 }`
-- `{ "type": "total_max", "value": -2 }`
+### Result Conditions
 
-Backwards-compatible condition format (still supported):
-- `{ "dim": "calm", "op": "gte", "value": 3 }`
-- `{ "dim": "focus", "min": -2, "max": 2 }`
+The matching system supports sophisticated condition logic:
 
-When multiple results match, the highest `priority` wins (ties resolve by order).
+**Dimension-Based Conditions:**
+- `{ "type": "min", "dim": "calm", "value": 3 }` - Minimum score required
+- `{ "type": "max_le", "dim": "focus", "value": 2 }` - Maximum score allowed
 
-## Share Cards
-Use the �Share� button on results to generate a downloadable share card. The card size and layout are controlled in `assets/js/app.js` inside `downloadShareCard()`.
+**Comparison Conditions:**
+- `{ "type": "diff_greater", "a": "calm", "b": "courage", "value": 2 }` - Difference between dimensions
+- `{ "type": "diff_abs_lte", "a": "focus", "b": "charm", "value": 1 }` - Absolute difference check
 
-## GitHub Pages Deploy
-This repo includes a Pages workflow using GitHub Actions.
+**Top Dimension Conditions:**
+- `{ "type": "top_is", "dim": "charm" }` - Specific dimension must be highest
+- `{ "type": "top_diff_gte", "value": 3 }` - Top dimension must lead by at least X
+- `{ "type": "top_diff_lte", "value": 1 }` - Top dimension must be close (within X)
 
-1. Commit the workflow in `.github/workflows/pages.yml`.
-2. In GitHub ? Settings ? Pages, select **GitHub Actions** as the source.
-3. Push to `main` to trigger a deployment.
+**Total Score Conditions:**
+- `{ "type": "total_min", "value": 5 }` - Minimum total across all dimensions
+- `{ "type": "total_max", "value": -2 }` - Maximum total allowed
 
-## Icons
-Ingredient icons live in `assets/icons/` and are simple inline SVGs.
+**Legacy Format (Still Supported):**
+- `{ "dim": "calm", "op": "gte", "value": 3 }` - Greater than or equal
+- `{ "dim": "focus", "min": -2, "max": 2 }` - Range check
+
+**Matching Priority:**
+When multiple results match all conditions, the highest `priority` value wins. Ties are resolved by order in the JSON file.
+
+## 🎴 Share Cards
+
+Click the "Download Share Card" button on any result to generate a custom image perfect for social sharing.
+
+**Customize Card Generation:**
+Edit the `downloadShareCard()` function in `assets/js/app.js` to modify:
+- Canvas dimensions
+- Layout and positioning
+- Colors and fonts
+- Image composition
+
+The generated card includes the potion name, a visual representation, and is automatically downloaded as PNG.
+
+## 🌐 Deployment
+
+### GitHub Pages
+
+This repository includes an automated GitHub Actions workflow for deployment.
+
+**Setup Steps:**
+
+1. **Enable GitHub Pages:**
+   - Go to your repository Settings → Pages
+   - Under "Source", select **GitHub Actions**
+
+2. **Push to Main:**
+   ```bash
+   git push origin main
+   ```
+
+3. **Deployment:**
+   - The workflow automatically triggers on push to `main`
+   - Your site will be available at: `https://[username].github.io/potionality/`
+
+4. **Manual Deployment:**
+   - Go to Actions tab in your repository
+   - Select "Deploy to GitHub Pages" workflow
+   - Click "Run workflow"
+
+**Custom Domain (Optional):**
+Add a `CNAME` file to the repository root with your custom domain name.
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Fork the repository**
+2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
+3. **Make your changes**
+4. **Test locally** to ensure everything works
+5. **Commit your changes** (`git commit -m 'Add some amazing feature'`)
+6. **Push to the branch** (`git push origin feature/amazing-feature`)
+7. **Open a Pull Request**
+
+**Ideas for Contributions:**
+- New potion results with unique conditions
+- Additional questions that explore different personality facets
+- UI/UX improvements and animations
+- Accessibility enhancements
+- Performance optimizations
+- Documentation improvements
+- Translation/internationalization
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+**Built for reflective decision-making.**
+
+Made with ✨ by [SeaBoiii](https://github.com/SeaBoiii)
+
+[⬆ Back to Top](#-potionality---if-you-were-a-potion)
+
+</div>
