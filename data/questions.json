@@ -313,7 +313,7 @@
           "image": "assets/images/q5/conversation.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q5.png"
     },
     {
       "id": "q6",
@@ -376,7 +376,7 @@
           "image": "assets/images/q6/ask.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q6.png"
     },
     {
       "id": "q7",
@@ -439,7 +439,7 @@
           "image": "assets/images/q7/remind.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q7.png"
     },
     {
       "id": "q8",
@@ -502,7 +502,7 @@
           "image": "assets/images/q8/petal.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q8.png"
     },
     {
       "id": "q9",
@@ -565,7 +565,7 @@
           "image": "assets/images/q9/help.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q9.png"
     },
     {
       "id": "q10",
@@ -628,7 +628,7 @@
           "image": "assets/images/q10/follow.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q10.png"
     },
     {
       "id": "q11",
@@ -691,7 +691,7 @@
           "image": "assets/images/q11/morale.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q11.png"
     },
     {
       "id": "q12",
@@ -754,7 +754,7 @@
           "image": "assets/images/q12/step_away.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q12.png"
     },
     {
       "id": "q13",
@@ -817,7 +817,7 @@
           "image": "assets/images/q13/life.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q13.png"
     },
     {
       "id": "q14",
@@ -880,7 +880,7 @@
           "image": "assets/images/q14/remind.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q14.png"
     },
     {
       "id": "q15",
@@ -943,7 +943,7 @@
           "image": "assets/images/q15/myth.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q15.png"
     },
     {
       "id": "q16",
@@ -1006,7 +1006,7 @@
           "image": "assets/images/q16/festival.png"
         }
       ],
-      "image": ""
+      "image": "assets/images/q16.png"
     }
   ]
 }
