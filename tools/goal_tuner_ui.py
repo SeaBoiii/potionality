@@ -193,7 +193,11 @@ def condition_bounds(cond: dict[str, Any], key: str) -> tuple[float, float, floa
     if key in ("min", "max"):
         return -20.0, 20.0, 1.0
     if key == "value":
-        if cond_type in ("min", "max_le", "max_ge", "top_diff_gte", "top_diff_lte", "diff_abs_lte", "diff_greater"):
+        if cond_type in ("min", "max_le", "max_ge"):
+            return -20.0, 20.0, 1.0
+        if cond_type in ("top_diff_gte", "top_diff_lte", "diff_abs_lte"):
+            return 0.0, 20.0, 1.0
+        if cond_type == "diff_greater":
             return -20.0, 20.0, 1.0
         if cond_type in ("total_min", "total_max"):
             return 0.0, 160.0, 1.0
@@ -276,6 +280,25 @@ def apply_vector_to_results(
         original = {r["id"]: r.get("priority", 0) for r in base_results_data["results"]}
         for result in tuned["results"]:
             result["priority"] = original[result["id"]]
+    # Sanity constraints for condition pairs on each result.
+    for result in tuned["results"]:
+        total_min_idx = None
+        total_max_idx = None
+        for i, cond in enumerate(result.get("conditions", [])):
+            ctype = cond.get("type")
+            if ctype == "total_min":
+                total_min_idx = i
+            elif ctype == "total_max":
+                total_max_idx = i
+            elif ctype in ("top_diff_gte", "top_diff_lte", "diff_abs_lte") and "value" in cond:
+                cond["value"] = max(0, int(cond["value"]))
+        if total_min_idx is not None and total_max_idx is not None:
+            lo = int(result["conditions"][total_min_idx].get("value", 0))
+            hi = int(result["conditions"][total_max_idx].get("value", 0))
+            if lo > hi:
+                midpoint = (lo + hi) // 2
+                result["conditions"][total_min_idx]["value"] = midpoint
+                result["conditions"][total_max_idx]["value"] = midpoint
     return tuned
 
 
@@ -397,6 +420,10 @@ class GoalTunerUI:
         self.priority_var = tk.BooleanVar(value=True)
         self.status_var = tk.StringVar(value="Ready")
         self.score_var = tk.StringVar(value="-")
+        self.audit_window: tk.Toplevel | None = None
+        self.audit_text: tk.Text | None = None
+        self.audit_min_var = tk.StringVar(value="-3")
+        self.audit_max_var = tk.StringVar(value="-1")
 
         self._build()
         self._populate_current_distribution()
@@ -419,6 +446,7 @@ class GoalTunerUI:
         ttk.Button(top, text="Refresh Current", command=self._populate_current_distribution).grid(row=0, column=7, padx=6)
         ttk.Button(top, text="Optimize", command=self._start_optimize).grid(row=0, column=8, padx=6)
         ttk.Button(top, text="Save Tuned results.json", command=self._save_tuned).grid(row=0, column=9, padx=6)
+        ttk.Button(top, text="Weights Audit UI", command=self._open_audit_window).grid(row=0, column=10, padx=6)
 
         ttk.Label(top, text="Objective Score:").grid(row=1, column=0, sticky=tk.W, padx=4, pady=(8, 0))
         ttk.Label(top, textvariable=self.score_var).grid(row=1, column=1, sticky=tk.W, padx=4, pady=(8, 0))
@@ -548,6 +576,155 @@ class GoalTunerUI:
         save_json(self.results_path, self.tuned_results_data)
         self.results_data = copy.deepcopy(self.tuned_results_data)
         self.status_var.set(f"Saved tuned config to {self.results_path}. Backup: {backup.name}")
+
+    def _audit_stats(self) -> dict[str, Any]:
+        dims = [d["id"] for d in self.settings_data["dimensions"]]
+        per = {d: {"neg": 0, "pos": 0, "zero": 0, "sum": 0} for d in dims}
+        neg_values: list[int] = []
+        violations: list[tuple[str, int, str, int]] = []
+        for q in self.questions_data["questions"]:
+            qid = q.get("id", "?")
+            for oi, opt in enumerate(q.get("options", []), start=1):
+                w = opt.get("weights", {})
+                for d in dims:
+                    val = int(w.get(d, 0))
+                    per[d]["sum"] += val
+                    if val < 0:
+                        per[d]["neg"] += 1
+                        neg_values.append(val)
+                        if val < -3 or val > -1:
+                            violations.append((qid, oi, d, val))
+                    elif val > 0:
+                        per[d]["pos"] += 1
+                    else:
+                        per[d]["zero"] += 1
+        return {
+            "dims": dims,
+            "per": per,
+            "neg_values": neg_values,
+            "violations": violations,
+        }
+
+    def _format_audit(self) -> str:
+        s = self._audit_stats()
+        per = s["per"]
+        neg_values = s["neg_values"]
+        violations = s["violations"]
+        lines: list[str] = []
+        lines.append("Weights Semantic Audit")
+        lines.append("======================")
+        lines.append("")
+        lines.append(f"Negative count: {len(neg_values)}")
+        if neg_values:
+            lines.append(f"Negative min/max: {min(neg_values)} / {max(neg_values)}")
+            freq: dict[int, int] = {}
+            for v in neg_values:
+                freq[v] = freq.get(v, 0) + 1
+            lines.append(f"Negative freq: {dict(sorted(freq.items()))}")
+        else:
+            lines.append("Negative min/max: n/a")
+            lines.append("Negative freq: {}")
+        lines.append("")
+        lines.append("Per-dimension:")
+        for d in s["dims"]:
+            p = per[d]
+            lines.append(
+                f"- {d}: pos={p['pos']} neg={p['neg']} zero={p['zero']} net_sum={p['sum']}"
+            )
+        lines.append("")
+        lines.append("Band violations (expected negative band: -3..-1):")
+        if not violations:
+            lines.append("- none")
+        else:
+            for qid, oi, d, val in violations:
+                lines.append(f"- {qid} option {oi} {d}={val}")
+        return "\n".join(lines)
+
+    def _refresh_audit_text(self) -> None:
+        if not self.audit_text:
+            return
+        self.audit_text.configure(state=tk.NORMAL)
+        self.audit_text.delete("1.0", tk.END)
+        self.audit_text.insert("1.0", self._format_audit())
+        self.audit_text.configure(state=tk.DISABLED)
+
+    def _apply_negative_band_and_save(self) -> None:
+        try:
+            min_v = int(self.audit_min_var.get().strip())
+            max_v = int(self.audit_max_var.get().strip())
+        except ValueError:
+            self.status_var.set("Audit: min/max must be integers.")
+            return
+        if min_v > max_v:
+            self.status_var.set("Audit: min cannot be greater than max.")
+            return
+        if max_v >= 0:
+            self.status_var.set("Audit: max must stay negative.")
+            return
+
+        changed = 0
+        for q in self.questions_data["questions"]:
+            for opt in q.get("options", []):
+                w = opt.get("weights", {})
+                for k, v in list(w.items()):
+                    iv = int(v)
+                    if iv < 0:
+                        nv = max(min_v, min(max_v, iv))
+                        if nv != iv:
+                            w[k] = nv
+                            changed += 1
+
+        backup = self.questions_path.with_suffix(".json.bak")
+        save_json(backup, load_json(self.questions_path))
+        save_json(self.questions_path, self.questions_data)
+        self._refresh_audit_text()
+        self.status_var.set(
+            f"Audit: enforced negative band [{min_v},{max_v}] and saved questions.json ({changed} edits)."
+        )
+
+    def _export_audit_markdown(self) -> None:
+        report = self._format_audit()
+        out = self.repo_root / "docs" / "weights_semantic_audit.md"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        with out.open("w", encoding="utf-8") as f:
+            f.write(report)
+            f.write("\n")
+        self.status_var.set(f"Audit report exported to {out}")
+
+    def _open_audit_window(self) -> None:
+        if self.audit_window and self.audit_window.winfo_exists():
+            self.audit_window.focus_set()
+            self._refresh_audit_text()
+            return
+
+        w = tk.Toplevel(self.root)
+        w.title("Weights Semantic Audit")
+        w.geometry("900x620")
+        self.audit_window = w
+
+        controls = ttk.Frame(w, padding=8)
+        controls.pack(fill=tk.X)
+        ttk.Label(controls, text="Neg Min").pack(side=tk.LEFT, padx=(0, 6))
+        ttk.Entry(controls, textvariable=self.audit_min_var, width=6).pack(side=tk.LEFT)
+        ttk.Label(controls, text="Neg Max").pack(side=tk.LEFT, padx=(12, 6))
+        ttk.Entry(controls, textvariable=self.audit_max_var, width=6).pack(side=tk.LEFT)
+        ttk.Button(controls, text="Refresh", command=self._refresh_audit_text).pack(side=tk.LEFT, padx=10)
+        ttk.Button(controls, text="Enforce Band + Save", command=self._apply_negative_band_and_save).pack(
+            side=tk.LEFT, padx=6
+        )
+        ttk.Button(controls, text="Export Markdown", command=self._export_audit_markdown).pack(side=tk.LEFT, padx=6)
+
+        frame = ttk.Frame(w, padding=(8, 0, 8, 8))
+        frame.pack(fill=tk.BOTH, expand=True)
+        txt = tk.Text(frame, wrap=tk.NONE)
+        yscroll = ttk.Scrollbar(frame, orient=tk.VERTICAL, command=txt.yview)
+        xscroll = ttk.Scrollbar(frame, orient=tk.HORIZONTAL, command=txt.xview)
+        txt.configure(yscrollcommand=yscroll.set, xscrollcommand=xscroll.set)
+        txt.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        yscroll.pack(side=tk.RIGHT, fill=tk.Y)
+        xscroll.pack(side=tk.BOTTOM, fill=tk.X)
+        self.audit_text = txt
+        self._refresh_audit_text()
 
 
 def quick_test(repo_root: Path) -> int:
