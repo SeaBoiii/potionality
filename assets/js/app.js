@@ -393,6 +393,15 @@ function meetsCondition(cond) {
       const sorted = getSortedScores();
       return sorted[0]?.id === cond.dim;
     }
+    case "not_top_is": {
+      const sorted = getSortedScores();
+      return sorted[0]?.id !== cond.dim;
+    }
+    case "rank_is": {
+      const sorted = getSortedScores();
+      const rank = Math.max(1, Number(cond.rank) || 1);
+      return sorted[rank - 1]?.id === cond.dim;
+    }
     case "top_diff_gte": {
       const sorted = getSortedScores();
       const top = sorted[0]?.value ?? 0;
@@ -412,6 +421,16 @@ function meetsCondition(cond) {
     case "total_max": {
       const total = Object.values(scoreMap).reduce((sum, val) => sum + val, 0);
       return total <= value;
+    }
+    case "sum_min": {
+      const dims = Array.isArray(cond.dims) ? cond.dims : [];
+      const sum = dims.reduce((acc, id) => acc + (scoreMap[id] ?? 0), 0);
+      return sum >= value;
+    }
+    case "sum_max": {
+      const dims = Array.isArray(cond.dims) ? cond.dims : [];
+      const sum = dims.reduce((acc, id) => acc + (scoreMap[id] ?? 0), 0);
+      return sum <= value;
     }
     default:
       return true;

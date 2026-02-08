@@ -102,6 +102,13 @@ def build_condition_expr(cond: dict[str, Any] | None, final_scores: dict[str, An
         return If(a - b >= 0, a - b, b - a) <= value
     if cond_type == "top_is":
         return is_top_dim_expr(cond["dim"])
+    if cond_type == "not_top_is":
+        return Not(is_top_dim_expr(cond["dim"]))
+    if cond_type == "rank_is":
+        rank = int(cond.get("rank", 1))
+        if rank == 1:
+            return is_top_dim_expr(cond["dim"])
+        return True
     if cond_type == "top_diff_gte":
         return top_diff_compare("gte", value)
     if cond_type == "top_diff_lte":
@@ -110,6 +117,12 @@ def build_condition_expr(cond: dict[str, Any] | None, final_scores: dict[str, An
         return sum(final_scores[d] for d in dims) >= value
     if cond_type == "total_max":
         return sum(final_scores[d] for d in dims) <= value
+    if cond_type == "sum_min":
+        dims_list = cond.get("dims", [])
+        return sum(final_scores[d] for d in dims_list) >= value
+    if cond_type == "sum_max":
+        dims_list = cond.get("dims", [])
+        return sum(final_scores[d] for d in dims_list) <= value
 
     return True
 

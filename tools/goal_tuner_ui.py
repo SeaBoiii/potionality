@@ -109,6 +109,16 @@ class ResultEvaluator:
             return abs(self._score(profile, cond["a"]) - self._score(profile, cond["b"])) <= value
         if cond_type == "top_is":
             return self.top_dim(profile) == cond["dim"]
+        if cond_type == "not_top_is":
+            return self.top_dim(profile) != cond["dim"]
+        if cond_type == "rank_is":
+            rank = max(1, int(cond.get("rank", 1)))
+            ordered = sorted(
+                ((d, profile.scores[self.dim_idx[d]]) for d in self.dim_ids),
+                key=lambda item: item[1],
+                reverse=True,
+            )
+            return len(ordered) >= rank and ordered[rank - 1][0] == cond["dim"]
         if cond_type == "top_diff_gte":
             return (profile.top_val - profile.second_val) >= value
         if cond_type == "top_diff_lte":
@@ -117,6 +127,12 @@ class ResultEvaluator:
             return profile.total >= value
         if cond_type == "total_max":
             return profile.total <= value
+        if cond_type == "sum_min":
+            dims_list = cond.get("dims", [])
+            return sum(self._score(profile, d) for d in dims_list) >= value
+        if cond_type == "sum_max":
+            dims_list = cond.get("dims", [])
+            return sum(self._score(profile, d) for d in dims_list) <= value
         return True
 
     def top_dim(self, profile: Profile) -> str:

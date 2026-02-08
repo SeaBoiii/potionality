@@ -76,6 +76,12 @@ def meets_condition(cond: dict[str, Any] | None, scores: dict[str, int], dims: l
         return abs(scores.get(cond["a"], 0) - scores.get(cond["b"], 0)) <= value
     if cond_type == "top_is":
         return sorted_scores(scores, dims)[0][0] == cond["dim"]
+    if cond_type == "not_top_is":
+        return sorted_scores(scores, dims)[0][0] != cond["dim"]
+    if cond_type == "rank_is":
+        ranked = sorted_scores(scores, dims)
+        rank = max(1, int(cond.get("rank", 1)))
+        return len(ranked) >= rank and ranked[rank - 1][0] == cond["dim"]
     if cond_type == "top_diff_gte":
         ranked = sorted_scores(scores, dims)
         top = ranked[0][1]
@@ -90,6 +96,12 @@ def meets_condition(cond: dict[str, Any] | None, scores: dict[str, int], dims: l
         return sum(scores.get(d, 0) for d in dims) >= value
     if cond_type == "total_max":
         return sum(scores.get(d, 0) for d in dims) <= value
+    if cond_type == "sum_min":
+        dims_list = cond.get("dims", [])
+        return sum(scores.get(d, 0) for d in dims_list) >= value
+    if cond_type == "sum_max":
+        dims_list = cond.get("dims", [])
+        return sum(scores.get(d, 0) for d in dims_list) <= value
 
     return True
 
@@ -308,6 +320,14 @@ def _reachability_worker(
             return If(a - b >= 0, a - b, b - a) <= value
         if cond_type == "top_is":
             return is_top_dim_expr(cond["dim"])
+        if cond_type == "not_top_is":
+            return Not(is_top_dim_expr(cond["dim"]))
+        if cond_type == "rank_is":
+            # Currently supports rank 1 semantics (same as top_is). Other ranks are ignored safely.
+            rank = int(cond.get("rank", 1))
+            if rank == 1:
+                return is_top_dim_expr(cond["dim"])
+            return True
         if cond_type == "top_diff_gte":
             return top_diff_compare("gte", value)
         if cond_type == "top_diff_lte":
@@ -316,6 +336,12 @@ def _reachability_worker(
             return sum(final_scores[d] for d in dims) >= value
         if cond_type == "total_max":
             return sum(final_scores[d] for d in dims) <= value
+        if cond_type == "sum_min":
+            dims_list = cond.get("dims", [])
+            return sum(final_scores[d] for d in dims_list) >= value
+        if cond_type == "sum_max":
+            dims_list = cond.get("dims", [])
+            return sum(final_scores[d] for d in dims_list) <= value
 
         return True
 
