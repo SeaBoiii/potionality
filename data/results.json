@@ -22,12 +22,12 @@
         "You speak with conviction without making people feel small.",
         "In chaos, you become the point of orientation."
       ],
-      "priority": 18,
+      "priority": 16,
       "conditions": [
         {
           "type": "min",
           "dim": "courage",
-          "value": 15
+          "value": 10
         },
         {
           "type": "min",
@@ -37,11 +37,11 @@
         {
           "type": "min",
           "dim": "tempo",
-          "value": 8
+          "value": 3
         },
         {
           "type": "diff_abs_lte",
-          "value": 5,
+          "value": 8,
           "a": "courage",
           "b": "tempo"
         }
@@ -70,21 +70,21 @@
         "You protect quality even when the clock is loud.",
         "You don’t just finish — you leave things better than you found them."
       ],
-      "priority": 18,
+      "priority": 12,
       "conditions": [
         {
           "type": "min",
           "dim": "tempo",
-          "value": 11
+          "value": 4
         },
         {
           "type": "min",
           "dim": "focus",
-          "value": 11
+          "value": 1
         },
         {
           "type": "diff_abs_lte",
-          "value": 4,
+          "value": 11,
           "a": "tempo",
           "b": "focus"
         }
@@ -113,21 +113,21 @@
         "You ask the question that saves everyone time later.",
         "You turn confusion into understanding — gently, but firmly."
       ],
-      "priority": 18,
+      "priority": 24,
       "conditions": [
         {
           "type": "min",
           "dim": "insight",
-          "value": 15
+          "value": 14
         },
         {
           "type": "min",
           "dim": "focus",
-          "value": 12
+          "value": 8
         },
         {
           "type": "diff_abs_lte",
-          "value": 3,
+          "value": 6,
           "a": "insight",
           "b": "focus"
         }
@@ -156,21 +156,21 @@
         "You can be compassionate and still say no.",
         "You make safety feel solid, not fragile."
       ],
-      "priority": 18,
+      "priority": 13,
       "conditions": [
         {
           "type": "min",
           "dim": "calm",
-          "value": 14
+          "value": 9
         },
         {
           "type": "min",
           "dim": "resolve",
-          "value": 18
+          "value": 13
         },
         {
           "type": "diff_abs_lte",
-          "value": 3,
+          "value": 7,
           "a": "calm",
           "b": "resolve"
         }
@@ -199,7 +199,7 @@
         "You turn routine into something alive again.",
         "You bring hope without pretending pain isn’t real."
       ],
-      "priority": 18,
+      "priority": 15,
       "conditions": [
         {
           "type": "min",
@@ -209,11 +209,11 @@
         {
           "type": "min",
           "dim": "charm",
-          "value": 11
+          "value": 7
         },
         {
           "type": "diff_abs_lte",
-          "value": 3,
+          "value": 1,
           "a": "wonder",
           "b": "charm"
         }
@@ -242,21 +242,21 @@
         "You make bravery practical — not performative.",
         "You move fast, but you don’t lose the point."
       ],
-      "priority": 18,
+      "priority": 13,
       "conditions": [
         {
           "type": "min",
           "dim": "courage",
-          "value": 14
+          "value": 9
         },
         {
           "type": "min",
           "dim": "tempo",
-          "value": 6
+          "value": 3
         },
         {
           "type": "diff_abs_lte",
-          "value": 7,
+          "value": 6,
           "a": "courage",
           "b": "tempo"
         }
@@ -285,21 +285,21 @@
         "You handle delicate moments without breaking people.",
         "You choose the long win over the loud win."
       ],
-      "priority": 18,
+      "priority": 17,
       "conditions": [
         {
           "type": "min",
           "dim": "calm",
-          "value": 7
+          "value": 9
         },
         {
           "type": "min",
           "dim": "insight",
-          "value": 10
+          "value": 8
         },
         {
           "type": "diff_abs_lte",
-          "value": 9,
+          "value": 7,
           "a": "calm",
           "b": "insight"
         }
@@ -333,12 +333,12 @@
         {
           "type": "min",
           "dim": "charm",
-          "value": 9
+          "value": 5
         },
         {
           "type": "min",
           "dim": "insight",
-          "value": 11
+          "value": 10
         },
         {
           "type": "diff_abs_lte",
@@ -349,7 +349,7 @@
         {
           "type": "max_le",
           "dim": "wonder",
-          "value": 14
+          "value": 17
         }
       ],
       "image": "assets/images/potion_velvet.png"
@@ -376,7 +376,7 @@
         "You keep your nervous system steady when others can’t.",
         "You restore clarity just by being present."
       ],
-      "priority": 10,
+      "priority": 12,
       "conditions": [
         {
           "type": "top_is",
@@ -385,11 +385,11 @@
         {
           "type": "min",
           "dim": "calm",
-          "value": 11
+          "value": 7
         },
         {
           "type": "top_diff_gte",
-          "value": 2
+          "value": 0
         }
       ],
       "image": "assets/images/potion_top_calm.png"
@@ -416,7 +416,7 @@
         "You are brave in ways that actually help — not just look impressive.",
         "You turn fear into motion without losing your values."
       ],
-      "priority": 19,
+      "priority": 21,
       "conditions": [
         {
           "type": "top_is",
@@ -425,11 +425,11 @@
         {
           "type": "min",
           "dim": "courage",
-          "value": 12
+          "value": 10
         },
         {
           "type": "top_diff_gte",
-          "value": 2
+          "value": 1
         }
       ],
       "image": "assets/images/potion_top_courage.png"
@@ -456,7 +456,7 @@
         "You protect attention like it’s sacred.",
         "You bring structure to complexity without panicking."
       ],
-      "priority": 19,
+      "priority": 17,
       "conditions": [
         {
           "type": "top_is",
@@ -465,11 +465,11 @@
         {
           "type": "min",
           "dim": "focus",
-          "value": 18
+          "value": 16
         },
         {
           "type": "top_diff_gte",
-          "value": 4
+          "value": 0
         }
       ],
       "image": "assets/images/potion_top_focus.png"
@@ -496,7 +496,7 @@
         "You reduce tension without avoiding reality.",
         "You make others feel seen, not managed."
       ],
-      "priority": 10,
+      "priority": 15,
       "conditions": [
         {
           "type": "top_is",
@@ -505,7 +505,7 @@
         {
           "type": "min",
           "dim": "charm",
-          "value": 8
+          "value": 2
         },
         {
           "type": "top_diff_gte",
@@ -536,7 +536,7 @@
         "You start things other people only talk about.",
         "You recover quickly and move on without spiraling."
       ],
-      "priority": 19,
+      "priority": 15,
       "conditions": [
         {
           "type": "top_is",
@@ -545,11 +545,11 @@
         {
           "type": "min",
           "dim": "tempo",
-          "value": 14
+          "value": 13
         },
         {
           "type": "top_diff_gte",
-          "value": 2
+          "value": 1
         }
       ],
       "image": "assets/images/potion_top_tempo.png"
@@ -576,7 +576,7 @@
         "You connect clues quickly and calmly.",
         "You name the real issue before it grows teeth."
       ],
-      "priority": 20,
+      "priority": 25,
       "conditions": [
         {
           "type": "top_is",
@@ -585,7 +585,7 @@
         {
           "type": "min",
           "dim": "insight",
-          "value": 0
+          "value": 2
         },
         {
           "type": "top_diff_gte",
@@ -616,7 +616,7 @@
         "You don’t fold under pressure or guilt.",
         "Your loyalty is deliberate — not automatic."
       ],
-      "priority": 19,
+      "priority": 21,
       "conditions": [
         {
           "type": "top_is",
@@ -625,11 +625,11 @@
         {
           "type": "min",
           "dim": "resolve",
-          "value": 18
+          "value": 17
         },
         {
           "type": "top_diff_gte",
-          "value": 3
+          "value": 0
         }
       ],
       "image": "assets/images/potion_top_resolve.png"
@@ -665,11 +665,11 @@
         {
           "type": "min",
           "dim": "wonder",
-          "value": 18
+          "value": 15
         },
         {
           "type": "top_diff_gte",
-          "value": 3
+          "value": 2
         }
       ],
       "image": "assets/images/potion_top_wonder.png"
@@ -696,19 +696,19 @@
         "You don’t get trapped in one mode — you choose the right one.",
         "You stay recognizably yourself across different rooms."
       ],
-      "priority": 1,
+      "priority": 30,
       "conditions": [
         {
           "type": "top_diff_lte",
-          "value": 1
+          "value": 0
         },
         {
           "type": "total_min",
-          "value": 89
+          "value": 50
         },
         {
           "type": "total_max",
-          "value": 93
+          "value": 51
         }
       ],
       "image": "assets/images/potion_equilibrium.png"
