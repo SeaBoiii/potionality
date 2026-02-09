@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Condition Wiki</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    body { max-width: 980px; margin: 0 auto; }
+    .wiki-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .wiki-table th, .wiki-table td { border: 1px solid #d7d2c3; padding: 8px; text-align: left; vertical-align: top; }
+    .wiki-table th { background: #f2e8d7; }
+    .wiki-table code { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Condition Wiki</h1>
+    <p>Quick meanings and examples for supported condition types.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <table class="wiki-table">
+        <thead>
+          <tr><th>Type</th><th>Meaning</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>min</code></td><td>Dimension score must be at least value.</td><td><code>{ "type": "min", "dim": "focus", "value": 5 }</code></td></tr>
+          <tr><td><code>max_le</code></td><td>Dimension score must be less than or equal to value.</td><td><code>{ "type": "max_le", "dim": "wonder", "value": 3 }</code></td></tr>
+          <tr><td><code>max_ge</code></td><td>Dimension score must be greater than or equal to value.</td><td><code>{ "type": "max_ge", "dim": "calm", "value": 0 }</code></td></tr>
+          <tr><td><code>diff_greater</code></td><td>A must be greater than B plus value.</td><td><code>{ "type": "diff_greater", "a": "calm", "b": "tempo", "value": 2 }</code></td></tr>
+          <tr><td><code>diff_abs_lte</code></td><td>Absolute difference between A and B must be less than or equal to value.</td><td><code>{ "type": "diff_abs_lte", "a": "focus", "b": "insight", "value": 4 }</code></td></tr>
+          <tr><td><code>top_is</code></td><td>Selected dimension must be the highest score.</td><td><code>{ "type": "top_is", "dim": "charm" }</code></td></tr>
+          <tr><td><code>not_top_is</code></td><td>Selected dimension must not be the highest score.</td><td><code>{ "type": "not_top_is", "dim": "tempo" }</code></td></tr>
+          <tr><td><code>rank_is</code></td><td>Selected dimension must be at exact rank (1 = highest).</td><td><code>{ "type": "rank_is", "dim": "calm", "rank": 2 }</code></td></tr>
+          <tr><td><code>top_diff_gte</code></td><td>Top score minus second score must be at least value.</td><td><code>{ "type": "top_diff_gte", "value": 3 }</code></td></tr>
+          <tr><td><code>top_diff_lte</code></td><td>Top score minus second score must be at most value.</td><td><code>{ "type": "top_diff_lte", "value": 2 }</code></td></tr>
+          <tr><td><code>total_min</code></td><td>Sum of all dimension scores must be at least value.</td><td><code>{ "type": "total_min", "value": 10 }</code></td></tr>
+          <tr><td><code>total_max</code></td><td>Sum of all dimension scores must be at most value.</td><td><code>{ "type": "total_max", "value": 20 }</code></td></tr>
+          <tr><td><code>sum_min</code></td><td>Sum of selected dimensions must be at least value.</td><td><code>{ "type": "sum_min", "dims": ["calm", "focus"], "value": 6 }</code></td></tr>
+          <tr><td><code>sum_max</code></td><td>Sum of selected dimensions must be at most value.</td><td><code>{ "type": "sum_max", "dims": ["tempo", "wonder"], "value": 8 }</code></td></tr>
+          <tr><td><code>spread_between</code></td><td>Score spread (max-min) must be within [min, max].</td><td><code>{ "type": "spread_between", "min": 0, "max": 6 }</code></td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:10px;">Tip: Unknown custom types are preserved in JSON but are not interpreted by the quiz runtime unless implemented there.</p>
+    </section>
+  </main>
+</body>
+</html>

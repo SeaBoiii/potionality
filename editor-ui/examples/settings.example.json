@@ -1,0 +1,27 @@
+﻿{
+  "title": "Potion Starter Quiz",
+  "subtitle": "Small starter set for building your own full quiz.",
+  "dimensions": [
+    {
+      "id": "calm",
+      "label": "Calm",
+      "left": "Still",
+      "right": "Stirred",
+      "description": "How you regulate pressure"
+    },
+    {
+      "id": "focus",
+      "label": "Focus",
+      "left": "Wide",
+      "right": "Deep",
+      "description": "How long you hold attention"
+    },
+    {
+      "id": "wonder",
+      "label": "Wonder",
+      "left": "Practical",
+      "right": "Mythic",
+      "description": "How much you chase possibility"
+    }
+  ]
+}

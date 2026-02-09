@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potionality Data Builder</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Potionality Data Builder</h1>
+    <p>Create and edit <code>settings.json</code>, <code>questions.json</code>, and <code>results.json</code>.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls">
+      <h2>Project Data</h2>
+      <div class="row wrap">
+        <button id="load-starter" type="button">Load Starter Example</button>
+        <button id="load-project" type="button">Load ../data/*.json</button>
+        <button id="sync-json" type="button">Sync Forms -> JSON Editors</button>
+      </div>
+      <div class="row wrap">
+        <label>Import settings.json <input id="import-settings" type="file" accept=".json,application/json" /></label>
+        <label>Import questions.json <input id="import-questions" type="file" accept=".json,application/json" /></label>
+        <label>Import results.json <input id="import-results" type="file" accept=".json,application/json" /></label>
+      </div>
+      <div class="row wrap">
+        <button id="download-settings" type="button">Download settings.json</button>
+        <button id="download-questions" type="button">Download questions.json</button>
+        <button id="download-results" type="button">Download results.json</button>
+      </div>
+      <div class="row wrap">
+        <label><input id="show-potion-fields" type="checkbox" /> Show potion-specific result fields</label>
+        <a class="link" href="wiki.html" target="_blank" rel="noopener">Condition Wiki</a>
+      </div>
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="panel tabs">
+      <div class="tab-bar" role="tablist" aria-label="Data sections">
+        <button class="tab-btn is-active" data-tab="settings" type="button" role="tab" aria-selected="true">Settings</button>
+        <button class="tab-btn" data-tab="questions" type="button" role="tab" aria-selected="false">Questions</button>
+        <button class="tab-btn" data-tab="results" type="button" role="tab" aria-selected="false">Results</button>
+      </div>
+
+      <div id="tab-settings" class="tab-panel is-active" data-panel="settings" role="tabpanel">
+        <h2>Settings + Dimensions</h2>
+        <div id="settings-editor"></div>
+
+        <div class="card json-card">
+          <div class="row between">
+            <h3>settings.json</h3>
+            <button type="button" data-apply-json="settings">Apply to Forms</button>
+          </div>
+          <textarea id="json-settings" spellcheck="false"></textarea>
+        </div>
+      </div>
+
+      <div id="tab-questions" class="tab-panel" data-panel="questions" role="tabpanel" hidden>
+        <h2>Questions</h2>
+        <div class="row">
+          <button id="add-question" type="button">Add Question</button>
+        </div>
+        <div id="questions-editor"></div>
+
+        <div class="card json-card">
+          <div class="row between">
+            <h3>questions.json</h3>
+            <button type="button" data-apply-json="questions">Apply to Forms</button>
+          </div>
+          <textarea id="json-questions" spellcheck="false"></textarea>
+        </div>
+      </div>
+
+      <div id="tab-results" class="tab-panel" data-panel="results" role="tabpanel" hidden>
+        <h2>Results</h2>
+        <div class="row between wrap">
+          <button id="add-result" type="button">Add Result</button>
+          <a class="link" href="wiki.html" target="_blank" rel="noopener">Open Condition Wiki</a>
+        </div>
+        <div id="results-editor"></div>
+
+        <div class="card json-card">
+          <div class="row between">
+            <h3>results.json</h3>
+            <button type="button" data-apply-json="results">Apply to Forms</button>
+          </div>
+          <textarea id="json-results" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

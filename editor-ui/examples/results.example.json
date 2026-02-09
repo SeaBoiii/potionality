@@ -1,0 +1,99 @@
+﻿{
+  "results": [
+    {
+      "id": "potion_moonwell",
+      "title": "Moonwell Quiet",
+      "summary": "Steady and regulating under pressure.",
+      "lore": "Brewed for nights when the room needs a center.",
+      "palette": {
+        "primary": "#557a8f",
+        "secondary": "#d3e3ea",
+        "accent": "#2a4250"
+      },
+      "tasting_notes": {
+        "top": "cool water",
+        "mid": "white tea",
+        "base": "stone"
+      },
+      "side_effect": "May over-carry everyone else's stress.",
+      "signature_ritual": "Exhale slowly before first sip.",
+      "signals": [
+        "You stabilize chaos quickly.",
+        "People feel safer around you."
+      ],
+      "priority": 10,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "calm"
+        },
+        {
+          "type": "min",
+          "dim": "calm",
+          "value": 4
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "potion_archive",
+      "title": "Ink of the Archive",
+      "summary": "Focused, exact, and consistent.",
+      "lore": "Favored by scribes who finish what they begin.",
+      "palette": {
+        "primary": "#4b5c7a",
+        "secondary": "#d0d7e4",
+        "accent": "#29364a"
+      },
+      "tasting_notes": {
+        "top": "bergamot",
+        "mid": "dry cocoa",
+        "base": "cedar"
+      },
+      "side_effect": "Can become too task-first.",
+      "signature_ritual": "Start the hardest step right away.",
+      "signals": [
+        "You keep a thread to completion.",
+        "You reduce noise in complex work."
+      ],
+      "priority": 9,
+      "conditions": [
+        {
+          "type": "top_is",
+          "dim": "focus"
+        },
+        {
+          "type": "min",
+          "dim": "focus",
+          "value": 4
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "potion_fallback",
+      "title": "Common Tonic",
+      "summary": "Balanced and adaptable across contexts.",
+      "lore": "A practical everyday brew.",
+      "palette": {
+        "primary": "#6b6f76",
+        "secondary": "#e4e7eb",
+        "accent": "#2f343a"
+      },
+      "tasting_notes": {
+        "top": "soft citrus",
+        "mid": "herbal tea",
+        "base": "warm grain"
+      },
+      "side_effect": "May avoid clear commitment for too long.",
+      "signature_ritual": "Name one small next step.",
+      "signals": [
+        "You stay steady.",
+        "You adapt without losing center."
+      ],
+      "priority": 0,
+      "conditions": [],
+      "image": ""
+    }
+  ]
+}

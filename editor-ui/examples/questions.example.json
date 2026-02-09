@@ -1,0 +1,72 @@
+﻿{
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "A locked room opens. You look for...",
+      "options": [
+        {
+          "text": "A quiet corner to think first.",
+          "weights": {
+            "calm": 3,
+            "focus": 1,
+            "wonder": -1
+          },
+          "image": ""
+        },
+        {
+          "text": "A map to understand every route.",
+          "weights": {
+            "calm": 0,
+            "focus": 3,
+            "wonder": 0
+          },
+          "image": ""
+        },
+        {
+          "text": "A clue no one else has noticed.",
+          "weights": {
+            "calm": -1,
+            "focus": 0,
+            "wonder": 3
+          },
+          "image": ""
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": "q2",
+      "prompt": "When plans change suddenly, you...",
+      "options": [
+        {
+          "text": "Slow down and re-center.",
+          "weights": {
+            "calm": 2,
+            "focus": 0,
+            "wonder": -1
+          },
+          "image": ""
+        },
+        {
+          "text": "List the next 3 actions.",
+          "weights": {
+            "calm": 0,
+            "focus": 2,
+            "wonder": 0
+          },
+          "image": ""
+        },
+        {
+          "text": "Follow the most interesting path.",
+          "weights": {
+            "calm": -1,
+            "focus": -1,
+            "wonder": 2
+          },
+          "image": ""
+        }
+      ],
+      "image": ""
+    }
+  ]
+}
