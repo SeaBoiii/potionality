@@ -85,12 +85,17 @@ function createCondition(type="min"){
 }
 
 function createResult(){
-  return {
+  const base = {
     id: nextResultId(), title:"", summary:"", lore:"", image:"", priority:0,
     palette:{ primary:"", secondary:"", accent:"" },
-    tasting_notes:{ top:"", mid:"", base:"" },
-    side_effect:"", signature_ritual:"", signals:[], conditions:[]
+    signals:[], conditions:[]
   };
+  if (state.ui.showPotionFields) {
+    base.tasting_notes = { top:"", mid:"", base:"" };
+    base.side_effect = "";
+    base.signature_ritual = "";
+  }
+  return base;
 }
 
 function normalizeData(){
@@ -118,14 +123,22 @@ function normalizeData(){
   if (Array.isArray(state.results)) state.results = { results: state.results };
   state.results = state.results && typeof state.results === "object" ? state.results : { results: [] };
   state.results.results = Array.isArray(state.results.results) ? state.results.results : [];
-  state.results.results = state.results.results.map((r,i)=>({
-    id:String(r?.id||`result_${i+1}`), title:String(r?.title||""), summary:String(r?.summary||""), lore:String(r?.lore||""), image:String(r?.image||""), priority:toNum(r?.priority,0),
-    palette:{ primary:String(r?.palette?.primary||""), secondary:String(r?.palette?.secondary||""), accent:String(r?.palette?.accent||"") },
-    tasting_notes:{ top:String(r?.tasting_notes?.top||""), mid:String(r?.tasting_notes?.mid||""), base:String(r?.tasting_notes?.base||"") },
-    side_effect:String(r?.side_effect||""), signature_ritual:String(r?.signature_ritual||""),
-    signals:Array.isArray(r?.signals)?r.signals.map((s)=>String(s||"")):(typeof r?.signals==="string"?r.signals.split(/\r?\n/).map((s)=>s.trim()).filter(Boolean):[]),
-    conditions:Array.isArray(r?.conditions)?r.conditions.map((c)=>({ ...c })) : []
-  }));
+  state.results.results = state.results.results.map((r,i)=>{
+    const result = {
+      id:String(r?.id||`result_${i+1}`), title:String(r?.title||""), summary:String(r?.summary||""), lore:String(r?.lore||""), image:String(r?.image||""), priority:toNum(r?.priority,0),
+      palette:{ primary:String(r?.palette?.primary||""), secondary:String(r?.palette?.secondary||""), accent:String(r?.palette?.accent||"") },
+      signals:Array.isArray(r?.signals)?r.signals.map((s)=>String(s||"")):(typeof r?.signals==="string"?r.signals.split(/\r?\n/).map((s)=>s.trim()).filter(Boolean):[]),
+      conditions:Array.isArray(r?.conditions)?r.conditions.map((c)=>({ ...c })) : []
+    };
+
+    if (state.ui.showPotionFields) {
+      result.tasting_notes = { top:String(r?.tasting_notes?.top||""), mid:String(r?.tasting_notes?.mid||""), base:String(r?.tasting_notes?.base||"") };
+      result.side_effect = String(r?.side_effect||"");
+      result.signature_ritual = String(r?.signature_ritual||"");
+    }
+
+    return result;
+  });
 
   const qCount = state.questions.questions.length;
   const rCount = state.results.results.length;
@@ -402,7 +415,14 @@ function bindControls(){
   });
 
   els.tabButtons.forEach((b)=>b.addEventListener("click", ()=>setActiveTab(b.dataset.tab || "settings")));
-  els.showPotionToggle.addEventListener("change", ()=>{ state.ui.showPotionFields = els.showPotionToggle.checked; renderResults(); syncJsonEditors(); });
+  els.showPotionToggle.addEventListener("change", ()=>{
+    state.ui.showPotionFields = els.showPotionToggle.checked;
+    normalizeData();
+    renderAll();
+    setStatus(state.ui.showPotionFields
+      ? "Potion fields enabled and added to result JSON."
+      : "Potion fields removed from result JSON.");
+  });
 
   document.getElementById("load-starter").addEventListener("click", async ()=>{ try{ await loadStarterExample(); } catch(err){ setStatus(`Failed to load starter example: ${err.message}`, true); } });
   document.getElementById("load-project").addEventListener("click", async ()=>{ try{ await loadProjectData(); } catch(err){ setStatus(`Failed to load project data: ${err.message}. Use a local server and open editor-ui/index.html via http://localhost.`, true); } });
