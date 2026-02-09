@@ -22,26 +22,26 @@
         "You speak with conviction without making people feel small.",
         "In chaos, you become the point of orientation."
       ],
-      "priority": 9,
+      "priority": 15,
       "conditions": [
         {
           "type": "min",
           "dim": "courage",
-          "value": 4
+          "value": 7
         },
         {
           "type": "min",
           "dim": "charm",
-          "value": 12
+          "value": 11
         },
         {
           "type": "min",
           "dim": "tempo",
-          "value": -19
+          "value": -15
         },
         {
           "type": "diff_abs_lte",
-          "value": 11,
+          "value": 7,
           "a": "courage",
           "b": "tempo"
         }
@@ -75,12 +75,12 @@
         {
           "type": "min",
           "dim": "tempo",
-          "value": -12
+          "value": -17
         },
         {
           "type": "min",
           "dim": "focus",
-          "value": -11
+          "value": -12
         },
         {
           "type": "diff_abs_lte",
@@ -113,7 +113,7 @@
         "You ask the question that saves everyone time later.",
         "You turn confusion into understanding — gently, but firmly."
       ],
-      "priority": 26,
+      "priority": 21,
       "conditions": [
         {
           "type": "min",
@@ -123,11 +123,11 @@
         {
           "type": "min",
           "dim": "focus",
-          "value": 4
+          "value": 11
         },
         {
           "type": "diff_abs_lte",
-          "value": 5,
+          "value": 12,
           "a": "insight",
           "b": "focus"
         }
@@ -161,7 +161,7 @@
         {
           "type": "min",
           "dim": "calm",
-          "value": 12
+          "value": 11
         },
         {
           "type": "min",
@@ -170,7 +170,7 @@
         },
         {
           "type": "diff_abs_lte",
-          "value": 16,
+          "value": 18,
           "a": "calm",
           "b": "resolve"
         }
@@ -199,21 +199,21 @@
         "You turn routine into something alive again.",
         "You bring hope without pretending pain isn’t real."
       ],
-      "priority": 9,
+      "priority": 10,
       "conditions": [
         {
           "type": "min",
           "dim": "wonder",
-          "value": 9
+          "value": 10
         },
         {
           "type": "min",
           "dim": "charm",
-          "value": 1
+          "value": -5
         },
         {
           "type": "diff_abs_lte",
-          "value": 16,
+          "value": 17,
           "a": "wonder",
           "b": "charm"
         }
@@ -242,17 +242,17 @@
         "You make bravery practical — not performative.",
         "You move fast, but you don’t lose the point."
       ],
-      "priority": 9,
+      "priority": 2,
       "conditions": [
         {
           "type": "min",
           "dim": "courage",
-          "value": 10
+          "value": 11
         },
         {
           "type": "min",
           "dim": "tempo",
-          "value": -16
+          "value": -13
         },
         {
           "type": "diff_abs_lte",
@@ -285,21 +285,21 @@
         "You handle delicate moments without breaking people.",
         "You choose the long win over the loud win."
       ],
-      "priority": 13,
+      "priority": 12,
       "conditions": [
         {
           "type": "min",
           "dim": "calm",
-          "value": 7
+          "value": 6
         },
         {
           "type": "min",
           "dim": "insight",
-          "value": 0
+          "value": 5
         },
         {
           "type": "diff_abs_lte",
-          "value": 9,
+          "value": 16,
           "a": "calm",
           "b": "insight"
         }
@@ -342,7 +342,7 @@
         },
         {
           "type": "diff_abs_lte",
-          "value": 15,
+          "value": 11,
           "a": "charm",
           "b": "insight"
         },
@@ -376,7 +376,7 @@
         "You keep your nervous system steady when others can’t.",
         "You restore clarity just by being present."
       ],
-      "priority": 38,
+      "priority": 33,
       "conditions": [
         {
           "type": "top_is",
@@ -416,7 +416,7 @@
         "You are brave in ways that actually help — not just look impressive.",
         "You turn fear into motion without losing your values."
       ],
-      "priority": 22,
+      "priority": 20,
       "conditions": [
         {
           "type": "top_is",
@@ -456,7 +456,7 @@
         "You protect attention like it’s sacred.",
         "You bring structure to complexity without panicking."
       ],
-      "priority": 30,
+      "priority": 38,
       "conditions": [
         {
           "type": "top_is",
@@ -496,7 +496,7 @@
         "You reduce tension without avoiding reality.",
         "You make others feel seen, not managed."
       ],
-      "priority": 32,
+      "priority": 31,
       "conditions": [
         {
           "type": "top_is",
@@ -536,7 +536,7 @@
         "You start things other people only talk about.",
         "You recover quickly and move on without spiraling."
       ],
-      "priority": 27,
+      "priority": 30,
       "conditions": [
         {
           "type": "top_is",
@@ -576,7 +576,7 @@
         "You connect clues quickly and calmly.",
         "You name the real issue before it grows teeth."
       ],
-      "priority": 36,
+      "priority": 31,
       "conditions": [
         {
           "type": "top_is",
@@ -616,7 +616,7 @@
         "You don’t fold under pressure or guilt.",
         "Your loyalty is deliberate — not automatic."
       ],
-      "priority": 37,
+      "priority": 36,
       "conditions": [
         {
           "type": "top_is",
@@ -696,19 +696,19 @@
         "You don’t get trapped in one mode — you choose the right one.",
         "You stay recognizably yourself across different rooms."
       ],
-      "priority": 9,
+      "priority": 15,
       "conditions": [
         {
           "type": "top_diff_lte",
-          "value": 7
+          "value": 3
         },
         {
           "type": "total_min",
-          "value": 51
+          "value": 56
         },
         {
           "type": "total_max",
-          "value": 55
+          "value": 62
         },
         {
           "type": "spread_between",

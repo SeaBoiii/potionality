@@ -133,6 +133,12 @@ class ResultEvaluator:
         if cond_type == "sum_max":
             dims_list = cond.get("dims", [])
             return sum(self._score(profile, d) for d in dims_list) <= value
+        if cond_type == "spread_between":
+            vals = list(profile.scores)
+            spread = (max(vals) - min(vals)) if vals else 0
+            min_v = int(cond.get("min", 0))
+            max_v = int(cond.get("max", 999))
+            return min_v <= spread <= max_v
         return True
 
     def top_dim(self, profile: Profile) -> str:
@@ -207,6 +213,8 @@ def random_profiles(
 def condition_bounds(cond: dict[str, Any], key: str) -> tuple[float, float, float]:
     cond_type = cond.get("type")
     if key in ("min", "max"):
+        if cond_type == "spread_between":
+            return 0.0, 40.0, 1.0
         return -20.0, 20.0, 1.0
     if key == "value":
         if cond_type in ("min", "max_le", "max_ge"):

@@ -10,7 +10,7 @@
             "calm": 6,
             "courage": -3,
             "focus": 0,
-            "charm": 2,
+            "charm": 0,
             "tempo": -1,
             "insight": 2,
             "resolve": 2,
@@ -26,8 +26,8 @@
             "focus": 1,
             "charm": 2,
             "tempo": 3,
-            "insight": -3,
-            "resolve": 0,
+            "insight": -1,
+            "resolve": 1,
             "wonder": -1
           },
           "image": "assets/images/q1/ember.png"
@@ -36,12 +36,12 @@
           "text": "A lens that sharpens everything you see.",
           "weights": {
             "calm": -1,
-            "courage": -3,
+            "courage": -1,
             "focus": 5,
             "charm": -3,
-            "tempo": 2,
+            "tempo": 0,
             "insight": 2,
-            "resolve": 3,
+            "resolve": 2,
             "wonder": -3
           },
           "image": "assets/images/q1/lens.png"
@@ -51,7 +51,7 @@
           "weights": {
             "calm": 0,
             "courage": 1,
-            "focus": -2,
+            "focus": -3,
             "charm": 3,
             "tempo": 1,
             "insight": 0,
@@ -70,14 +70,14 @@
         {
           "text": "Find shelter and wait it out calmly.",
           "weights": {
-            "calm": 3,
+            "calm": 4,
             "courage": -2,
-            "focus": 1,
+            "focus": 2,
             "charm": -1,
             "tempo": -1,
             "insight": 1,
             "resolve": 2,
-            "wonder": 2
+            "wonder": 0
           },
           "image": "assets/images/q2/shelter.png"
         },
@@ -86,9 +86,9 @@
           "weights": {
             "calm": -3,
             "courage": 6,
-            "focus": 2,
+            "focus": 0,
             "charm": 0,
-            "tempo": 4,
+            "tempo": 3,
             "insight": -1,
             "resolve": 4,
             "wonder": -1
@@ -100,7 +100,7 @@
           "weights": {
             "calm": -1,
             "courage": 0,
-            "focus": 6,
+            "focus": 4,
             "charm": -1,
             "tempo": 0,
             "insight": 3,
@@ -112,11 +112,11 @@
         {
           "text": "Keep spirits high with stories and humor.",
           "weights": {
-            "calm": -1,
+            "calm": 0,
             "courage": 0,
-            "focus": -1,
+            "focus": -3,
             "charm": 4,
-            "tempo": 1,
+            "tempo": 0,
             "insight": 0,
             "resolve": -1,
             "wonder": 2
@@ -137,7 +137,7 @@
             "courage": -2,
             "focus": 0,
             "charm": 0,
-            "tempo": -3,
+            "tempo": -1,
             "insight": 0,
             "resolve": 1,
             "wonder": -1
@@ -148,8 +148,8 @@
           "text": "A match that always lights.",
           "weights": {
             "calm": -1,
-            "courage": 1,
-            "focus": 1,
+            "courage": 3,
+            "focus": 2,
             "charm": 1,
             "tempo": 3,
             "insight": -1,
@@ -165,7 +165,7 @@
             "courage": 2,
             "focus": 5,
             "charm": -1,
-            "tempo": 3,
+            "tempo": 1,
             "insight": 2,
             "resolve": -1,
             "wonder": -1
@@ -181,8 +181,8 @@
             "charm": 4,
             "tempo": 0,
             "insight": -1,
-            "resolve": -1,
-            "wonder": 6
+            "resolve": -2,
+            "wonder": 5
           },
           "image": "assets/images/q3/bell.png"
         }
@@ -199,8 +199,8 @@
             "calm": 4,
             "courage": -3,
             "focus": -3,
-            "charm": 0,
-            "tempo": -2,
+            "charm": 1,
+            "tempo": -1,
             "insight": 0,
             "resolve": 2,
             "wonder": 1
@@ -224,11 +224,11 @@
         {
           "text": "A clear plan.",
           "weights": {
-            "calm": -3,
-            "courage": -1,
-            "focus": 1,
+            "calm": -1,
+            "courage": 0,
+            "focus": 2,
             "charm": -3,
-            "tempo": 2,
+            "tempo": 1,
             "insight": 2,
             "resolve": 0,
             "wonder": -1
@@ -240,10 +240,10 @@
           "weights": {
             "calm": 1,
             "courage": 0,
-            "focus": -3,
+            "focus": -2,
             "charm": 4,
             "tempo": -1,
-            "insight": 1,
+            "insight": 0,
             "resolve": -3,
             "wonder": 4
           },
@@ -259,8 +259,8 @@
         {
           "text": "Minimal and quiet.",
           "weights": {
-            "calm": 5,
-            "courage": -1,
+            "calm": 4,
+            "courage": -3,
             "focus": 1,
             "charm": 1,
             "tempo": -1,
@@ -275,11 +275,11 @@
           "weights": {
             "calm": -2,
             "courage": 0,
-            "focus": -3,
-            "charm": -1,
+            "focus": -1,
+            "charm": 0,
             "tempo": 3,
             "insight": -1,
-            "resolve": 3,
+            "resolve": 1,
             "wonder": 2
           },
           "image": "assets/images/q5/active.png"
@@ -287,14 +287,14 @@
         {
           "text": "Organized for deep work.",
           "weights": {
-            "calm": -3,
+            "calm": -1,
             "courage": 0,
-            "focus": 4,
-            "charm": -1,
+            "focus": 6,
+            "charm": -2,
             "tempo": 1,
             "insight": 2,
             "resolve": 1,
-            "wonder": -2
+            "wonder": -1
           },
           "image": "assets/images/q5/organized.png"
         },
@@ -303,12 +303,12 @@
           "weights": {
             "calm": -1,
             "courage": 0,
-            "focus": -1,
+            "focus": -2,
             "charm": 4,
             "tempo": 0,
             "insight": -1,
-            "resolve": -1,
-            "wonder": 1
+            "resolve": -3,
+            "wonder": 5
           },
           "image": "assets/images/q5/conversation.png"
         }
@@ -323,13 +323,13 @@
           "text": "Breathe, then choose slowly.",
           "weights": {
             "calm": 3,
-            "courage": -1,
+            "courage": -2,
             "focus": -3,
             "charm": -1,
             "tempo": -1,
             "insight": 1,
             "resolve": 4,
-            "wonder": 1
+            "wonder": 0
           },
           "image": "assets/images/q6/breathe.png"
         },
@@ -337,12 +337,12 @@
           "text": "Leap and adjust midair.",
           "weights": {
             "calm": -3,
-            "courage": 4,
+            "courage": 6,
             "focus": 0,
-            "charm": 3,
+            "charm": 1,
             "tempo": 1,
             "insight": -1,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": -1
           },
           "image": "assets/images/q6/leap.png"
@@ -356,8 +356,8 @@
             "charm": -3,
             "tempo": 4,
             "insight": 3,
-            "resolve": -1,
-            "wonder": -2
+            "resolve": 0,
+            "wonder": -3
           },
           "image": "assets/images/q6/gather.png"
         },
@@ -368,7 +368,7 @@
             "courage": -1,
             "focus": -2,
             "charm": 5,
-            "tempo": 1,
+            "tempo": 0,
             "insight": -1,
             "resolve": -3,
             "wonder": 4
@@ -386,8 +386,8 @@
           "text": "Sit with them and steady the room.",
           "weights": {
             "calm": 4,
-            "courage": -1,
-            "focus": -3,
+            "courage": -2,
+            "focus": -1,
             "charm": 1,
             "tempo": -1,
             "insight": 1,
@@ -400,9 +400,9 @@
           "text": "Challenge them to act.",
           "weights": {
             "calm": -1,
-            "courage": 4,
+            "courage": 3,
             "focus": -1,
-            "charm": -1,
+            "charm": 0,
             "tempo": 3,
             "insight": -1,
             "resolve": 1,
@@ -413,11 +413,11 @@
         {
           "text": "Help them define the next step.",
           "weights": {
-            "calm": -1,
+            "calm": -2,
             "courage": 2,
-            "focus": 2,
+            "focus": 4,
             "charm": -3,
-            "tempo": -1,
+            "tempo": 0,
             "insight": 2,
             "resolve": 4,
             "wonder": -3
@@ -428,10 +428,10 @@
           "text": "Remind them they’re not alone.",
           "weights": {
             "calm": 1,
-            "courage": 2,
+            "courage": 0,
             "focus": -3,
             "charm": 3,
-            "tempo": -3,
+            "tempo": -1,
             "insight": 0,
             "resolve": -1,
             "wonder": 4
@@ -448,11 +448,11 @@
         {
           "text": "Moonlight gathered in a glass bowl.",
           "weights": {
-            "calm": 1,
+            "calm": 2,
             "courage": -3,
             "focus": -3,
-            "charm": 3,
-            "tempo": -2,
+            "charm": 2,
+            "tempo": -1,
             "insight": 1,
             "resolve": 2,
             "wonder": 0
@@ -462,13 +462,13 @@
         {
           "text": "A spark from a thunderstone.",
           "weights": {
-            "calm": -3,
+            "calm": -2,
             "courage": 3,
-            "focus": 1,
-            "charm": -2,
+            "focus": 0,
+            "charm": -1,
             "tempo": 3,
             "insight": -1,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": -1
           },
           "image": "assets/images/q8/spark.png"
@@ -476,14 +476,14 @@
         {
           "text": "Ink from a library’s oldest book.",
           "weights": {
-            "calm": -2,
-            "courage": -2,
+            "calm": -1,
+            "courage": -1,
             "focus": 4,
             "charm": -3,
             "tempo": 0,
             "insight": 4,
-            "resolve": 2,
-            "wonder": -1
+            "resolve": 0,
+            "wonder": -3
           },
           "image": "assets/images/q8/ink.png"
         },
@@ -496,7 +496,7 @@
             "charm": 4,
             "tempo": -1,
             "insight": 0,
-            "resolve": -1,
+            "resolve": -2,
             "wonder": 3
           },
           "image": "assets/images/q8/petal.png"
@@ -525,13 +525,13 @@
         {
           "text": "Say the hard truth immediately, even if it stings.",
           "weights": {
-            "calm": -1,
+            "calm": -2,
             "courage": 3,
             "focus": -1,
             "charm": 0,
             "tempo": 3,
             "insight": -1,
-            "resolve": 1,
+            "resolve": 2,
             "wonder": -1
           },
           "image": "assets/images/q9/truth.png"
@@ -539,11 +539,11 @@
         {
           "text": "Ask questions to pinpoint what they actually need.",
           "weights": {
-            "calm": -3,
-            "courage": 0,
+            "calm": -1,
+            "courage": 1,
             "focus": 4,
             "charm": -2,
-            "tempo": 1,
+            "tempo": 0,
             "insight": 3,
             "resolve": 0,
             "wonder": -1
@@ -553,7 +553,7 @@
         {
           "text": "Help them reframe it into a hopeful story they can act on.",
           "weights": {
-            "calm": 2,
+            "calm": 0,
             "courage": 0,
             "focus": -3,
             "charm": 4,
@@ -574,10 +574,10 @@
         {
           "text": "Stabilize your base first: savings, routines, backup plan.",
           "weights": {
-            "calm": 5,
+            "calm": 6,
             "courage": -1,
             "focus": 1,
-            "charm": -3,
+            "charm": -1,
             "tempo": -1,
             "insight": 0,
             "resolve": 2,
@@ -589,11 +589,11 @@
           "text": "Jump in—better to live boldly than to wonder forever.",
           "weights": {
             "calm": -1,
-            "courage": 6,
+            "courage": 4,
             "focus": -1,
             "charm": -1,
             "tempo": 3,
-            "insight": -3,
+            "insight": -1,
             "resolve": 1,
             "wonder": -1
           },
@@ -603,10 +603,10 @@
           "text": "Run a quick experiment to test the path before committing.",
           "weights": {
             "calm": -1,
-            "courage": -1,
+            "courage": 0,
             "focus": 6,
             "charm": -3,
-            "tempo": 1,
+            "tempo": 0,
             "insight": 2,
             "resolve": 0,
             "wonder": -3
@@ -617,13 +617,13 @@
           "text": "Follow the spark—if it feels meaningful, it’s worth the risk.",
           "weights": {
             "calm": -1,
-            "courage": 2,
-            "focus": -1,
+            "courage": 1,
+            "focus": -3,
             "charm": 0,
-            "tempo": 3,
+            "tempo": 2,
             "insight": 0,
-            "resolve": -1,
-            "wonder": 5
+            "resolve": -2,
+            "wonder": 6
           },
           "image": "assets/images/q10/follow.png"
         }
@@ -653,11 +653,11 @@
           "weights": {
             "calm": -3,
             "courage": 2,
-            "focus": 5,
+            "focus": 2,
             "charm": -1,
             "tempo": 3,
             "insight": -2,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": 0
           },
           "image": "assets/images/q11/deadline.png"
@@ -666,10 +666,10 @@
           "text": "Defines scope, priorities, and a clear next-step list.",
           "weights": {
             "calm": -2,
-            "courage": -1,
+            "courage": 0,
             "focus": 5,
             "charm": -3,
-            "tempo": 0,
+            "tempo": 1,
             "insight": 2,
             "resolve": 2,
             "wonder": -3
@@ -683,10 +683,10 @@
             "courage": -1,
             "focus": -3,
             "charm": 6,
-            "tempo": -3,
+            "tempo": -1,
             "insight": 3,
-            "resolve": -3,
-            "wonder": 1
+            "resolve": -1,
+            "wonder": 0
           },
           "image": "assets/images/q11/morale.png"
         }
@@ -700,13 +700,13 @@
         {
           "text": "You cool down first, then address it calmly.",
           "weights": {
-            "calm": 4,
-            "courage": -1,
-            "focus": -1,
-            "charm": 1,
+            "calm": 3,
+            "courage": -2,
+            "focus": 0,
+            "charm": 0,
             "tempo": -1,
-            "insight": 1,
-            "resolve": 1,
+            "insight": 0,
+            "resolve": 2,
             "wonder": -1
           },
           "image": "assets/images/q12/cool.png"
@@ -716,7 +716,7 @@
           "weights": {
             "calm": -1,
             "courage": 6,
-            "focus": -3,
+            "focus": -1,
             "charm": 0,
             "tempo": 3,
             "insight": -1,
@@ -728,12 +728,12 @@
         {
           "text": "You name the pattern, then set a rule that prevents repeats.",
           "weights": {
-            "calm": -1,
-            "courage": -2,
+            "calm": -2,
+            "courage": -1,
             "focus": 3,
-            "charm": -1,
+            "charm": -2,
             "tempo": 0,
-            "insight": 5,
+            "insight": 4,
             "resolve": 2,
             "wonder": -2
           },
@@ -747,7 +747,7 @@
             "focus": -3,
             "charm": 5,
             "tempo": -1,
-            "insight": -3,
+            "insight": -1,
             "resolve": -1,
             "wonder": 4
           },
@@ -765,12 +765,12 @@
           "weights": {
             "calm": 4,
             "courage": -3,
-            "focus": -2,
-            "charm": -1,
-            "tempo": -3,
+            "focus": -1,
+            "charm": 0,
+            "tempo": -1,
             "insight": 0,
-            "resolve": 5,
-            "wonder": 1
+            "resolve": 2,
+            "wonder": 0
           },
           "image": "assets/images/q13/calm.png"
         },
@@ -780,10 +780,10 @@
             "calm": -3,
             "courage": 3,
             "focus": 0,
-            "charm": -1,
+            "charm": 0,
             "tempo": 3,
             "insight": -1,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": 0
           },
           "image": "assets/images/q13/push_forward.png"
@@ -792,12 +792,12 @@
           "text": "“You saw the real issue before anyone else did.”",
           "weights": {
             "calm": -1,
-            "courage": -1,
+            "courage": 0,
             "focus": 2,
             "charm": -1,
             "tempo": 0,
             "insight": 3,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": -1
           },
           "image": "assets/images/q13/vision.png"
@@ -806,7 +806,7 @@
           "text": "“You make life feel more meaningful.”",
           "weights": {
             "calm": -1,
-            "courage": -2,
+            "courage": -1,
             "focus": -3,
             "charm": 4,
             "tempo": -1,
@@ -826,11 +826,11 @@
         {
           "text": "Pause, reset, and do it slowly but cleanly.",
           "weights": {
-            "calm": 6,
-            "courage": -3,
-            "focus": 2,
-            "charm": -2,
-            "tempo": -2,
+            "calm": 5,
+            "courage": -1,
+            "focus": 0,
+            "charm": -1,
+            "tempo": -1,
             "insight": 0,
             "resolve": 2,
             "wonder": 0
@@ -844,7 +844,7 @@
             "courage": 3,
             "focus": -1,
             "charm": 2,
-            "tempo": 1,
+            "tempo": 3,
             "insight": -1,
             "resolve": 1,
             "wonder": -1
@@ -856,11 +856,11 @@
           "weights": {
             "calm": -3,
             "courage": -1,
-            "focus": 6,
+            "focus": 5,
             "charm": -2,
             "tempo": 1,
             "insight": 2,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": -3
           },
           "image": "assets/images/q14/cut.png"
@@ -869,12 +869,12 @@
           "text": "Remind yourself why it matters—then it becomes lighter.",
           "weights": {
             "calm": 2,
-            "courage": -2,
+            "courage": -1,
             "focus": -3,
             "charm": 4,
-            "tempo": -3,
+            "tempo": -1,
             "insight": 0,
-            "resolve": -1,
+            "resolve": -3,
             "wonder": 4
           },
           "image": "assets/images/q14/remind.png"
@@ -890,7 +890,7 @@
           "text": "Stay grounded. Interesting, but you don’t chase it.",
           "weights": {
             "calm": 3,
-            "courage": -1,
+            "courage": -3,
             "focus": 0,
             "charm": 2,
             "tempo": -1,
@@ -903,13 +903,13 @@
         {
           "text": "Follow it immediately. If it’s a door, you open it.",
           "weights": {
-            "calm": -1,
-            "courage": 3,
-            "focus": 2,
-            "charm": -1,
+            "calm": -3,
+            "courage": 4,
+            "focus": 0,
+            "charm": -2,
             "tempo": 3,
             "insight": -1,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": 1
           },
           "image": "assets/images/q15/door.png"
@@ -923,7 +923,7 @@
             "charm": -2,
             "tempo": 0,
             "insight": 3,
-            "resolve": -3,
+            "resolve": -1,
             "wonder": -1
           },
           "image": "assets/images/q15/patterns.png"
@@ -937,7 +937,7 @@
             "charm": 3,
             "tempo": -1,
             "insight": 2,
-            "resolve": -3,
+            "resolve": -2,
             "wonder": 5
           },
           "image": "assets/images/q15/myth.png"
@@ -952,27 +952,27 @@
         {
           "text": "A quiet lake at dawn: clear, steady, unhurried.",
           "weights": {
-            "calm": 2,
-            "courage": -1,
-            "focus": -1,
-            "charm": 4,
+            "calm": 4,
+            "courage": -3,
+            "focus": 0,
+            "charm": 2,
             "tempo": -1,
             "insight": 0,
             "resolve": 3,
-            "wonder": 1
+            "wonder": 0
           },
           "image": "assets/images/q16/lake.png"
         },
         {
           "text": "A sprint through rain: daring, alive, electric.",
           "weights": {
-            "calm": -1,
-            "courage": 6,
-            "focus": 0,
+            "calm": -2,
+            "courage": 3,
+            "focus": 1,
             "charm": 0,
             "tempo": 3,
             "insight": -1,
-            "resolve": 0,
+            "resolve": 1,
             "wonder": -1
           },
           "image": "assets/images/q16/sprint.png"
@@ -981,7 +981,7 @@
           "text": "A perfect blueprint becoming real: clean, intentional, precise.",
           "weights": {
             "calm": -1,
-            "courage": 4,
+            "courage": 2,
             "focus": 6,
             "charm": -1,
             "tempo": 0,
@@ -995,7 +995,7 @@
           "text": "A lantern-lit festival: meaningful, connected, full of possibility.",
           "weights": {
             "calm": -1,
-            "courage": -1,
+            "courage": 0,
             "focus": -2,
             "charm": 1,
             "tempo": 2,

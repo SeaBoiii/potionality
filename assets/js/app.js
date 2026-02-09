@@ -432,6 +432,13 @@ function meetsCondition(cond) {
       const sum = dims.reduce((acc, id) => acc + (scoreMap[id] ?? 0), 0);
       return sum <= value;
     }
+    case "spread_between": {
+      const values = Object.values(scoreMap);
+      const spread = values.length ? Math.max(...values) - Math.min(...values) : 0;
+      const min = cond.min ?? 0;
+      const max = cond.max ?? Infinity;
+      return spread >= min && spread <= max;
+    }
     default:
       return true;
   }

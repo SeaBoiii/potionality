@@ -102,6 +102,12 @@ def meets_condition(cond: dict[str, Any] | None, scores: dict[str, int], dims: l
     if cond_type == "sum_max":
         dims_list = cond.get("dims", [])
         return sum(scores.get(d, 0) for d in dims_list) <= value
+    if cond_type == "spread_between":
+        vals = [scores.get(d, 0) for d in dims]
+        spread = (max(vals) - min(vals)) if vals else 0
+        min_v = cond.get("min", 0)
+        max_v = cond.get("max", math.inf)
+        return min_v <= spread <= max_v
 
     return True
 
@@ -342,6 +348,16 @@ def _reachability_worker(
         if cond_type == "sum_max":
             dims_list = cond.get("dims", [])
             return sum(final_scores[d] for d in dims_list) <= value
+        if cond_type == "spread_between":
+            spread_min = int(cond.get("min", 0))
+            spread_max = int(cond.get("max", 999))
+            max_expr = final_scores[dims[0]]
+            min_expr = final_scores[dims[0]]
+            for dim_name in dims[1:]:
+                max_expr = If(final_scores[dim_name] > max_expr, final_scores[dim_name], max_expr)
+                min_expr = If(final_scores[dim_name] < min_expr, final_scores[dim_name], min_expr)
+            spread = max_expr - min_expr
+            return And(spread >= spread_min, spread <= spread_max)
 
         return True
 
