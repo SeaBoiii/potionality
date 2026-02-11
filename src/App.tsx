@@ -927,39 +927,6 @@ function App() {
     ]
   );
 
-  useEffect(() => {
-    if (!currentQuestion || !data || finished || answeringLocked || !!error || showPotionCodex) {
-      return;
-    }
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
-        return;
-      }
-
-      const key = event.key.toLowerCase();
-      let optionIndex = -1;
-
-      if (/^[1-4]$/.test(key)) {
-        optionIndex = Number(key) - 1;
-      } else if (["a", "b", "c", "d"].includes(key)) {
-        optionIndex = key.charCodeAt(0) - 97;
-      }
-
-      if (optionIndex < 0 || optionIndex >= currentQuestion.options.length) {
-        return;
-      }
-
-      event.preventDefault();
-      handleAnswer(currentQuestion.options[optionIndex], optionIndex);
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-    };
-  }, [answeringLocked, currentQuestion, data, error, finished, handleAnswer, showPotionCodex]);
-
   const handleReset = useCallback(() => {
     if (!data) {
       return;
@@ -1145,15 +1112,6 @@ function App() {
             <div className="hero__panel-body" id="liveProfile">
               {liveProfile}
             </div>
-            <div className="hero__panel-actions">
-              <button
-                className="btn btn--ghost btn--small"
-                type="button"
-                onClick={() => setShowPotionCodex(true)}
-              >
-                View All Potions
-              </button>
-            </div>
           </div>
         </header>
 
@@ -1203,7 +1161,6 @@ function App() {
           <div className="question__index" id="questionIndex">
             {data && currentQuestion ? `Question ${index + 1}` : ""}
           </div>
-          <div className="question__phase">Choose Your Ingredient</div>
           <img
             id="questionImage"
             className={`question__image${questionImageStatus === "loading" ? " is-loading" : ""}${
@@ -1218,11 +1175,6 @@ function App() {
           <h2 className="question__prompt" id="questionPrompt">
             {error || currentQuestion?.prompt || (!data ? "Loading quiz..." : "No question available.")}
           </h2>
-          {!finished && !error ? (
-            <p className="question__assist">
-              Pick one ingredient to add to your cauldron. Shortcut keys: 1-4 or A-D.
-            </p>
-          ) : null}
           <div className="question__options" id="questionOptions">
             {currentQuestion?.options.map((option, optionIndex) => {
               const optionIconSrc = option.image
@@ -1242,12 +1194,6 @@ function App() {
                     <img src={optionIconSrc} alt="" aria-hidden="true" />
                   </span>
                   <span className="option__content">
-                    <span className="option__ingredient-label" aria-hidden="true">
-                      Ingredient {String.fromCharCode(65 + optionIndex)}
-                    </span>
-                    <span className="option__index" aria-hidden="true">
-                      {String.fromCharCode(65 + optionIndex)}
-                    </span>
                     <span className="option__text">{option.text}</span>
                   </span>
                 </button>
@@ -1372,11 +1318,11 @@ function App() {
               >
                 Copy Result Link
               </button>
-              <button id="restartBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
-                Take Again
-              </button>
               <button className="btn btn--ghost" type="button" onClick={() => setShowPotionCodex(true)}>
                 View All Potions
+              </button>
+              <button id="restartBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
+                Take Again
               </button>
             </div>
           </div>
