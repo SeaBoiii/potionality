@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If You Were a Potion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <h1 id="title">If You Were a Potion</h1>
+          <p id="subtitle" class="tagline"></p>
+        </div>
+        <div class="hero__panel">
+          <div class="hero__panel-title">Your Profile</div>
+          <div class="hero__panel-body" id="liveProfile">
+            Answer a few questions to see your shape.
+          </div>
+        </div>
+      </header>
+
+      <section class="progress">
+        <div class="progress__bar">
+          <div id="progressFill" class="progress__fill"></div>
+        </div>
+        <div class="progress__meta">
+          <span id="progressLabel">0 / 0</span>
+          <button id="soundToggleBtn" class="btn btn--ghost" type="button">Sound: Off</button>
+          <button id="resetBtn" class="btn btn--ghost" type="button">Restart</button>
+        </div>
+      </section>
+
+      <section class="question" id="questionCard">
+        <div class="question__brew" aria-hidden="true"></div>
+        <div class="question__index" id="questionIndex"></div>
+        <img id="questionImage" class="question__image" alt="" />
+        <h2 class="question__prompt" id="questionPrompt"></h2>
+        <div class="question__options" id="questionOptions"></div>
+      </section>
+
+      <section class="result-panel is-hidden" id="resultPanel">
+        <div class="panel">
+          <div class="panel__header">
+            <h3>Your Potion</h3>
+          </div>
+          <img id="resultImage" class="result__image" alt="" />
+          <div id="resultCard" class="result"></div>
+          <div class="result__dimensions">
+            <div class="result__dimensions-header">
+              <div class="result__dimensions-title">Your Dimensions</div>
+              <button id="toggleDimensionsBtn" class="btn btn--ghost" type="button">
+                Show Analysis
+              </button>
+            </div>
+            <div id="dimensionPanel" class="result__dimensions-panel is-hidden">
+              <div id="dimensionList" class="dimension-list"></div>
+              <div id="dimensionLegend" class="dimension-legend"></div>
+            </div>
+          </div>
+          <button id="shareBtn" class="btn" type="button">Download Share Card</button>
+          <button id="shareLinkBtn" class="btn btn--ghost" type="button">Copy Result Link</button>
+          <button id="restartBtn" class="btn btn--ghost" type="button">Take Again</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Built for reflective decision-making.</footer>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
