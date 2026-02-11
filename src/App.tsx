@@ -44,6 +44,28 @@ type RestoredState = {
   answers: number[];
 };
 
+type AmbientTrackState = {
+  masterGain: GainNode;
+  oscillators: OscillatorNode[];
+  sources: AudioBufferSourceNode[];
+  nodes: AudioNode[];
+  lfo: OscillatorNode | null;
+  bubbleIntervalId: number | null;
+};
+
+function createNoiseBuffer(ctx: AudioContext, durationSeconds = 1): AudioBuffer {
+  const sampleRate = ctx.sampleRate;
+  const frameCount = Math.floor(sampleRate * durationSeconds);
+  const buffer = ctx.createBuffer(1, frameCount, sampleRate);
+  const channel = buffer.getChannelData(0);
+
+  for (let index = 0; index < frameCount; index += 1) {
+    channel[index] = (Math.random() * 2 - 1) * 0.65;
+  }
+
+  return buffer;
+}
+
 function resolveAssetUrl(path: string | undefined): string {
   if (!path) {
     return "";
@@ -294,6 +316,9 @@ function App() {
 
   const preloadedImageUrlsRef = useRef<Set<string>>(new Set());
   const audioContextRef = useRef<AudioContext | null>(null);
+  const sfxGainRef = useRef<GainNode | null>(null);
+  const ambientTrackRef = useRef<AmbientTrackState | null>(null);
+  const noiseBufferRef = useRef<AudioBuffer | null>(null);
   const transitionTimeoutRef = useRef<number | null>(null);
   const toastTimeoutRef = useRef<number | null>(null);
   const toastRemoveTimeoutRef = useRef<number | null>(null);
@@ -390,40 +415,262 @@ function App() {
       audioContextRef.current.resume().catch(() => undefined);
     }
 
+    if (!sfxGainRef.current) {
+      const sfxGain = audioContextRef.current.createGain();
+      sfxGain.gain.value = 0.84;
+      sfxGain.connect(audioContextRef.current.destination);
+      sfxGainRef.current = sfxGain;
+    }
+
     return audioContextRef.current;
   }, []);
 
-  const playChime = useCallback(() => {
+  const getNoiseBuffer = useCallback((ctx: AudioContext): AudioBuffer => {
+    if (!noiseBufferRef.current || noiseBufferRef.current.sampleRate !== ctx.sampleRate) {
+      noiseBufferRef.current = createNoiseBuffer(ctx, 1);
+    }
+    return noiseBufferRef.current;
+  }, []);
+
+  const playAmbientBubble = useCallback(
+    (ctx: AudioContext, output: AudioNode) => {
+      const now = ctx.currentTime;
+
+      const bubbleOsc = ctx.createOscillator();
+      const bubbleGain = ctx.createGain();
+      bubbleOsc.type = "sine";
+      bubbleOsc.frequency.setValueAtTime(200 + Math.random() * 70, now);
+      bubbleOsc.frequency.exponentialRampToValueAtTime(105 + Math.random() * 24, now + 0.24);
+      bubbleGain.gain.setValueAtTime(0.0001, now);
+      bubbleGain.gain.exponentialRampToValueAtTime(0.026, now + 0.05);
+      bubbleGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.24);
+      bubbleOsc.connect(bubbleGain);
+      bubbleGain.connect(output);
+      bubbleOsc.start(now);
+      bubbleOsc.stop(now + 0.26);
+
+      const fizz = ctx.createBufferSource();
+      fizz.buffer = getNoiseBuffer(ctx);
+      const fizzFilter = ctx.createBiquadFilter();
+      fizzFilter.type = "bandpass";
+      fizzFilter.frequency.value = 820 + Math.random() * 220;
+      fizzFilter.Q.value = 0.7;
+      const fizzGain = ctx.createGain();
+      fizzGain.gain.setValueAtTime(0.0001, now);
+      fizzGain.gain.exponentialRampToValueAtTime(0.012, now + 0.04);
+      fizzGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.2);
+      fizz.connect(fizzFilter);
+      fizzFilter.connect(fizzGain);
+      fizzGain.connect(output);
+      fizz.start(now);
+      fizz.stop(now + 0.22);
+    },
+    [getNoiseBuffer]
+  );
+
+  const playIngredientDrop = useCallback(() => {
     if (!soundEnabled) {
       return;
     }
 
     try {
       const ctx = getAudioContext();
-      if (!ctx) {
+      if (!ctx || !sfxGainRef.current) {
         return;
       }
 
-      const oscillator = ctx.createOscillator();
-      const gain = ctx.createGain();
-      oscillator.type = "sine";
-      const startTime = ctx.currentTime + 0.01;
+      const output = sfxGainRef.current;
+      const startTime = ctx.currentTime + 0.008;
 
-      oscillator.frequency.setValueAtTime(520, startTime);
-      oscillator.frequency.exponentialRampToValueAtTime(340, startTime + 0.12);
+      const dropOsc = ctx.createOscillator();
+      const dropFilter = ctx.createBiquadFilter();
+      const dropGain = ctx.createGain();
+      dropOsc.type = "sine";
+      dropOsc.frequency.setValueAtTime(760, startTime);
+      dropOsc.frequency.exponentialRampToValueAtTime(180, startTime + 0.17);
+      dropFilter.type = "lowpass";
+      dropFilter.frequency.value = 1900;
+      dropFilter.Q.value = 1.3;
+      dropGain.gain.setValueAtTime(0.0001, startTime);
+      dropGain.gain.exponentialRampToValueAtTime(0.18, startTime + 0.02);
+      dropGain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.2);
+      dropOsc.connect(dropFilter);
+      dropFilter.connect(dropGain);
+      dropGain.connect(output);
+      dropOsc.start(startTime);
+      dropOsc.stop(startTime + 0.22);
 
-      gain.gain.setValueAtTime(0.0001, startTime);
-      gain.gain.exponentialRampToValueAtTime(0.15, startTime + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.18);
+      const splashSource = ctx.createBufferSource();
+      splashSource.buffer = getNoiseBuffer(ctx);
+      const splashFilter = ctx.createBiquadFilter();
+      splashFilter.type = "bandpass";
+      splashFilter.frequency.value = 980;
+      splashFilter.Q.value = 0.95;
+      const splashGain = ctx.createGain();
+      splashGain.gain.setValueAtTime(0.0001, startTime + 0.01);
+      splashGain.gain.exponentialRampToValueAtTime(0.115, startTime + 0.04);
+      splashGain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.24);
+      splashSource.connect(splashFilter);
+      splashFilter.connect(splashGain);
+      splashGain.connect(output);
+      splashSource.start(startTime);
+      splashSource.stop(startTime + 0.26);
 
-      oscillator.connect(gain);
-      gain.connect(ctx.destination);
-      oscillator.start(startTime);
-      oscillator.stop(startTime + 0.22);
+      const ringOsc = ctx.createOscillator();
+      const ringGain = ctx.createGain();
+      ringOsc.type = "triangle";
+      ringOsc.frequency.setValueAtTime(310, startTime + 0.03);
+      ringOsc.frequency.exponentialRampToValueAtTime(138, startTime + 0.34);
+      ringGain.gain.setValueAtTime(0.0001, startTime + 0.03);
+      ringGain.gain.exponentialRampToValueAtTime(0.075, startTime + 0.06);
+      ringGain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.36);
+      ringOsc.connect(ringGain);
+      ringGain.connect(output);
+      ringOsc.start(startTime + 0.03);
+      ringOsc.stop(startTime + 0.38);
+
+      playAmbientBubble(ctx, output);
     } catch {
       // Ignore browser audio errors.
     }
-  }, [getAudioContext, soundEnabled]);
+  }, [getAudioContext, getNoiseBuffer, playAmbientBubble, soundEnabled]);
+
+  const startAmbientTrack = useCallback(
+    (ctx: AudioContext) => {
+      if (ambientTrackRef.current) {
+        return;
+      }
+
+      const masterGain = ctx.createGain();
+      masterGain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      masterGain.gain.exponentialRampToValueAtTime(0.058, ctx.currentTime + 1.3);
+
+      const lowpass = ctx.createBiquadFilter();
+      lowpass.type = "lowpass";
+      lowpass.frequency.value = 760;
+      lowpass.Q.value = 0.7;
+      lowpass.connect(masterGain);
+      masterGain.connect(ctx.destination);
+
+      const oscillators: OscillatorNode[] = [];
+      const sources: AudioBufferSourceNode[] = [];
+      const nodes: AudioNode[] = [masterGain, lowpass];
+
+      const droneVoices = [
+        { type: "sine" as OscillatorType, freq: 82.41, gain: 0.022 },
+        { type: "triangle" as OscillatorType, freq: 123.47, gain: 0.014 },
+        { type: "sine" as OscillatorType, freq: 164.81, gain: 0.01 },
+      ];
+
+      droneVoices.forEach((voice) => {
+        const oscillator = ctx.createOscillator();
+        oscillator.type = voice.type;
+        oscillator.frequency.value = voice.freq;
+        const voiceGain = ctx.createGain();
+        voiceGain.gain.value = voice.gain;
+        oscillator.connect(voiceGain);
+        voiceGain.connect(lowpass);
+        oscillator.start();
+        oscillators.push(oscillator);
+        nodes.push(voiceGain);
+      });
+
+      const ambienceSource = ctx.createBufferSource();
+      ambienceSource.buffer = getNoiseBuffer(ctx);
+      ambienceSource.loop = true;
+      const ambienceFilter = ctx.createBiquadFilter();
+      ambienceFilter.type = "bandpass";
+      ambienceFilter.frequency.value = 420;
+      ambienceFilter.Q.value = 0.45;
+      const ambienceGain = ctx.createGain();
+      ambienceGain.gain.value = 0.008;
+      ambienceSource.connect(ambienceFilter);
+      ambienceFilter.connect(ambienceGain);
+      ambienceGain.connect(lowpass);
+      ambienceSource.start();
+      sources.push(ambienceSource);
+      nodes.push(ambienceFilter, ambienceGain);
+
+      const lfo = ctx.createOscillator();
+      lfo.type = "sine";
+      lfo.frequency.value = 0.045;
+      const lfoGain = ctx.createGain();
+      lfoGain.gain.value = 220;
+      lfo.connect(lfoGain);
+      lfoGain.connect(lowpass.frequency);
+      lfo.start();
+      nodes.push(lfoGain);
+
+      const bubbleIntervalId = window.setInterval(() => {
+        if (!ambientTrackRef.current) {
+          return;
+        }
+        playAmbientBubble(ctx, lowpass);
+      }, 3200);
+
+      ambientTrackRef.current = {
+        masterGain,
+        oscillators,
+        sources,
+        nodes,
+        lfo,
+        bubbleIntervalId,
+      };
+    },
+    [getNoiseBuffer, playAmbientBubble]
+  );
+
+  const stopAmbientTrack = useCallback(() => {
+    const track = ambientTrackRef.current;
+    const ctx = audioContextRef.current;
+    if (!track || !ctx) {
+      ambientTrackRef.current = null;
+      return;
+    }
+
+    if (track.bubbleIntervalId !== null) {
+      window.clearInterval(track.bubbleIntervalId);
+    }
+
+    const stopTime = ctx.currentTime + 0.45;
+    track.masterGain.gain.cancelScheduledValues(ctx.currentTime);
+    track.masterGain.gain.setTargetAtTime(0.0001, ctx.currentTime, 0.2);
+
+    track.oscillators.forEach((oscillator) => {
+      try {
+        oscillator.stop(stopTime);
+      } catch {
+        // no-op
+      }
+    });
+    track.sources.forEach((source) => {
+      try {
+        source.stop(stopTime);
+      } catch {
+        // no-op
+      }
+    });
+    if (track.lfo) {
+      try {
+        track.lfo.stop(stopTime);
+      } catch {
+        // no-op
+      }
+    }
+
+    const nodesToDisconnect = [...track.nodes];
+    window.setTimeout(() => {
+      nodesToDisconnect.forEach((node) => {
+        try {
+          node.disconnect();
+        } catch {
+          // no-op
+        }
+      });
+    }, 800);
+
+    ambientTrackRef.current = null;
+  }, []);
 
   const preloadImage = useCallback((path: string | undefined) => {
     const resolved = resolveAssetUrl(path);
@@ -557,9 +804,36 @@ function App() {
       if (resultPanelRafRef.current !== null) {
         window.cancelAnimationFrame(resultPanelRafRef.current);
       }
+      stopAmbientTrack();
+      if (sfxGainRef.current) {
+        try {
+          sfxGainRef.current.disconnect();
+        } catch {
+          // no-op
+        }
+        sfxGainRef.current = null;
+      }
+      if (audioContextRef.current) {
+        audioContextRef.current.close().catch(() => undefined);
+        audioContextRef.current = null;
+      }
     },
-    []
+    [stopAmbientTrack]
   );
+
+  useEffect(() => {
+    if (!soundEnabled) {
+      stopAmbientTrack();
+      return;
+    }
+
+    const ctx = getAudioContext();
+    if (!ctx) {
+      return;
+    }
+
+    startAmbientTrack(ctx);
+  }, [getAudioContext, soundEnabled, startAmbientTrack, stopAmbientTrack]);
 
   useEffect(() => {
     if (!showPotionCodex) {
@@ -606,7 +880,7 @@ function App() {
 
       setAnsweringLocked(true);
       setSelectedOptionIndex(optionIndex);
-      playChime();
+      playIngredientDrop();
 
       const nextScores: ScoreMap = { ...scores };
       Object.entries(option.weights || {}).forEach(([dimId, delta]) => {
@@ -648,7 +922,7 @@ function App() {
       finalizeQuiz,
       finished,
       index,
-      playChime,
+      playIngredientDrop,
       scores,
     ]
   );
@@ -904,11 +1178,11 @@ function App() {
                   setSoundEnabled(next);
                   if (next) {
                     getAudioContext();
-                    playChime();
+                    playIngredientDrop();
                   }
                 }}
               >
-                Sound: {soundEnabled ? "On" : "Off"}
+                Soundscape: {soundEnabled ? "On" : "Off"}
               </button>
               <button id="resetBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
                 Restart
@@ -923,10 +1197,13 @@ function App() {
           }${questionBrewing ? " is-brewing" : ""}`}
           id="questionCard"
         >
+          <div className="question__cauldron-rim" aria-hidden="true" />
+          <div className="question__steam" aria-hidden="true" />
           <div className="question__brew" aria-hidden="true" />
           <div className="question__index" id="questionIndex">
             {data && currentQuestion ? `Question ${index + 1}` : ""}
           </div>
+          <div className="question__phase">Choose Your Ingredient</div>
           <img
             id="questionImage"
             className={`question__image${questionImageStatus === "loading" ? " is-loading" : ""}${
@@ -943,30 +1220,39 @@ function App() {
           </h2>
           {!finished && !error ? (
             <p className="question__assist">
-              Choose the response that feels most like you. Shortcut keys: 1-4 or A-D.
+              Pick one ingredient to add to your cauldron. Shortcut keys: 1-4 or A-D.
             </p>
           ) : null}
           <div className="question__options" id="questionOptions">
-            {currentQuestion?.options.map((option, optionIndex) => (
-              <button
-                key={`${currentQuestion.id}-${optionIndex}`}
-                type="button"
-                className={`option${selectedOptionIndex === optionIndex ? " is-selected" : ""}`}
-                onClick={() => handleAnswer(option, optionIndex)}
-                disabled={answeringLocked || !!error || !data || finished}
-                aria-disabled={answeringLocked || !!error || !data || finished ? "true" : "false"}
-              >
-                <span className="option__media">
-                  {option.image ? <img src={resolveAssetUrl(option.image)} alt={option.text || "Option image"} /> : null}
-                </span>
-                <span className="option__content">
-                  <span className="option__index" aria-hidden="true">
-                    {String.fromCharCode(65 + optionIndex)}
+            {currentQuestion?.options.map((option, optionIndex) => {
+              const optionIconSrc = option.image
+                ? resolveAssetUrl(option.image)
+                : resolveAssetUrl(ingredientIcons[(index + optionIndex) % ingredientIcons.length]);
+
+              return (
+                <button
+                  key={`${currentQuestion.id}-${optionIndex}`}
+                  type="button"
+                  className={`option${selectedOptionIndex === optionIndex ? " is-selected" : ""}`}
+                  onClick={() => handleAnswer(option, optionIndex)}
+                  disabled={answeringLocked || !!error || !data || finished}
+                  aria-disabled={answeringLocked || !!error || !data || finished ? "true" : "false"}
+                >
+                  <span className="option__media">
+                    <img src={optionIconSrc} alt="" aria-hidden="true" />
                   </span>
-                  <span className="option__text">{option.text}</span>
-                </span>
-              </button>
-            ))}
+                  <span className="option__content">
+                    <span className="option__ingredient-label" aria-hidden="true">
+                      Ingredient {String.fromCharCode(65 + optionIndex)}
+                    </span>
+                    <span className="option__index" aria-hidden="true">
+                      {String.fromCharCode(65 + optionIndex)}
+                    </span>
+                    <span className="option__text">{option.text}</span>
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </section>
 
