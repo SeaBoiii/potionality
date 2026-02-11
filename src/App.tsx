@@ -282,6 +282,7 @@ function App() {
   const [questionBrewing, setQuestionBrewing] = useState(false);
   const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
   const [showDimensions, setShowDimensions] = useState(false);
+  const [showPotionCodex, setShowPotionCodex] = useState(false);
   const [resultPanelHidden, setResultPanelHidden] = useState(true);
   const [resultPanelVisible, setResultPanelVisible] = useState(false);
   const [questionImageStatus, setQuestionImageStatus] = useState<"hidden" | "loading" | "ready">(
@@ -330,6 +331,8 @@ function App() {
       { key: "Base", value: toText(notes.base) },
     ].filter((item) => item.value);
   }, [lastResult]);
+
+  const allPotions = useMemo(() => data?.results || [], [data]);
 
   const showToast = useCallback((message: string, isError = false) => {
     if (toastTimeoutRef.current !== null) {
@@ -443,6 +446,14 @@ function App() {
     [data]
   );
 
+  const buildPotionOnlyUrl = useCallback((resultId: string): string => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("result", resultId);
+    url.searchParams.delete("state");
+    url.searchParams.delete("scores");
+    return url.toString();
+  }, []);
+
   useEffect(() => {
     let cancelled = false;
 
@@ -550,6 +561,27 @@ function App() {
     []
   );
 
+  useEffect(() => {
+    if (!showPotionCodex) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setShowPotionCodex(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [showPotionCodex]);
+
   const finalizeQuiz = useCallback(
     (nextScores: ScoreMap, nextAnswers: number[]) => {
       if (!data) {
@@ -622,7 +654,7 @@ function App() {
   );
 
   useEffect(() => {
-    if (!currentQuestion || !data || finished || answeringLocked || !!error) {
+    if (!currentQuestion || !data || finished || answeringLocked || !!error || showPotionCodex) {
       return;
     }
 
@@ -652,7 +684,7 @@ function App() {
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [answeringLocked, currentQuestion, data, error, finished, handleAnswer]);
+  }, [answeringLocked, currentQuestion, data, error, finished, handleAnswer, showPotionCodex]);
 
   const handleReset = useCallback(() => {
     if (!data) {
@@ -689,6 +721,14 @@ function App() {
     const copied = await copyTextToClipboard(shareUrl);
     showToast(copied ? "Link copied" : "Copy failed", !copied);
   }, [answers, data, lastResult?.id, scores, showToast]);
+
+  const handleCopyPotionLink = useCallback(
+    async (resultId: string) => {
+      const copied = await copyTextToClipboard(buildPotionOnlyUrl(resultId));
+      showToast(copied ? "Potion link copied" : "Copy failed", !copied);
+    },
+    [buildPotionOnlyUrl, showToast]
+  );
 
   const handleDownloadShareCard = useCallback(() => {
     if (!lastResult) {
@@ -830,6 +870,15 @@ function App() {
             <div className="hero__panel-title">Your Profile</div>
             <div className="hero__panel-body" id="liveProfile">
               {liveProfile}
+            </div>
+            <div className="hero__panel-actions">
+              <button
+                className="btn btn--ghost btn--small"
+                type="button"
+                onClick={() => setShowPotionCodex(true)}
+              >
+                View All Potions
+              </button>
             </div>
           </div>
         </header>
@@ -1040,6 +1089,9 @@ function App() {
               <button id="restartBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
                 Take Again
               </button>
+              <button className="btn btn--ghost" type="button" onClick={() => setShowPotionCodex(true)}>
+                View All Potions
+              </button>
             </div>
           </div>
         </section>
@@ -1050,6 +1102,74 @@ function App() {
       {toast ? (
         <div className={`toast${toast.isError ? " is-error" : ""}${toastVisible ? " is-visible" : ""}`} role="status" aria-live="polite">
           {toast.message}
+        </div>
+      ) : null}
+
+      {showPotionCodex ? (
+        <div
+          className="codex-overlay"
+          role="presentation"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              setShowPotionCodex(false);
+            }
+          }}
+        >
+          <section className="codex" role="dialog" aria-modal="true" aria-labelledby="codexTitle">
+            <div className="codex__header">
+              <div>
+                <div className="codex__eyebrow">Potion Codex</div>
+                <h2 id="codexTitle" className="codex__title">
+                  All Potions ({allPotions.length})
+                </h2>
+              </div>
+              <button className="btn btn--ghost" type="button" onClick={() => setShowPotionCodex(false)}>
+                Close
+              </button>
+            </div>
+
+            <div className="codex__grid">
+              {allPotions.map((result) => {
+                const codexStyle = {
+                  "--codex-primary": result.palette?.primary || "#9a4b32",
+                  "--codex-secondary": result.palette?.secondary || "#efc08f",
+                  "--codex-accent": result.palette?.accent || "#5b2b22",
+                } as CSSProperties;
+
+                return (
+                  <article key={result.id} className="codex-card" style={codexStyle}>
+                    <div className="codex-card__swatch" aria-hidden="true" />
+                    {result.image ? (
+                      <img
+                        className="codex-card__image"
+                        src={resolveAssetUrl(result.image)}
+                        alt={toText(result.title) || "Potion image"}
+                      />
+                    ) : null}
+                    <div className="codex-card__content">
+                      <div className="codex-card__id">{result.id}</div>
+                      <h3 className="codex-card__title">{toText(result.title)}</h3>
+                      <p className="codex-card__summary">{toText(result.summary)}</p>
+                      {toText(result.side_effect) ? (
+                        <p className="codex-card__meta">
+                          <strong>Side effect:</strong> {toText(result.side_effect)}
+                        </p>
+                      ) : null}
+                    </div>
+                    <div className="codex-card__actions">
+                      <button
+                        className="btn btn--ghost btn--small"
+                        type="button"
+                        onClick={() => void handleCopyPotionLink(result.id)}
+                      >
+                        Copy Potion Link
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
         </div>
       ) : null}
     </>
