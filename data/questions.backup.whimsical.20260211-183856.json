@@ -1,0 +1,932 @@
+﻿{
+    "questions":  [
+                      {
+                          "id":  "q1",
+                          "prompt":  "At your cauldron, which base liquid do you pour first?",
+                          "options":  [
+                                          {
+                                              "text":  "Still moonwell water that never ripples.",
+                                              "weights":  {
+                                                              "calm":  6,
+                                                              "courage":  -3,
+                                                              "focus":  0,
+                                                              "charm":  2,
+                                                              "tempo":  -1,
+                                                              "insight":  2,
+                                                              "resolve":  2,
+                                                              "wonder":  -2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A glowing ember broth that hisses on contact.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  3,
+                                                              "focus":  1,
+                                                              "charm":  2,
+                                                              "tempo":  3,
+                                                              "insight":  -3,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A clear distillate that reveals hidden layers.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -3,
+                                                              "focus":  5,
+                                                              "charm":  -3,
+                                                              "tempo":  2,
+                                                              "insight":  2,
+                                                              "resolve":  3,
+                                                              "wonder":  -3
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A binding syrup that helps ingredients harmonize.",
+                                              "weights":  {
+                                                              "calm":  0,
+                                                              "courage":  1,
+                                                              "focus":  -2,
+                                                              "charm":  3,
+                                                              "tempo":  1,
+                                                              "insight":  0,
+                                                              "resolve":  -1,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q2",
+                          "prompt":  "Mid-brew, thunder shakes the lab. You...",
+                          "options":  [
+                                          {
+                                              "text":  "Lower the flame, shield the pot, and wait for a calm window.",
+                                              "weights":  {
+                                                              "calm":  3,
+                                                              "courage":  -2,
+                                                              "focus":  1,
+                                                              "charm":  -1,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  2,
+                                                              "wonder":  2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Raise the heat and push through before the storm wins.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  6,
+                                                              "focus":  2,
+                                                              "charm":  0,
+                                                              "tempo":  4,
+                                                              "insight":  -1,
+                                                              "resolve":  4,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Adjust ratios and reroute the process with a backup method.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  0,
+                                                              "focus":  6,
+                                                              "charm":  -1,
+                                                              "tempo":  0,
+                                                              "insight":  3,
+                                                              "resolve":  2,
+                                                              "wonder":  -3
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Keep everyone focused with jokes and a rallying chant.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  0,
+                                                              "focus":  -1,
+                                                              "charm":  4,
+                                                              "tempo":  1,
+                                                              "insight":  0,
+                                                              "resolve":  -1,
+                                                              "wonder":  2
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q3",
+                          "prompt":  "A mentor lends you one brewing tool. You choose...",
+                          "options":  [
+                                          {
+                                              "text":  "A cooling stone spoon that steadies volatile mixtures.",
+                                              "weights":  {
+                                                              "calm":  5,
+                                                              "courage":  -2,
+                                                              "focus":  0,
+                                                              "charm":  0,
+                                                              "tempo":  -3,
+                                                              "insight":  0,
+                                                              "resolve":  1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A striker rod that ignites any furnace instantly.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  1,
+                                                              "focus":  1,
+                                                              "charm":  1,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A calibration lens that catches tiny measurement drift.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  2,
+                                                              "focus":  5,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  2,
+                                                              "resolve":  -1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A resonance bell that summons extra hands.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  0,
+                                                              "focus":  -1,
+                                                              "charm":  4,
+                                                              "tempo":  0,
+                                                              "insight":  -1,
+                                                              "resolve":  -1,
+                                                              "wonder":  6
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q4",
+                          "prompt":  "Other alchemists seek you out for...",
+                          "options":  [
+                                          {
+                                              "text":  "A calming presence when batches get unstable.",
+                                              "weights":  {
+                                                              "calm":  4,
+                                                              "courage":  -3,
+                                                              "focus":  -3,
+                                                              "charm":  0,
+                                                              "tempo":  -2,
+                                                              "insight":  0,
+                                                              "resolve":  2,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A fearless shove when someone is overthinking.",
+                                              "weights":  {
+                                                              "calm":  -2,
+                                                              "courage":  6,
+                                                              "focus":  -1,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A clean protocol and next-step plan.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  -1,
+                                                              "focus":  1,
+                                                              "charm":  -3,
+                                                              "tempo":  2,
+                                                              "insight":  2,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A sense of trust that keeps the team unified.",
+                                              "weights":  {
+                                                              "calm":  1,
+                                                              "courage":  0,
+                                                              "focus":  -3,
+                                                              "charm":  4,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  -3,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q5",
+                          "prompt":  "Your ideal brew station feels...",
+                          "options":  [
+                                          {
+                                              "text":  "Quiet, uncluttered, and almost meditative.",
+                                              "weights":  {
+                                                              "calm":  5,
+                                                              "courage":  -1,
+                                                              "focus":  1,
+                                                              "charm":  1,
+                                                              "tempo":  -1,
+                                                              "insight":  0,
+                                                              "resolve":  2,
+                                                              "wonder":  2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Loud, kinetic, and full of moving parts.",
+                                              "weights":  {
+                                                              "calm":  -2,
+                                                              "courage":  0,
+                                                              "focus":  -3,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  3,
+                                                              "wonder":  2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Labeled, indexed, and optimized for precision.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  0,
+                                                              "focus":  4,
+                                                              "charm":  -1,
+                                                              "tempo":  1,
+                                                              "insight":  2,
+                                                              "resolve":  1,
+                                                              "wonder":  -2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Warm, social, and full of conversation.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  0,
+                                                              "focus":  -1,
+                                                              "charm":  4,
+                                                              "tempo":  0,
+                                                              "insight":  -1,
+                                                              "resolve":  -1,
+                                                              "wonder":  1
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q6",
+                          "prompt":  "When a potion might fail, you first...",
+                          "options":  [
+                                          {
+                                              "text":  "Pause, breathe, and reduce variables.",
+                                              "weights":  {
+                                                              "calm":  3,
+                                                              "courage":  -1,
+                                                              "focus":  -3,
+                                                              "charm":  -1,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  4,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Commit fast and correct course in motion.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  4,
+                                                              "focus":  0,
+                                                              "charm":  3,
+                                                              "tempo":  1,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Collect more readings before locking in.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  0,
+                                                              "focus":  4,
+                                                              "charm":  -3,
+                                                              "tempo":  4,
+                                                              "insight":  3,
+                                                              "resolve":  -1,
+                                                              "wonder":  -2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Poll the room and brew by shared agreement.",
+                                              "weights":  {
+                                                              "calm":  0,
+                                                              "courage":  -1,
+                                                              "focus":  -2,
+                                                              "charm":  5,
+                                                              "tempo":  1,
+                                                              "insight":  -1,
+                                                              "resolve":  -3,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q7",
+                          "prompt":  "A partner\u0027s batch is collapsing. Your first move is...",
+                          "options":  [
+                                          {
+                                              "text":  "Stabilize the vessel and slow the reaction.",
+                                              "weights":  {
+                                                              "calm":  4,
+                                                              "courage":  -1,
+                                                              "focus":  -3,
+                                                              "charm":  1,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  2,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Tell them to act now and salvage aggressively.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  4,
+                                                              "focus":  -1,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  1,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Identify the root cause and pick one corrective step.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  2,
+                                                              "focus":  2,
+                                                              "charm":  -3,
+                                                              "tempo":  -1,
+                                                              "insight":  2,
+                                                              "resolve":  4,
+                                                              "wonder":  -3
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Reassure them so they can think clearly again.",
+                                              "weights":  {
+                                                              "calm":  1,
+                                                              "courage":  2,
+                                                              "focus":  -3,
+                                                              "charm":  3,
+                                                              "tempo":  -3,
+                                                              "insight":  0,
+                                                              "resolve":  -1,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q8",
+                          "prompt":  "Which rare ingredient excites you most?",
+                          "options":  [
+                                          {
+                                              "text":  "Moonmilk dew captured before sunrise.",
+                                              "weights":  {
+                                                              "calm":  1,
+                                                              "courage":  -3,
+                                                              "focus":  -3,
+                                                              "charm":  3,
+                                                              "tempo":  -2,
+                                                              "insight":  1,
+                                                              "resolve":  2,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Spark-salt chipped from a thunderstone.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  3,
+                                                              "focus":  1,
+                                                              "charm":  -2,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Script-ink from an ancient grimoire margin.",
+                                              "weights":  {
+                                                              "calm":  -2,
+                                                              "courage":  -2,
+                                                              "focus":  4,
+                                                              "charm":  -3,
+                                                              "tempo":  0,
+                                                              "insight":  4,
+                                                              "resolve":  2,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Dawn-petal pollen that brightens mood.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  2,
+                                                              "focus":  -2,
+                                                              "charm":  4,
+                                                              "tempo":  -1,
+                                                              "insight":  0,
+                                                              "resolve":  -1,
+                                                              "wonder":  3
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q9",
+                          "prompt":  "An apprentice asks for feedback but is fragile. You...",
+                          "options":  [
+                                          {
+                                              "text":  "Offer gentle guidance now, sharper notes later.",
+                                              "weights":  {
+                                                              "calm":  6,
+                                                              "courage":  -2,
+                                                              "focus":  -1,
+                                                              "charm":  0,
+                                                              "tempo":  -1,
+                                                              "insight":  0,
+                                                              "resolve":  2,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Give the hard truth immediately.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  3,
+                                                              "focus":  -1,
+                                                              "charm":  0,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Ask diagnostic questions before prescribing anything.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  0,
+                                                              "focus":  4,
+                                                              "charm":  -2,
+                                                              "tempo":  1,
+                                                              "insight":  3,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Frame the lesson as an inspiring story they can follow.",
+                                              "weights":  {
+                                                              "calm":  2,
+                                                              "courage":  0,
+                                                              "focus":  -3,
+                                                              "charm":  4,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  -2,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q10",
+                          "prompt":  "A risky new potion formula appears. Your instinct is to...",
+                          "options":  [
+                                          {
+                                              "text":  "Secure backups and safety wards before trying it.",
+                                              "weights":  {
+                                                              "calm":  5,
+                                                              "courage":  -1,
+                                                              "focus":  1,
+                                                              "charm":  -3,
+                                                              "tempo":  -1,
+                                                              "insight":  0,
+                                                              "resolve":  2,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Run it tonight and trust your nerve.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  6,
+                                                              "focus":  -1,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -3,
+                                                              "resolve":  1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Prototype a small batch and test assumptions.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -1,
+                                                              "focus":  6,
+                                                              "charm":  -3,
+                                                              "tempo":  1,
+                                                              "insight":  2,
+                                                              "resolve":  0,
+                                                              "wonder":  -3
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Follow the idea if it feels meaningful and alive.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  2,
+                                                              "focus":  -1,
+                                                              "charm":  0,
+                                                              "tempo":  3,
+                                                              "insight":  0,
+                                                              "resolve":  -1,
+                                                              "wonder":  5
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q11",
+                          "prompt":  "During a group brew, momentum is fading. You naturally...",
+                          "options":  [
+                                          {
+                                              "text":  "Keep tempers cool and reactions stable.",
+                                              "weights":  {
+                                                              "calm":  6,
+                                                              "courage":  -1,
+                                                              "focus":  -1,
+                                                              "charm":  0,
+                                                              "tempo":  -1,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Set a finish line and drive everyone forward.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  2,
+                                                              "focus":  5,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -2,
+                                                              "resolve":  0,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Define scope, sequence, and role ownership.",
+                                              "weights":  {
+                                                              "calm":  -2,
+                                                              "courage":  -1,
+                                                              "focus":  5,
+                                                              "charm":  -3,
+                                                              "tempo":  0,
+                                                              "insight":  2,
+                                                              "resolve":  2,
+                                                              "wonder":  -3
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Reignite morale with a vivid vision of success.",
+                                              "weights":  {
+                                                              "calm":  1,
+                                                              "courage":  -1,
+                                                              "focus":  -3,
+                                                              "charm":  6,
+                                                              "tempo":  -3,
+                                                              "insight":  3,
+                                                              "resolve":  -3,
+                                                              "wonder":  1
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q12",
+                          "prompt":  "Someone contaminates your station. You...",
+                          "options":  [
+                                          {
+                                              "text":  "Cool off, then address it calmly and directly.",
+                                              "weights":  {
+                                                              "calm":  4,
+                                                              "courage":  -1,
+                                                              "focus":  -1,
+                                                              "charm":  1,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Call it out on the spot.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  6,
+                                                              "focus":  -3,
+                                                              "charm":  0,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  2,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Document the pattern and set a hard rule.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -2,
+                                                              "focus":  3,
+                                                              "charm":  -1,
+                                                              "tempo":  0,
+                                                              "insight":  5,
+                                                              "resolve":  2,
+                                                              "wonder":  -2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Protect your peace by relocating your work.",
+                                              "weights":  {
+                                                              "calm":  4,
+                                                              "courage":  3,
+                                                              "focus":  -3,
+                                                              "charm":  5,
+                                                              "tempo":  -1,
+                                                              "insight":  -3,
+                                                              "resolve":  -1,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q13",
+                          "prompt":  "Which brewing compliment hits deepest?",
+                          "options":  [
+                                          {
+                                              "text":  "\"Your potions make the room feel steady.\"",
+                                              "weights":  {
+                                                              "calm":  4,
+                                                              "courage":  -3,
+                                                              "focus":  -2,
+                                                              "charm":  -1,
+                                                              "tempo":  -3,
+                                                              "insight":  0,
+                                                              "resolve":  5,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "\"You attempted what others were afraid to brew.\"",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  3,
+                                                              "focus":  0,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "\"You spotted the flaw before anyone else.\"",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -1,
+                                                              "focus":  2,
+                                                              "charm":  -1,
+                                                              "tempo":  0,
+                                                              "insight":  3,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "\"Your brews make people feel wonder again.\"",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -2,
+                                                              "focus":  -3,
+                                                              "charm":  4,
+                                                              "tempo":  -1,
+                                                              "insight":  0,
+                                                              "resolve":  -3,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q14",
+                          "prompt":  "You are exhausted with one final brew step left. You...",
+                          "options":  [
+                                          {
+                                              "text":  "Slow down and finish cleanly.",
+                                              "weights":  {
+                                                              "calm":  6,
+                                                              "courage":  -3,
+                                                              "focus":  2,
+                                                              "charm":  -2,
+                                                              "tempo":  -2,
+                                                              "insight":  0,
+                                                              "resolve":  2,
+                                                              "wonder":  0
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Push through on raw momentum.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  3,
+                                                              "focus":  -1,
+                                                              "charm":  2,
+                                                              "tempo":  1,
+                                                              "insight":  -1,
+                                                              "resolve":  1,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Cut all noise and enter precision mode.",
+                                              "weights":  {
+                                                              "calm":  -3,
+                                                              "courage":  -1,
+                                                              "focus":  6,
+                                                              "charm":  -2,
+                                                              "tempo":  1,
+                                                              "insight":  2,
+                                                              "resolve":  0,
+                                                              "wonder":  -3
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Reconnect to purpose so the effort feels lighter.",
+                                              "weights":  {
+                                                              "calm":  2,
+                                                              "courage":  -2,
+                                                              "focus":  -3,
+                                                              "charm":  4,
+                                                              "tempo":  -3,
+                                                              "insight":  0,
+                                                              "resolve":  -1,
+                                                              "wonder":  4
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q15",
+                          "prompt":  "A strange omen appears in your flask. You...",
+                          "options":  [
+                                          {
+                                              "text":  "Note it, stay grounded, and continue methodically.",
+                                              "weights":  {
+                                                              "calm":  3,
+                                                              "courage":  -1,
+                                                              "focus":  0,
+                                                              "charm":  2,
+                                                              "tempo":  -1,
+                                                              "insight":  1,
+                                                              "resolve":  2,
+                                                              "wonder":  2
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Chase it immediately to see where it leads.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  3,
+                                                              "focus":  2,
+                                                              "charm":  -1,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Track patterns and test what the sign predicts.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -1,
+                                                              "focus":  4,
+                                                              "charm":  -2,
+                                                              "tempo":  0,
+                                                              "insight":  3,
+                                                              "resolve":  -3,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "Let the mystery breathe and savor its symbolism.",
+                                              "weights":  {
+                                                              "calm":  1,
+                                                              "courage":  3,
+                                                              "focus":  -3,
+                                                              "charm":  3,
+                                                              "tempo":  -1,
+                                                              "insight":  2,
+                                                              "resolve":  -3,
+                                                              "wonder":  5
+                                                          }
+                                          }
+                                      ]
+                      },
+                      {
+                          "id":  "q16",
+                          "prompt":  "At your best, your alchemy feels like...",
+                          "options":  [
+                                          {
+                                              "text":  "A dawn tonic: clear, steady, and restorative.",
+                                              "weights":  {
+                                                              "calm":  2,
+                                                              "courage":  -1,
+                                                              "focus":  -1,
+                                                              "charm":  4,
+                                                              "tempo":  -1,
+                                                              "insight":  0,
+                                                              "resolve":  3,
+                                                              "wonder":  1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A wildfire draught: bold, fast, and electric.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  6,
+                                                              "focus":  0,
+                                                              "charm":  0,
+                                                              "tempo":  3,
+                                                              "insight":  -1,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A clockwork elixir: intentional, exact, and reliable.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  4,
+                                                              "focus":  6,
+                                                              "charm":  -1,
+                                                              "tempo":  0,
+                                                              "insight":  2,
+                                                              "resolve":  0,
+                                                              "wonder":  -1
+                                                          }
+                                          },
+                                          {
+                                              "text":  "A festival cordial: connective, radiant, and hopeful.",
+                                              "weights":  {
+                                                              "calm":  -1,
+                                                              "courage":  -1,
+                                                              "focus":  -2,
+                                                              "charm":  1,
+                                                              "tempo":  2,
+                                                              "insight":  1,
+                                                              "resolve":  -3,
+                                                              "wonder":  6
+                                                          }
+                                          }
+                                      ]
+                      }
+                  ]
+}
