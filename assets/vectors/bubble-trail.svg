@@ -1,0 +1,22 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 360" fill="none">
+  <defs>
+    <linearGradient id="bubbleFill" x1="90" y1="20" x2="90" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff6e5" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#f2b57e" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <circle cx="70" cy="320" r="26" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.45"/>
+  <circle cx="120" cy="288" r="18" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.42"/>
+  <circle cx="52" cy="258" r="15" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.4"/>
+  <circle cx="98" cy="236" r="12" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.38"/>
+  <circle cx="68" cy="214" r="10" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.38"/>
+  <circle cx="118" cy="198" r="9" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.36"/>
+  <circle cx="85" cy="178" r="8" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.34"/>
+  <circle cx="58" cy="160" r="7" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.32"/>
+  <circle cx="104" cy="146" r="6" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.3"/>
+  <circle cx="80" cy="132" r="6" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.28"/>
+  <circle cx="56" cy="118" r="5" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.26"/>
+  <circle cx="98" cy="104" r="4" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.24"/>
+  <circle cx="76" cy="92" r="4" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.22"/>
+  <circle cx="66" cy="74" r="3" fill="url(#bubbleFill)" stroke="#9d5a40" stroke-opacity="0.2"/>
+</svg>

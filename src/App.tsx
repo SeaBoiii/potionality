@@ -301,6 +301,12 @@ function App() {
   const totalQuestions = data?.questions.length || 0;
   const answeredCount = Math.min(answers.filter((value) => Number.isInteger(value)).length, totalQuestions);
   const progressPct = totalQuestions ? (answeredCount / totalQuestions) * 100 : 0;
+  const remainingCount = Math.max(totalQuestions - answeredCount, 0);
+  const progressHint = finished
+    ? "Elixir complete. Your profile has stabilized."
+    : remainingCount === 0
+      ? "Final blend ready. Reveal your potion."
+      : `${remainingCount} brew step${remainingCount === 1 ? "" : "s"} remaining`;
   const currentQuestion = data?.questions[index] || null;
 
   const ingredientIcon = resolveAssetUrl(ingredientIcons[index % ingredientIcons.length]);
@@ -615,6 +621,39 @@ function App() {
     ]
   );
 
+  useEffect(() => {
+    if (!currentQuestion || !data || finished || answeringLocked || !!error) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+        return;
+      }
+
+      const key = event.key.toLowerCase();
+      let optionIndex = -1;
+
+      if (/^[1-4]$/.test(key)) {
+        optionIndex = Number(key) - 1;
+      } else if (["a", "b", "c", "d"].includes(key)) {
+        optionIndex = key.charCodeAt(0) - 97;
+      }
+
+      if (optionIndex < 0 || optionIndex >= currentQuestion.options.length) {
+        return;
+      }
+
+      event.preventDefault();
+      handleAnswer(currentQuestion.options[optionIndex], optionIndex);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [answeringLocked, currentQuestion, data, error, finished, handleAnswer]);
+
   const handleReset = useCallback(() => {
     if (!data) {
       return;
@@ -775,15 +814,19 @@ function App() {
 
   return (
     <>
+      <div className="scene-decor scene-decor--left" aria-hidden="true" />
+      <div className="scene-decor scene-decor--right" aria-hidden="true" />
       <main className="app">
         <header className="hero">
           <div>
+            <div className="hero__eyebrow">Arcane Personality Elixir</div>
             <h1 id="title">{data?.title || "If You Were a Potion"}</h1>
             <p id="subtitle" className="tagline">
               {data?.subtitle || ""}
             </p>
           </div>
           <div className="hero__panel">
+            <div className="hero__panel-sigil" aria-hidden="true" />
             <div className="hero__panel-title">Your Profile</div>
             <div className="hero__panel-body" id="liveProfile">
               {liveProfile}
@@ -796,25 +839,32 @@ function App() {
             <div id="progressFill" className="progress__fill" style={progressFillStyle} />
           </div>
           <div className="progress__meta">
-            <span id="progressLabel">{answeredCount} / {totalQuestions}</span>
-            <button
-              id="soundToggleBtn"
-              className="btn btn--ghost"
-              type="button"
-              onClick={() => {
-                const next = !soundEnabled;
-                setSoundEnabled(next);
-                if (next) {
-                  getAudioContext();
-                  playChime();
-                }
-              }}
-            >
-              Sound: {soundEnabled ? "On" : "Off"}
-            </button>
-            <button id="resetBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
-              Restart
-            </button>
+            <div className="progress__meta-left">
+              <span id="progressLabel" className="progress__count">
+                {answeredCount} / {totalQuestions}
+              </span>
+              <span className="progress__hint">{progressHint}</span>
+            </div>
+            <div className="progress__actions">
+              <button
+                id="soundToggleBtn"
+                className="btn btn--ghost"
+                type="button"
+                onClick={() => {
+                  const next = !soundEnabled;
+                  setSoundEnabled(next);
+                  if (next) {
+                    getAudioContext();
+                    playChime();
+                  }
+                }}
+              >
+                Sound: {soundEnabled ? "On" : "Off"}
+              </button>
+              <button id="resetBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
+                Restart
+              </button>
+            </div>
           </div>
         </section>
 
@@ -842,6 +892,11 @@ function App() {
           <h2 className="question__prompt" id="questionPrompt">
             {error || currentQuestion?.prompt || (!data ? "Loading quiz..." : "No question available.")}
           </h2>
+          {!finished && !error ? (
+            <p className="question__assist">
+              Choose the response that feels most like you. Shortcut keys: 1-4 or A-D.
+            </p>
+          ) : null}
           <div className="question__options" id="questionOptions">
             {currentQuestion?.options.map((option, optionIndex) => (
               <button
@@ -855,7 +910,12 @@ function App() {
                 <span className="option__media">
                   {option.image ? <img src={resolveAssetUrl(option.image)} alt={option.text || "Option image"} /> : null}
                 </span>
-                <span className="option__text">{option.text}</span>
+                <span className="option__content">
+                  <span className="option__index" aria-hidden="true">
+                    {String.fromCharCode(65 + optionIndex)}
+                  </span>
+                  <span className="option__text">{option.text}</span>
+                </span>
               </button>
             ))}
           </div>
@@ -965,15 +1025,22 @@ function App() {
                 </div>
               </div>
             </div>
-            <button id="shareBtn" className="btn" type="button" onClick={handleDownloadShareCard}>
-              Download Share Card
-            </button>
-            <button id="shareLinkBtn" className="btn btn--ghost" type="button" onClick={() => void handleCopyResultLink()}>
-              Copy Result Link
-            </button>
-            <button id="restartBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
-              Take Again
-            </button>
+            <div className="result__actions">
+              <button id="shareBtn" className="btn" type="button" onClick={handleDownloadShareCard}>
+                Download Share Card
+              </button>
+              <button
+                id="shareLinkBtn"
+                className="btn btn--ghost"
+                type="button"
+                onClick={() => void handleCopyResultLink()}
+              >
+                Copy Result Link
+              </button>
+              <button id="restartBtn" className="btn btn--ghost" type="button" onClick={handleReset}>
+                Take Again
+              </button>
+            </div>
           </div>
         </section>
       </main>
